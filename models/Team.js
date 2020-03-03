@@ -27,6 +27,6 @@ Team.init({
     type: STRING,
     allowNull: false
   }
-}, { sequelize: require('../config'), modelName: 'team' })
+}, { sequelize: require('../config'), modelName: 'team', timestamps: false })
 
 module.exports = Team

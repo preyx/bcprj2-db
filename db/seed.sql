@@ -1,6 +1,5 @@
-USE pokemon.db;
-
 USE pokemon_db;
+
 
 INSERT INTO users(username)
 VALUES
