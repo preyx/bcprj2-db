@@ -1,31 +1,31 @@
 const router = require('express').Router()
 const {Team} = require('../models')
 
-// GET all items
+// GET all teams
 router.get('/teams', (req, res) => {
   Team.findAll()
     .then(team => res.json(team))
     .catch(e => console.error(e))
 })
 
-// POST an item
+// POST a team
 router.post('/teams', (req, res) => {
   Team.create(req.body)
     .then(() => res.sendStatus(200))
     .catch(e => console.error(e))
 })
 
-// PUT an item
+// PUT a team
 router.put('/teams/:id', (req, res) => {
   Team.update(req.body, { where: {id: req.params.id}  })
     .then(() => res.sendStatus(200))
     .catch(e => console.error(e))
 })
 
-// DELETE an item
+// DELETE a team
 router.delete('/teams/:id', (req, res) => {
   Team.destroy({ where: { id: parseInt(req.params.id) } })
-    .then(() => console.log('Deleted!'))
+    .then(() => res.sendStatus(200))
     .catch(e => console.error(e))
 })
 
