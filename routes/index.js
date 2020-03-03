@@ -5,5 +5,4 @@ router.use('/api', require('./pokeInfoRoutes.js'))
 router.use('/api', require('./teamRoutes.js'))
 router.use('/api', require('./userRoutes.js'))
 
-
 module.exports = router
