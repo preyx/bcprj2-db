@@ -1,30 +1,30 @@
 const router = require('express').Router()
-const Model = require('***ModelPath')
+const {Team} = require('../models')
 
 // GET all items
-router.get('/team', (req, res) => {
-  Model.findAll()
-    .then(result => res.json(result))
+router.get('/teams', (req, res) => {
+  Team.findAll()
+    .then(team => res.json(team))
     .catch(e => console.error(e))
 })
 
 // POST an item
-router.post('/team', (req, res) => {
-  Model.create(req.body)
-    .then(_ => console.log('Created!'))
+router.post('/teams', (req, res) => {
+  Team.create(req.body)
+    .then(() => res.sendStatus(200))
     .catch(e => console.error(e))
 })
 
 // PUT an item
-router.put('/team', (req, res) => {
-  Model.update({ req.body.*** }, { where: { *** SearchCondition *** } })
-    .then(() => console.log('Updated!'))
+router.put('/teams/:id', (req, res) => {
+  Team.update(req.body, { where: {id: req.params.id}  })
+    .then(() => res.sendStatus(200))
     .catch(e => console.error(e))
 })
 
 // DELETE an item
-router.delete('/team/:id', (req, res) => {
-  Model.destroy({ where: { id: parseInt(req.params.id) } })
+router.delete('/teams/:id', (req, res) => {
+  Team.destroy({ where: { id: parseInt(req.params.id) } })
     .then(() => console.log('Deleted!'))
     .catch(e => console.error(e))
 })
