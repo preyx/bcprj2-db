@@ -1,6 +1,6 @@
 const { Model, STRING } = require('sequelize')
 
-class Team extends Model { }
+class Team extends Model {}
 
 Team.init({
   pokemon1: {

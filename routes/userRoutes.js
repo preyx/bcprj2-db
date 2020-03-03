@@ -7,9 +7,9 @@ router.get('/users', (req, res) => User.findAll({ include: [Team] })
   .catch(e => console.error(e)))
 
 // GET one user
-router.get('/users/:username', (req, res) => User.findOne({
+router.get('/users/id', (req, res) => User.findOne({
   where: {
-    username: req.params.username
+    id: req.params.id
   },
   include: [Team]
 })
@@ -22,9 +22,9 @@ router.post('/users', (req, res) => User.create(req.body)
   .catch(e => console.error(e)))
 
 // PUT a user
-router.put('/users/:username', (req, res) => User.update({
+router.put('/users/:id', (req, res) => User.update({
   where: {
-    username: req.params.username
+    id: req.params.id
   },
   include: [Team]
 })
@@ -32,9 +32,9 @@ router.put('/users/:username', (req, res) => User.update({
   .catch(e => console.error(e)))
 
 // DELETE a user
-router.delete('/users/:username', (req, res) => User.destroy({
+router.delete('/users/:id', (req, res) => User.destroy({
   where: {
-    username: req.params.username
+    id: req.params.id
   }
 })
   .then(user => res.sendStatus(200))
