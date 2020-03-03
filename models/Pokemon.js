@@ -23,7 +23,7 @@ Pokemon.init({
     type: INTEGER,
     allowNull: false
   },
-  sp-attack: {
+  sp_attack: {
     type: INTEGER,
     allowNull: false
   },
