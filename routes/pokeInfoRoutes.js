@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Pokemon} = require('../models')
+const { Pokemon } = require('../models')
 
 // GET all pokemon
 router.get('/pokemon', (req, res) => {

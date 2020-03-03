@@ -7,10 +7,30 @@ Pokemon.init({
     type: STRING,
     allowNull: false
   },
+  type1: {
+    type: STRING,
+    allowNull: false
+  },
+  type2: {
+    type: STRING,
+    allowNull: true
+  },
+  hp: {
+    type: INTEGER,
+    allowNull: false
+  },
   attack: {
     type: INTEGER,
     allowNull: false
-  }
+  },
+  sp-attack: {
+    type: INTEGER,
+    allowNull: false
+  },
+  defense: {
+  type: INTEGER,
+  allowNull: false
+},
 }, {sequelize: require('../config'), modelName: 'pokemon'})
 
 module.exports = Pokemon
