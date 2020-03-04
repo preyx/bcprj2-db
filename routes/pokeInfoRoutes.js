@@ -18,4 +18,14 @@ router.get('/pokemon/:id', (req, res) => Pokemon.findOne({
   .catch(e => console.error(e))
 )
 
+//GET matchup pokemon
+router.get('/pokemon/matchups/:id', (req, res) => Pokemon.findAll({
+  where: {
+    id: req.params.id
+  }
+})
+  .then(pokemon => res.json(pokemon))
+  .catch(e => console.error(e))
+)
+
 module.exports = router
