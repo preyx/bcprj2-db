@@ -55,10 +55,17 @@ router.get('/pokemon/matchups/:id', (req, res) => Pokemon.findAll({
           [Op.gte]: base_total - 100
         },
         [Op.or]: [
-          {type1: goodMatchups},
-          {type2: goodMatchups}
+          {
+            type1: goodMatchups,
+            [Op.and]: [{type2: {[Op.not]: badMatchups}}]
+          },
+          {
+            type2: goodMatchups,
+            [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
+          }
         ]
       },
+      attributes: ['name', 'base_total'],
       order: [
         ['base_total', 'DESC']
       ]
