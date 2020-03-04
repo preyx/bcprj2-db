@@ -10,6 +10,16 @@ router.get('/pokemons', (req, res) => {
   .catch(error => console.error(error))
 })
 
+//get pokemon by id
+router.get('/pokemons/:id', (req, res) => {
+  Pokemon.findAll( {where: {id: req.params.id}})
+  .then(pokmeon => {
+    res.json(pokemon)
+  })
+  .catch(error => console.error(error))
+})
+
+//get pokemon matchup
 //create a pokemon
 router.post('/pokemons', (req, res) => {
   Pokemon.create(req.body)
