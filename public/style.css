@@ -4,3 +4,6 @@
 #col{
   border: solid 1em green;
 }
+.containerFlex{
+  display: grid;
+}
