@@ -8,6 +8,16 @@ router.get('/teams', (req, res) => {
     .catch(e => console.error(e))
 })
 
+// GET one team
+router.get('/teams/:id', (req, res) => Team.findOne({
+  where: {
+    id: req.params.id
+  }
+})
+  .then(team => res.json(team))
+  .catch(e => console.error(e))
+)
+
 // POST a team
 router.post('/teams', (req, res) => {
   Team.create(req.body)
