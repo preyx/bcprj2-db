@@ -3,30 +3,54 @@ const { Model, INTEGER } = require('sequelize')
 class Team extends Model { }
 
 Team.init({
-  pokemon1: {
-    type: INTEGER,
-    allowNull: false
-  },
-  pokemon2: {
-    type: INTEGER,
-    allowNull: false
-  },
-  pokemon3: {
-    type: INTEGER,
-    allowNull: false
-  },
-  enemy1: {
-    type: INTEGER,
-    allowNull: false
-  },
-  enemy2: {
-    type: INTEGER,
-    allowNull: false
-  },
-  enemy3: {
-    type: INTEGER,
-    allowNull: false
-  }
-}, { sequelize: require('../config'), modelName: 'team' })
+  // pokemon1: {
+  //   type: INTEGER,
+  //   allowNull: false,
+  //   references:{
+  //     model:'pokemons',
+  //     key: 'id'
+  //   }
+  // },
+  // pokemon2: {
+  //   type: INTEGER,
+  //   allowNull: false,
+  //   references: {
+  //     model: 'pokemons',
+  //     key: 'id'
+  //   }
+  // },
+  // pokemon3: {
+  //   type: INTEGER,
+  //   allowNull: false,
+  //   references: {
+  //     model: 'pokemons',
+  //     key: 'id'
+  //   }
+  // },
+  // enemy1: {
+  //   type: INTEGER,
+  //   allowNull: false,
+  //   references: {
+  //     model: 'pokemons',
+  //     key: 'id'
+  //   }
+  // },
+  // enemy2: {
+  //   type: INTEGER,
+  //   allowNull: false,
+  //   references: {
+  //     model: 'pokemons',
+  //     key: 'id'
+  //   }
+  // },
+  // enemy3: {
+  //   type: INTEGER,
+  //   allowNull: false,
+  //   references: {
+  //     model: 'pokemons',
+  //     key: 'id'
+  //   }
+  // }
+}, { sequelize: require('../config'), modelName: 'team', timestamps: false })
 
 module.exports = Team
