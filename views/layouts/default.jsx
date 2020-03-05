@@ -22,9 +22,9 @@ const Html = props => {
                 aria-describedby="basic-addon1" />
       </div>
             <div>
-              <button class="btn btn-outline-success btn-warning warningbtn" type="button">Sign In</button>
-              <button class="btn btn-outline-success btn-warning warningbtn" type="button">Create Account</button>
-              <button class="btn btn-outline-success btn-warning warningbtn" type="button">Sign Out</button>
+              <button class="btn btn-outline-success btn-warning warningbtn" id="signIn" type="button">Sign In</button>
+              <button class="btn btn-outline-success btn-warning warningbtn" id="create" type="button">Create Account</button>
+              <button class="btn btn-outline-success btn-warning warningbtn" id="signOut" type="button">Sign Out</button>
             </div> 
           </form>
         </nav>

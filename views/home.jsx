@@ -7,6 +7,7 @@ const Home = props =>{
       {props.list}
      
     {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid start~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
+    <div id="welcome"></div>
 <div className="container-fluid">
   <div className="row" id="row">
             {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
