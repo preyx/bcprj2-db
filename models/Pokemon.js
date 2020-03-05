@@ -32,7 +32,8 @@ Pokemon.init({
     sp_defense: INTEGER,
     speed: INTEGER,
     type1: STRING,
-    type2: STRING
+    type2: STRING,
+    is_legendary: BOOLEAN
 }, {sequelize: require('../config'), modelName: 'pokemon', timestamps: false})
 
 module.exports = Pokemon
