@@ -1,11 +1,13 @@
-import axios from "axios"
 
 //global variable to house userId
 let userId
-const signIn = () => {
 
-  axios.post('/api/users', { username: document.getElementById('username***') })
-    .then()
+const createAccount = () => {
+
+  axios.post('/api/users', { username: document.getElementById('username').value })
+    .then(() => {
+      axios.get('')
+    })
     .catch()
 }
 document.addEventListener('click', event => {
@@ -19,7 +21,7 @@ document.addEventListener('click', event => {
       if(document.getElementById('username***').value ===''){
         //DISPLAY ERROR MESSAGE HERE
       }else{
-        signIn()
+        createAccount()
       }
     }
     //checks if the sign in button is clicked

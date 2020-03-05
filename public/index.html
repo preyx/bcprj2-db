@@ -17,13 +17,12 @@
     <form class="form-inline">
       <div class="input-group">
         <div class="input-group-prepend"></div>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="username">
       </div>
       <div>
-        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Sign In</button>
-        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Create Account</button>
-        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Sign Out</button>
+        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button" id="signIn">Sign In</button>
+        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button" id="create">Create Account</button>
+        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button" id="signOut">Sign Out</button>
       </div>
     </form>
   </nav>
@@ -31,8 +30,9 @@
   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid start~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <div class="container-fluid">
     <div class="row" id="row">
+      <h1 id="welcome"></h1>
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <div class="col col-sm-6" id="col">
+      <div class="col col-sm-6" id="enemyTeam">
         <h1>Enemy Team</h1>
         <div class="flexContainer w-100">
           <div class="card p-1">
@@ -936,8 +936,8 @@
 
 
 
-
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src = './app.js'></script>
   <script src="https://code.jquery.com/jquery-1.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>

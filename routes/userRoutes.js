@@ -44,9 +44,9 @@ router.post('/users', (req, res) => User.create(req.body)
   .catch(e => console.error(e)))
 
 // PUT a user
-router.put('/users/:id', (req, res) => User.update({
+router.put('/users/:username', (req, res) => User.update({
   where: {
-    id: req.params.id
+    username: req.params.username
   },
   include: [Team]
 })
