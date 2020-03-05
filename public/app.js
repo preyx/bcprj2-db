@@ -3,7 +3,7 @@ let userId = null
 
 const createAccount = username => {
   axios.post('/api/users', {username: username})
-  .then(() => {
+  .then( () => {
     signIn(username)
   })
 
