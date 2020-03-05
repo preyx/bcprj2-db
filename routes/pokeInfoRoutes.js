@@ -43,10 +43,17 @@ router.get('/pokemons/matchups/:id', (req, res) => {
       //mapping to take out against_
       goodMatchups = goodMatchups.map(element => {
         element = element.split('_')
+        //accomodate for against_fight
+        if(element[1]==='fight'){
+          element[1] = 'fighting'
+        }
         return element[1]
       })
       badMatchups = badMatchups.map(element => {
         element = element.split('_')
+        if (element[1] === 'fight') {
+          element[1] = 'fighting'
+        }
         return element[1]
       })
       console.log(badMatchups)
