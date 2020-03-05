@@ -1,5 +1,5 @@
 //Global variable to store userID
-let userId
+let userId = null
 
 const createAccount = username => {
   axios.post('/api/users', {username: username})
@@ -40,7 +40,12 @@ document.addEventListener('click', event => {
       }
     }
     else if(target.id ==='signOut'){
-
+      //if a user tries to signout when not signed in
+      if(userId === null){
+        document.getElementById('error').textContent = 'Error. Not signed in.'
+      }else{
+        userId = null
+      }
     }
     else if(target.id==='create'){
       //check if there is nothing in the input field

@@ -40,7 +40,8 @@ router.get('/users/:username', (req, res) => User.findOne({
 
 // POST a user
 router.post('/users', (req, res) => User.create(req.body)
-  .then(() => res.sendStatus(200))
+  //send back user data
+  .then( user => res.json(user))
   .catch(e => console.error(e)))
 
 // PUT a user
