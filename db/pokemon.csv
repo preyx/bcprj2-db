@@ -148,7 +148,7 @@ abilities,against_bug,against_dark,against_dragon,against_electric,against_fairy
 "['Shed Skin', 'Marvel Scale']",1,1,2,0.5,2,1,0.5,1,1,0.5,1,2,1,1,1,1,1,0.5,64,10240,35,300,45,Dragon Pokémon,45,1250000,1.8,41,Miniryuミニリュウ,Dratini,50,147,50,50,50,dragon,,3.3,1,0
 "['Shed Skin', 'Marvel Scale']",1,1,2,0.5,2,1,0.5,1,1,0.5,1,2,1,1,1,1,1,0.5,84,10240,35,420,45,Dragon Pokémon,65,1250000,4.0,61,Hakuryuハクリュー,Dragonair,50,148,70,70,70,dragon,,16.5,1,0
 "['Inner Focus', 'Multiscale']",0.5,1,2,1,2,0.5,0.5,1,1,0.25,0,4,1,1,1,2,1,0.5,134,10240,35,600,45,Dragon Pokémon,95,1250000,2.2,91,Kairyuカイリュー,Dragonite,50,149,100,100,80,dragon,flying,210.0,1,0
-"['Pressure', 'Unnerve']",2,2,1,1,1,0.5,1,1,2,1,1,1,1,1,0.5,1,1,1,110,30720,0,680,3,Genetic Pokémon,90,1250000,2.0,106,Mewtwoミュウツー,Mewtwo,,150,154,90,130,psychic,,122.0,1,1
+"['Pressure', 'Unnerve']",2,2,1,1,1,0.5,1,1,2,1,1,1,1,1,0.5,1,1,1,150,30720,0,780,3,Genetic Pokémon,70,1250000,2.0,106,Mewtwoミュウツー,Mewtwo,,150,194,120,140,psychic,,122.0,1,1
 ['Synchronize'],2,2,1,1,1,0.5,1,1,2,1,1,1,1,1,0.5,1,1,1,100,30720,100,600,45,New Species Pokémon,100,1059860,0.4,100,Mewミュウ,Mew,,151,100,100,100,psychic,,4.0,1,1
 "['Overgrow', 'Leaf Guard']",2,1,1,0.5,1,1,2,2,1,0.5,0.5,2,1,2,1,1,1,0.5,49,5120,70,318,45,Leaf Pokémon,65,1059860,0.9,45,Chicoritaチコリータ,Chikorita,88.1,152,49,65,45,grass,,6.4,2,0
 "['Overgrow', 'Leaf Guard']",2,1,1,0.5,1,1,2,2,1,0.5,0.5,2,1,2,1,1,1,0.5,62,5120,70,405,45,Leaf Pokémon,80,1059860,1.2,60,Bayleafベイリーフ,Bayleef,88.1,153,63,80,60,grass,,15.8,2,0
