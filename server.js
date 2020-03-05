@@ -8,6 +8,12 @@ app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
+app.get('/', (req, res) => {
+  res.render('home')
+})
 
 // //bring in routes after we create
 app.use(require('./routes'))

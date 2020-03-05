@@ -18,7 +18,7 @@ const Home = props =>{
 
     <button className="btn btn-outline-success btn-warning warningbtn" type="button">Generate Team</button>
     <input type="checkbox" id="legendary" name="legendary" value="pokemon" />
-    <label for="legendary">No Legendaries</label> <br />
+    <label htmlFor="legendary">No Legendaries</label> <br />
       <h2>Results</h2>
       <div className="flexContainer">
 
