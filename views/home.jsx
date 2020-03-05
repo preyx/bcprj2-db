@@ -8,6 +8,12 @@ const Home = props =>{
      
     {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid start~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
 <div className="container-fluid">
+  <div className="row">
+    <div className="col-12">
+      <h1 id="welcome"></h1>
+      <p className="errorMessage" id = "error"></p>
+    </div>
+  </div>
   <div className="row" id="row">
             {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
   <div className="col col-sm-6" id="col">

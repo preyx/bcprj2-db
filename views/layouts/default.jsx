@@ -25,13 +25,13 @@ const Html = props => {
           <form className="form-inline">
             <div className="input-group">
               <div className="input-group-prepend"></div>
-              <input type="text"  className="form-control" placeholder="Username" aria-label="Username"
-                aria-describedby="basic-addon1" />
+              <input type="text"  className="form-control" aria-label="Username"
+                aria-describedby="basic-addon1" id = "username" />
             </div>
             <div>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button">Sign In</button>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button">Create Account</button>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button">Sign Out</button>
+              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "signIn">Sign In</button>
+              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "create">Create Account</button>
+              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "signOut">Sign Out</button>
             </div> 
           </form>
           </div>
