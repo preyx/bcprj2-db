@@ -13,48 +13,44 @@ const Home = props =>{
     <div class="row" id="row">
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <div class="col col-sm-6" id="col">
-        <h1>Enemy Team</h1>
-        <div class="flexContainer w-100">
-        </div>
+    <h1>Enemy Team</h1>
+    <div class="flexContainer w-100">
+    </div>
 
-        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Team</button>
-        <input type="checkbox" id="legendary" name="legendary" value="pokemon" />
-          <label for="legendary">No Legendaries</label> <br />
-            <h2>Results</h2>
-            <div class="flexContainer">
+    <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Team</button>
+    <input type="checkbox" id="legendary" name="legendary" value="pokemon" />
+    <label for="legendary">No Legendaries</label> <br />
+      <h2>Results</h2>
+      <div class="flexContainer">
 
-            </div>
-            <div class="flexContainer">
+      </div>
+      <div class="flexContainer">
 
-            </div>
-            <div class="flexContainer">
+      </div>
+      <div class="flexContainer">
 
-            </div>
-            <div class="flexContainer">
+      </div>
+      <div class="flexContainer">
 
-            </div>
-            <div class="flexContainer">
+      </div>
+      <div class="flexContainer">
 
-            </div>
+      </div>
   </div>
                 <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-  <div class="col col-sm-6" id="col">
-            <h1>Enemy Team</h1>
-            <div class="flexContainer">
+    <div class="col col-sm-6" id="col">
+      <h1>Enemy Team</h1>
+      <div class="flexContainer">
 
-            </div>
-            <h1> Your Team</h1>
-            <div class="flexContainer">
-            </div>
-            <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Remove Team</button>
-            <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Random Name</button>
-            <h2>Random Name Generator Results</h2>
-            <div class="card p-1">
-              <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="card-img-top img-fluid"
-                alt="..." />
-                <h1>Title</h1>
-            </div>
-  </div>
+      </div>
+      <h1> Your Team</h1>
+      <div class="flexContainer">
+      </div>
+      <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Remove Team</button>
+      <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Random Name</button>
+      <h2>Random Name Generator Results</h2>
+      
+    </div>
   </div>
 
 
