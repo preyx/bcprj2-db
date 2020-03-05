@@ -19,9 +19,9 @@ router.get('/users', (req, res) =>{
 }) 
 
 // GET one user
-router.get('/users/:id', (req, res) => User.findOne({
+router.get('/users/:username', (req, res) => User.findOne({
   where: {
-    id: req.params.id
+    username: req.params.username
   },
   include: [{
     model: Team,
@@ -44,7 +44,7 @@ router.post('/users', (req, res) => User.create(req.body)
   .catch(e => console.error(e)))
 
 // PUT a user
-router.put('/users/:username', (req, res) => User.update({
+router.put('/users/:username', (req, res) => User.update(req.body, {
   where: {
     username: req.params.username
   },
