@@ -54,9 +54,9 @@ router.put('/users/:username', (req, res) => User.update({
   .catch(e => console.error(e)))
 
 // DELETE a user
-router.delete('/users/:id', (req, res) => User.destroy({
+router.delete('/users/:username', (req, res) => User.destroy({
   where: {
-    id: req.params.id
+    username: req.params.username
   }
 })
   .then(user => res.sendStatus(200))
