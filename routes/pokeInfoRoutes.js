@@ -16,7 +16,7 @@ router.get('/pokemon/:id', (req, res) => Pokemon.findOne({
   }
 })
   .then(pokemon => res.json(pokemon))
-  .catch(e => console.error(e))
+  .catch(e => res.sendStatus(400))
 )
 
 //GET matchup pokemon
@@ -79,7 +79,7 @@ router.get('/pokemon/matchups/:id', (req, res) => Pokemon.findAll({
         res.json(results)
       })
   })
-  .catch(e => console.error(e))
+  .catch(e => res.sendStatus(400))
 )
 
 //GET matchup pokemon, no legendaries
@@ -145,7 +145,7 @@ router.get('/pokemon/matchups/nl/:id', (req, res) => Pokemon.findAll({
         res.json(results)
       })
   })
-  .catch(e => console.error(e))
+  .catch(e => res.sendStatus(400))
 )
 
 module.exports = router

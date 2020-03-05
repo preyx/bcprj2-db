@@ -13,7 +13,7 @@ router.get('/teams', (req, res) => {
     User
   ]})
     .then(team => res.json(team))
-    .catch(e => console.error(e))
+    .catch(e => res.sendStatus(400))
 })
 
 //get one team by id
@@ -32,27 +32,27 @@ router.get('/teams/:id', (req, res) => Team.findOne({
   ]
 })
   .then(user => res.json(user))
-  .catch(e => console.error(e)))
+  .catch(e => res.sendStatus(400)))
 
 // POST a team
 router.post('/teams', (req, res) => {
   Team.create(req.body)
     .then(() => res.sendStatus(200))
-    .catch(e => console.error(e))
+    .catch(e => res.sendStatus(400))
 })
 
 // PUT a team
 router.put('/teams/:id', (req, res) => {
   Team.update(req.body, { where: {id: req.params.id}  })
     .then(() => res.sendStatus(200))
-    .catch(e => console.error(e))
+    .catch(e => res.sendStatus(400))
 })
 
 // DELETE a team
 router.delete('/teams/:id', (req, res) => {
   Team.destroy({ where: { id: parseInt(req.params.id) } })
     .then(() => res.sendStatus(200))
-    .catch(e => console.error(e))
+    .catch(e => res.sendStatus(400))
 })
 
 module.exports = router
