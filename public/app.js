@@ -1,19 +1,21 @@
-//Global variable to store userID
+//Global variable to store userID, null if no one is signed in
 let userId = null
 
+//function to create an account
 const createAccount = username => {
   axios.post('/api/users', {username: username})
   .then( () => {
+    console.log('ping')
     signIn(username)
   })
-
   //NEED TO FIX ERROR IF A USERNAME HAS BEEN TAKEN
   .catch(error => {
+    console.log(error);
     document.getElementById('error').textContent = "Username has been taken. Please enter a new Username"
-    console.log(error)
   })
 }
 
+//function to sign in user
 const signIn = username => {
   axios.get(`/api/users/${username}`)
     .then(({ data: user }) => {
@@ -22,6 +24,7 @@ const signIn = username => {
       document.getElementById('welcome').textContent = `Welcome ${username}!`
       //empty out user input
       document.getElementById('username').value = ''
+      console.log(`UserId: ${userId}`)
     })
     .catch(error => console.error(error))
 }
@@ -45,6 +48,8 @@ document.addEventListener('click', event => {
         document.getElementById('error').textContent = 'Error. Not signed in.'
       }else{
         userId = null
+        //empty out welcome message
+        document.getElementById('welcome').innerHTML = ''
       }
     }
     else if(target.id==='create'){
