@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Pokemon } = require('../models')
-const {Op} = require('sequelize')
+const { Op } = require('sequelize')
 
 // GET all pokemon
 router.get('/pokemon', (req, res) => {
@@ -33,7 +33,6 @@ router.get('/pokemon/matchups/:id', (req, res) => Pokemon.findAll({
     let base_total = matchups.base_total
     delete matchups['base_total']
     for (element in matchups) {
-      console.log(`${element}: ${matchups[element]}`)
       if (matchups[element] >= 2) {
         goodMatchups.push(element)
       }
@@ -43,7 +42,7 @@ router.get('/pokemon/matchups/:id', (req, res) => Pokemon.findAll({
     }
     goodMatchups = goodMatchups.map(element => {
       element = element.split('_')
-      if (element [1] === 'fight') {
+      if (element[1] === 'fight') {
         element[1] = 'fighting'
       }
       return element[1]
@@ -54,7 +53,7 @@ router.get('/pokemon/matchups/:id', (req, res) => Pokemon.findAll({
         element[1] = 'fighting'
       }
       return element[1]
-    }) 
+    })
     Pokemon.findAll({
       where: {
         base_total: {
@@ -63,7 +62,7 @@ router.get('/pokemon/matchups/:id', (req, res) => Pokemon.findAll({
         [Op.or]: [
           {
             type1: goodMatchups,
-            [Op.and]: [{type2: {[Op.not]: badMatchups}}]
+            [Op.and]: [{ type2: { [Op.not]: badMatchups } }]
           },
           {
             type2: goodMatchups,
@@ -97,7 +96,6 @@ router.get('/pokemon/matchups/nl/:id', (req, res) => Pokemon.findAll({
     let base_total = matchups.base_total
     delete matchups['base_total']
     for (element in matchups) {
-      console.log(`${element}: ${matchups[element]}`)
       if (matchups[element] >= 2) {
         goodMatchups.push(element)
       }
