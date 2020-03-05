@@ -2,7 +2,6 @@ const React = require('react')
 
 const Html = props => {
   return (
-    < !DOCTYPE html >
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -13,9 +12,7 @@ const Html = props => {
         <title>PokeBattles</title>
       </head>
       <body>
-        {props.children}
-
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NavBar ~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NavBar ~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
 
   <nav class="navbar navbar-light bg-primary flexContainer">
           <form class="form-inline">
@@ -25,12 +22,14 @@ const Html = props => {
                 aria-describedby="basic-addon1" />
       </div>
             <div>
-              <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Sign In</button>
-              <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Create Account</button>
-              <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Sign Out</button>
-            </div>
+              <button class="btn btn-outline-success btn-warning warningbtn" type="button">Sign In</button>
+              <button class="btn btn-outline-success btn-warning warningbtn" type="button">Create Account</button>
+              <button class="btn btn-outline-success btn-warning warningbtn" type="button">Sign Out</button>
+            </div> 
           </form>
         </nav>
+
+        {props.children}
 
         <script src="https://code.jquery.com/jquery-1.4.1.slim.min.js"
           integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -41,6 +40,7 @@ const Html = props => {
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
           integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
         </script>
+        <script src="./app.js"></script>
       </body>
     </html>
       )

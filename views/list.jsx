@@ -1,9 +1,27 @@
-<div class="container-fluid">
-  <div class="row" id="row">
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <div class="col col-sm-6" id="col">
-      <h1>Enemy Team</h1>
-      <div class="flexContainer w-100">
+const React = require('react')
+const Html = require('./layouts/default')
+
+const List = props =>{
+  return(
+    <Html>
+      {props.item.map(item =>
+        <div class="card p-1">
+          <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
+            class="card-img-top img-fluid" alt="..." />
+          <h1>Title</h1>
+          <div class="card-body p-0">
+           <ul>
+             <li>
+              {item}
+             </li>
+            </ul>
+          </div>
+        </div>
+        )}
+    </Html>
+  )
+}
+
         <div class="card p-1">
           <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
             class="card-img-top img-fluid" alt="..." />
