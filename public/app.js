@@ -1,21 +1,64 @@
-const updateItem = ({ id, dataset: { isDone } }) => {
-  // axios PUT request, grabbing the id off the <li> tag for the item, as well as setting isDone to be the opposite value of the data-isDone property on the <li>
-  axios.put(`/api/teams/${id}`, { isDone: !parseInt(isDone) })
-    // once finished, a GET request for the user and all their items is run
-    .then(() => axios.get(`/api/users/${uname}`))
-    // the items found are passed to renderList to re-render all the items with the new changes
-    .then(({ data: list }) => renderList(list))
-    // handle our errors
-    .catch(e => console.error(e))
+//Global variable to store userID, null if no one is signed in
+let userId = null
+
+//function to create an account
+const createAccount = username => {
+  axios.post('/api/users', {username: username})
+  .then( () => {
+    console.log('ping')
+    signIn(username)
+  })
+  //error checking for when a username already exists
+  .catch(error => {
+    console.log(error);
+    document.getElementById('error').textContent = "Username has been taken. Please enter a new Username"
+  })
 }
 
-const deleteItem = ({ dataset: { id } }) => {
-  // axios DELETE request, which takes the data-id property off of the x badge on the <li> to identify the item to be deleted
-  axios.delete(`/api/teams/${id}`)
-    // once finished, a GET request for the user and all their items is run
-    .then(() => axios.get(`/api/users/${uname}`))
-    // the items found are passed to renderList to re-render all the items with the new changes
-    .then(({ data: list }) => renderList(list))
-    // handle our errors
-    .catch(e => console.error(e))
+//function to sign in user
+const signIn = username => {
+  axios.get(`/api/users/${username}`)
+    .then(({ data: user }) => {
+      //set global userId to the signed in user
+      userId = user.id
+      document.getElementById('welcome').textContent = `Welcome ${username}!`
+      //empty out user input
+      document.getElementById('username').value = ''
+      console.log(`UserId: ${userId}`)
+    })
+    .catch(error => console.error(error))
 }
+document.addEventListener('click', event => {
+  let target = event.target
+  if(target.nodeName ==='BUTTON') {
+    event.preventDefault()
+    //empty out all error messages
+    document.getElementById('error').innerHTML = ''
+    if(target.id ==='signIn'){
+      //check if there is nothing in the input field
+      if (document.getElementById('username').value === '') {
+        document.getElementById('error').textContent = 'Invalid input. Please enter a Username'
+      } else {
+        signIn(document.getElementById('username').value)
+      }
+    }
+    else if(target.id ==='signOut'){
+      //if a user tries to signout when not signed in
+      if(userId === null){
+        document.getElementById('error').textContent = 'Error. Not signed in.'
+      }else{
+        userId = null
+        //empty out welcome message
+        document.getElementById('welcome').innerHTML = ''
+      }
+    }
+    else if(target.id==='create'){
+      //check if there is nothing in the input field
+      if(document.getElementById('username').value ===''){
+        document.getElementById('error').textContent = 'Invalid input. Please enter a Username'
+      }else{
+        createAccount(document.getElementById('username').value)
+      }
+    }
+  }
+})

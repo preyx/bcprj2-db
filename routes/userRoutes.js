@@ -19,9 +19,9 @@ router.get('/users', (req, res) =>{
 }) 
 
 // GET one user
-router.get('/users/:id', (req, res) => User.findOne({
+router.get('/users/:username', (req, res) => User.findOne({
   where: {
-    id: req.params.id
+    username: req.params.username
   },
   include: [{
     model: Team,
@@ -40,25 +40,24 @@ router.get('/users/:id', (req, res) => User.findOne({
 
 // POST a user
 router.post('/users', (req, res) => User.create(req.body)
-  .then(() => res.sendStatus(200))
+  //send back user data
+  .then( user => res.json(user))
   .catch(e => res.sendStatus(400))
 )
-
 // PUT a user
-router.put('/users/:id', (req, res) => User.update({
+router.put('/users/:username', (req, res) => User.update(req.body, {
   where: {
-    id: req.params.id
+    username: req.params.username
   },
   include: [Team]
 })
   .then(user => res.sendStatus(200))
-  .catch(e => res.sendStatus(400))
-)
+  .catch(e => res.sendStatus(400)))
 
 // DELETE a user
-router.delete('/users/:id', (req, res) => User.destroy({
+router.delete('/users/:username', (req, res) => User.destroy({
   where: {
-    id: req.params.id
+    username: req.params.username
   }
 })
   .then(user => res.sendStatus(200))
