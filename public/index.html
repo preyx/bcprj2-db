@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style.css">
   <title>pokebattles</title>
 </head>
 
@@ -136,9 +136,11 @@
               </ul>
             </div>
           </div>
-
+          
         </div>
         <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Team</button>
+        <input type="checkbox" id="legendary" name="legendary" value="pokemon">
+        <label for="legendary">No Legendaries</label><br>
         <h2>Results</h2>
         <div class="flexContainer">
           <div class="card p-1">
@@ -881,41 +883,41 @@
         <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Random
           Name</button>
         <h2>Random Name Generator Results</h2>
-        
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
+
+        <div class="card p-1">
+          <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="card-img-top img-fluid"
+            alt="...">
+          <h1>Title</h1>
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush">
+              <!-- type 1 -->
+              <li class="list-group-item">
+                grass
+              </li>
+              <!-- type 2 -->
+              <li class="list-group-item">
+                poison
+              </li>
+              <!-- base hp -->
+              <li class="list-group-item">
+                45
+              </li>
+              <!-- base att -->
+              <li class="list-group-item">
+                65
+              </li>
+              <!-- base def -->
+              <li class="list-group-item">
+                49
+              </li>
+              <!-- base spec -->
+              <!-- <li>
 
                 </li> -->
-              </ul>
-            </div>
+            </ul>
           </div>
-        
+        </div>
+
       </div>
     </div>
   </div>
