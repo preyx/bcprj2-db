@@ -8,7 +8,7 @@ const createAccount = username => {
     console.log('ping')
     signIn(username)
   })
-  //NEED TO FIX ERROR IF A USERNAME HAS BEEN TAKEN
+  //error checking for when a username already exists
   .catch(error => {
     console.log(error);
     document.getElementById('error').textContent = "Username has been taken. Please enter a new Username"

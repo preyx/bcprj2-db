@@ -8,7 +8,7 @@ router.get('/pokemons', (req, res) => {
   .then(pokemon => {
     res.json(pokemon)
   })
-  .catch(error => console.error(error))
+  .catch(error => res.sendStatus(400))
 })
 
 //get pokemon by id
@@ -17,7 +17,7 @@ router.get('/pokemons/:id', (req, res) => {
   .then(pokemon => {
     res.json(pokemon)
   })
-  .catch(error => console.error(error))
+  .catch(error => res.sendStatus(400))
 })
 
 //get pokemon matchups (all pokemon)
@@ -81,15 +81,15 @@ router.get('/pokemons/matchups/:id', (req, res) => {
       .then(results => {
         res.json(results)
       })
-      .catch(error => console.error(error))
+      .catch(error => res.sendStatus(400))
   })
-  .catch(error => console.error(error))
+  .catch(error => res.sendStatus(400))
 })
 //create a pokemon
 router.post('/pokemons', (req, res) => {
   Pokemon.create(req.body)
   .then(() => res.sendStatus(200))
-  .catch(error => console.error(error))
+  .catch(error => res.sendStatus(400))
 })
 
 //get pokemon matchups (no legendaries)
@@ -156,29 +156,29 @@ router.get('/pokemons/matchups/nl/:id', (req, res) => {
         .then(results => {
           res.json(results)
         })
-        .catch(error => console.error(error))
+        .catch(error => res.sendStatus(400))
     })
-    .catch(error => console.error(error))
+    .catch(error => res.sendStatus(400))
 })
 //create a pokemon
 router.post('/pokemons', (req, res) => {
   Pokemon.create(req.body)
     .then(() => res.sendStatus(200))
-    .catch(error => console.error(error))
+    .catch(error => res.sendStatus(400))
 })
 
 //update a pokemon
 router.put('/pokemons/:id', (req, res) => {
   Pokemon.update(req.body, {where: {id: req.params.id}})
   .then(() => res.sendStatus(200))
-  .catch(error => console.error(error))
+  .catch(error => res.sendStatus(400))
 })
 
 //delete a pokemon
 router.delete('/pokemons/:id', (req, res) => {
   Pokemon.destroy({where: {id: req.params.id}})
   .then(() => res.sendStatus(200))
-  .catch(error => console.error(error))
+  .catch(error => res.sendStatus(400))
 })
 
 module.exports = router

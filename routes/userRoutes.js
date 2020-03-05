@@ -15,7 +15,7 @@ router.get('/users', (req, res) =>{
     }]
   })
   .then(users => res.json(users))
-  .catch(e => console.error(e))
+  .catch(e => res.sendStatus(400))
 }) 
 
 // GET one user
@@ -36,7 +36,7 @@ router.get('/users/:username', (req, res) => User.findOne({
   }]
 })
   .then(user => res.json(user))
-  .catch(e => console.error(e)))
+  .catch(e => res.sendStatus(400)))
 
 // POST a user
 router.post('/users', (req, res) => User.create(req.body)
@@ -52,7 +52,7 @@ router.put('/users/:username', (req, res) => User.update(req.body, {
   include: [Team]
 })
   .then(user => res.sendStatus(200))
-  .catch(e => console.error(e)))
+  .catch(e => res.sendStatus(400)))
 
 // DELETE a user
 router.delete('/users/:username', (req, res) => User.destroy({
@@ -61,6 +61,6 @@ router.delete('/users/:username', (req, res) => User.destroy({
   }
 })
   .then(user => res.sendStatus(200))
-  .catch(e => console.error(e)))
+  .catch(e => res.sendStatus(400)))
 
 module.exports = router
