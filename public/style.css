@@ -27,9 +27,42 @@
   color: red;
 }
 
-.imageStyle {
+@media only screen and (max-width: 375px) {
+  /* moves logo image to middle of screen when in mobile view */
+  .imageStyle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .userButtons{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.titleStyle {
+  text-align: center;
+}
+
+.pokeSearch {
+  margin: 0 auto;
+}
+
+.pokeImages {
+  height: 80px;
+  width: 80px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+}
+
+.cardTitleStyle {
+  text-align: center;
+}
+
+.cardStyle {
+  margin-top: 10px;
+  padding-top: 10px;
 }
