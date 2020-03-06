@@ -17,9 +17,12 @@ const Home = props =>{
           <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
           <small id="pokeHelp" className="form-text text-muted">Our database has over 700 Pokemon</small>
         </div>
-        <button type="submit" className="btn btn-primary" id = "submit">Search</button>
+        <button type="submit" className="btn btn-primary" id = "search">Search</button>
       </form>
-      <p className = "errorMessage" id="searchError"></p>
+      <br></br>
+    </div>
+    <div className="row">
+          <p className="errorMessage col-12" id="searchError"></p>
     </div>
     <div className="row" id="row">
       <div className="col"></div>

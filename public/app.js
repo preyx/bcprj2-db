@@ -50,6 +50,9 @@ const getPokemon = pokeName => {
 
 //function to sign in user
 const signIn = username => {
+  //clear out all error messages when user signs in
+  document.getElementById('searchError').innerHTML = ''
+  document.getElementById('error').innerHTML = ''
   axios.get(`/api/users/${username}`)
     .then(({ data: user }) => {
       //set global userId to the signed in user
@@ -65,9 +68,6 @@ document.addEventListener('click', event => {
   let target = event.target
   if(target.nodeName ==='BUTTON') {
     event.preventDefault()
-    //empty out all error messages
-    document.getElementById('error').innerHTML = ''
-    document.getElementById('searchError').innerHTML = ''
     if(target.id ==='signIn'){
       //check if there is nothing in the input field
       if (document.getElementById('username').value === '') {
@@ -99,14 +99,21 @@ document.addEventListener('click', event => {
 })
 
 //event listener for search button
-// document.getElementById('search').addEventListener('click', event => {
-//   event.preventDefault()
-//   if (document.getElementById('pokemonSearch').value === ''){
-//     document.getElementById('searchError').textContent = "Error. Please enter a Pokemon."
-//   }else{
-//     getPokemon(document.getElementById('pokemonSearch').value)
-//   }
-// })
+document.getElementById('search').addEventListener('click', event => {
+  event.preventDefault()
+  document.getElementById('searchError').innerHTML = ''
+  //checks if user is signed in
+  if(userId === null){
+    console.log('null')
+    document.getElementById('searchError').textContent = "Please sign in first before making a search."
+  }
+  else if (document.getElementById('pokemonSearch').value === ''){
+    document.getElementById('searchError').textContent = "Error. Please enter a Pokemon."
+  }
+  else{
+    getPokemon(document.getElementById('pokemonSearch').value)
+  }
+})
 
 //function to display pokemon stats when user hovers over name
   $(function () {
