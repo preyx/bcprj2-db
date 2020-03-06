@@ -37,7 +37,7 @@ const getPokemon = pokeName => {
       <li class="list-group-item">Defense: ${pokeInfo.defense}</li>
       <li class="list-group-item">Special Attack: ${pokeInfo.sp_attack}</li>
       <li class="list-group-item">Special Defense: ${pokeInfo.sp_defense}</li>
-      <li class="list-group-item">Special Speed: ${pokeInfo.speed}</li>
+      <li class="list-group-item">Speed: ${pokeInfo.speed}</li>
     </ul>
     `
     enemyDisplay.append(pokeCard)

@@ -14,27 +14,27 @@ const Html = props => {
       <body>
         {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NavBar ~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
 
-  <nav className ="navbar navbar-light bg-primary flexContainer">
-          <div className= "row imageStyle">
-          <div id="logo">
+        <nav className="navbar navbar-light bg-primary flexContainer">
+          <div className="row imageStyle">
+            <div id="logo">
               <img src='./assets/Pokebattles-logo.png'></img>
               <br></br>
               <br></br>
-          </div>
+            </div>
           </div>
           <div className="row">
-          <form className="form-inline">
-            <div className="input-group">
-              <div className="input-group-prepend"></div>
-              <input type="text"  className="form-control" aria-label="Username"
-                aria-describedby="basic-addon1" id = "username" />
-            </div>
-            <div className = 'userButtons'>
-              <button className="btn btn-dark" type="button" id = "signIn">Sign In</button>
-              <button className="btn btn-dark" type="button" id = "create">Create Account</button>
-              <button className="btn btn-dark" type="button" id = "signOut">Sign Out</button>
-            </div> 
-          </form>
+            <form className="form-inline">
+              <div className="input-group">
+                <div className="input-group-prepend"></div>
+                <input type="text" className="form-control" aria-label="Username"
+                  aria-describedby="basic-addon1" id="username" />
+              </div>
+              <div className='userButtons'>
+                <button className="btn btn-dark" type="button" id="signIn">Sign In</button>
+                <button className="btn btn-dark" type="button" id="create">Create Account</button>
+                <button className="btn btn-dark" type="button" id="signOut">Sign Out</button>
+              </div>
+            </form>
           </div>
         </nav>
 
@@ -46,7 +46,7 @@ const Html = props => {
         <script src="./app.js"></script>
       </body>
     </html>
-      )
-    }
+  )
+}
 
 module.exports = Html
