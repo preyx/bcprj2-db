@@ -23,3 +23,11 @@
 .warningbtn{
   color: red;
 }
+
+.pokeImages {
+  height: 80px;
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

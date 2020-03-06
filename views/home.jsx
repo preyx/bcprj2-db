@@ -7,50 +7,33 @@ const Home = props =>{
       {props.list}
      
     {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid start~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
-    <div id="welcome"></div>
 <div className="container-fluid">
-  <div className="row" id="row">
-            {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
-  <div className="col col-sm-6" id="col">
-    <h1>Enemy Team</h1>
-    <div className="flexContainer w-100">
-      <div id ="test"></div>
+  <div className="row">
+    <div className="col-12">
+      <h5 id="welcome"></h5>
+      <p className="errorMessage" id = "error"></p>
     </div>
-
-    <button className="btn btn-outline-success btn-warning warningbtn" type="button">Generate Team</button>
-    <input type="checkbox" id="legendary" name="legendary" value="pokemon" />
-    <label htmlFor="legendary">No Legendaries</label> <br />
-      <h2>Results</h2>
-      <div className="flexContainer">
-
-      </div>
-      <div className="flexContainer">
-
-      </div>
-      <div className="flexContainer">
-
-      </div>
-      <div className="flexContainer">
-
-      </div>
-      <div className="flexContainer">
-
-      </div>
   </div>
-                {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
-    <div className="col col-sm-6" id="col">
-      <h1>Enemy Team</h1>
-      <div className="flexContainer">
-
+  <div className="row pokeSearch">
+    <div className="col-12">
+    <form>
+      <div className="form-group">
+        <label forhtml="pokemonSearch">Search Opposing Pokemon</label>
+        <input type="text" className="form-control" id="pokemonSearch"/>
       </div>
-      <h1> Your Team</h1>
-      <div className="flexContainer">
-      </div>
-      <button className="btn btn-outline-succ" type="button">Remove Team</button>
-      <button className="btn btn-outline-succ" type="button">Generate Random Name</button>
-      <h2>Random Name Generator Results</h2>
-      
-    </div>
+      <button type="submit" className="btn btn-primary" id = "search">Search</button>
+    </form>
+    <p className="errorMessage" id="searchError"></p>
+  </div>
+  </div>
+  <div className="row">
+  <div className="col-12 titleStyle">
+    <h3>Enemy Team</h3>
+    <hr></hr>
+  </div>
+  </div>
+  <div className = "row" id = "enemyDisplay">
+      {/* display enemy team here */}
   </div>
 </div>
 
