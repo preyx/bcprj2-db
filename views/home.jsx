@@ -14,10 +14,13 @@ const Home = props =>{
       <form className = "col-12">
         <div className="form-group">
           <label forhtml="pokemonSearch">Pokemon</label>
-          <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
+            <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
           <small id="pokeHelp" className="form-text text-muted">Our database has over 700 Pokemon</small>
         </div>
-        <button type="submit" className="btn btn-primary" id = "search">Search</button>
+        <div className = "userButtons">
+            <button type="submit" className="btn btn-warning btn-outline-danger warningbtn" id = "search">Search</button>
+            <button type="submit" className="btn btn-warning btn-outline-danger warningbtn buttonStyle" id = "random">Generate Random Pokemon</button>
+        </div>
       </form>
       <br></br>
     </div>
@@ -25,11 +28,11 @@ const Home = props =>{
           <p className="errorMessage col-12" id="searchError"></p>
     </div>
     <div className="row" id="row">
-      <div className="col"></div>
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
       <div className="col col-sm-6" id="col">
-        <h1>Enemy Team</h1>
-        <div className="d-flex enemyDisplay">
+        <h1 className = "titleStyle">Enemy Team</h1>
+        <hr></hr>
+        <div className="d-flex" id = "enemyDisplay">
           {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
             <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
@@ -64,12 +67,12 @@ const Home = props =>{
           </div> */}
         </div>
       </div>
-      <div className="col"></div>
     </div>
-    <button className="btn btn-outline-success btn-warning" type="button">Generate Team</button>
-    <input type="checkbox" id="legendary" name="legendary" value="pokemon"/>
-    <label forhtml="legendary">No Legendaries</label><br/>
-
+    <div className = "userButtons">
+      <button className="btn btn-warning btn-outline-danger warningbtn" type="button">Generate Team</button>
+      <input className = "checkBoxStyle" type="checkbox" id="legendary" name="legendary" value="pokemon"/>
+      <label className="labelStyle" forhtml="legendary">No Legendaries</label><br/>
+    </div>
     <div className="row" id="row">
       <div className="col col-sm-6" id="col">
         <h2>Results</h2>

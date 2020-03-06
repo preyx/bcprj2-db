@@ -10,14 +10,14 @@ router.get('/pokemon', (req, res) => {
     .catch(e => console.error(e))
 })
 
-//GET one pokemon
-router.get('/pokemon/:name', (req, res) => Pokemon.findOne({
-  where: {
-    name: req.params.name
-  }
-})
+//get pokemon by id
+router.get('/pokemons/:name', (req, res) => {
+  Pokemon.findOne( {where: {name: req.params.name}})
   .then(pokemon => {
+
+    //getting the pokedex number
     let pokedexNum = pokemon.dataValues.pokedex_number
+    //call to get pokemon sprite
     let sprite = pokemonGif(pokedexNum)
     pokemon.dataValues.sprite = sprite
     res.json(pokemon)
@@ -85,6 +85,7 @@ router.get('/pokemon/matchups/:name', (req, res) => Pokemon.findAll({
         for(let i = 0; i<results.length; i++){
           //getting the pokedex number
           let pokedexNum = results[i].dataValues.pokedex_number
+          console.log(pokedexNum)
           //call to get pokemon sprite
           let sprite = pokemonGif(pokedexNum)
           results[i].dataValues.sprite = sprite

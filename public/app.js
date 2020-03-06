@@ -1,6 +1,8 @@
 //Global variable to store userID, null if no one is signed in
 
 let userId = null
+let counter = 0
+let enemyId = 1
 let enemyDisplay = document.getElementById('enemyDisplay')
 
 //function to create an account
@@ -18,27 +20,59 @@ const createAccount = username => {
 
 //get user inputted pokemon info
 const getPokemon = pokeName => {
-  axios.get(`/api/pokemon/${pokeName}`)
+  document.getElementById('searchError').innerHTML = ''
+  axios.get(`/api/pokemons/${pokeName}`)
   .then( ({data: pokeInfo}) =>{
+    console.log(pokeInfo)
     let pokeCard = document.createElement('div')
-    pokeCard.classList.add('col-12', 'col-md-4', 'card', 'cardStyle')
-    pokeCard.setAttribute('id', `${pokeInfo.id}`)
-    pokeCard.innerHTML = `
-    <img class="card-img-top pokeImages" src="${pokeInfo.sprite}" alt="${pokeInfo.name}">
-    <div class="card-body">
-      <h5 class="card-title cardTitleStyle">${pokeInfo.name}</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Stat Total: ${pokeInfo.base_total} </li>
-      <li class="list-group-item">Attack: ${pokeInfo.attack}</li>
-      <li class="list-group-item">Defense: ${pokeInfo.defense}</li>
-      <li class="list-group-item">Special Attack: ${pokeInfo.sp_attack}</li>
-      <li class="list-group-item">Special Defense: ${pokeInfo.sp_defense}</li>
-      <li class="list-group-item">Speed: ${pokeInfo.speed}</li>
-    </ul>
-    `
-    enemyDisplay.append(pokeCard)
-    document.getElementById('pokemonSearch').value = ''
+    pokeCard.classList.add('pokeCard', 'text-center')
+    if(enemyId > 3 ){
+      counter+=1
+      if(counter>3){
+        counter=1
+      }
+      document.getElementById(`enemy${counter}`).innerHTML =`
+      <img src="${pokeInfo.sprite}" className="renderImages" alt="${pokeInfo.name}" />
+      <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+      Type1: ${pokeInfo.type1}<br />
+      Type2: ${pokeInfo.type2}<br />
+      HP: ${pokeInfo.hp}<br />
+      Atk: ${pokeInfo.attack}<br />
+      Def: ${pokeInfo.defense}<br />
+      SpA: ${pokeInfo.sp_attack}<br />
+      SpD: ${pokeInfo.sp_defense}<br />
+      Speed: ${pokeInfo.speed}<br />
+      '>${pokeInfo.name}</p>
+      `
+      enemyDisplay.append(pokeCard)
+      enemyId += 1
+      console.log(`ping, EnemyID: ${enemyId}`)
+      popover()
+    }else{
+      pokeCard.setAttribute('id', `enemy${enemyId}`)
+      if(pokeInfo.type2 === ''){
+        pokeInfo.type2 = 'N/A'
+      }
+      pokeCard.innerHTML = `
+        <img src="${pokeInfo.sprite}" className="${pokeInfo.name}" alt="..." />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${pokeInfo.type1}<br />
+        Type2: ${pokeInfo.type2}<br />
+        HP: ${pokeInfo.hp}<br />
+        Atk: ${pokeInfo.attack}<br />
+        Def: ${pokeInfo.defense}<br />
+        SpA: ${pokeInfo.sp_attack}<br />
+        SpD: ${pokeInfo.sp_defense}<br />
+        Speed: ${pokeInfo.speed}<br />
+        '>${pokeInfo.name}</p>
+      `
+      enemyDisplay.append(pokeCard)
+      enemyId +=1
+      counter+=1
+      //reinitialize popover element
+      popover()
+
+    }
   })
   .catch(error => {
     console.error(error)
@@ -46,38 +80,11 @@ const getPokemon = pokeName => {
   })
 }
 
-//get user inputted pokemon info
-// const getPokemon = pokeName => {
-//   console.log(`/api/pokemons/${pokeName}`)
-  // axios.get(`/api/pokemons/${pokeName}`)
-  // .then( ({data: pokeInfo}) =>{
-  //   let pokeCard = document.createElement('div')
-  //   pokeCard.classList.add('col-12', 'col-md-4', 'card', 'cardStyle')
-  //   pokeCard.setAttribute('id', `${pokeInfo[0].id}`)
-  //   pokeCard.innerHTML = `
-  //   <img class="card-img-top pokeImages" src="${pokeInfo[0].sprite}" alt="${pokeInfo[0].name}">
-  //   <div class="card-body">
-  //     <h5 class="card-title cardTitleStyle">${pokeInfo[0].name}</h5>
-  //   </div>
-  //   <ul class="list-group list-group-flush">
-  //     <li class="list-group-item">Stat Total: ${pokeInfo[0].base_total} </li>
-  //     <li class="list-group-item">Attack: ${pokeInfo[0].attack}</li>
-  //     <li class="list-group-item">Defense: ${pokeInfo[0].defense}</li>
-  //     <li class="list-group-item">Special Attack: ${pokeInfo[0].sp_attack}</li>
-  //     <li class="list-group-item">Special Defense: ${pokeInfo[0].sp_defense}</li>
-  //     <li class="list-group-item">Special Speed: ${pokeInfo[0].speed}</li>
-  //   </ul>
-  //   `
-  //   enemyDisplay.append(pokeCard)
-  // })
-  // .catch(error => {
-  //   console.error(error)
-  //   document.getElementById('searchError').textContent = 'Pokemon does not exist. Please enter another pokemon'
-  // })
-// }
-
 //function to sign in user
 const signIn = username => {
+  //clear out all error messages when user signs in
+  document.getElementById('searchError').innerHTML = ''
+  document.getElementById('error').innerHTML = ''
   axios.get(`/api/users/${username}`)
     .then(({ data: user }) => {
       //set global userId to the signed in user
@@ -92,9 +99,6 @@ document.addEventListener('click', event => {
   let target = event.target
   if(target.nodeName ==='BUTTON') {
     event.preventDefault()
-    //empty out all error messages
-    document.getElementById('error').innerHTML = ''
-    document.getElementById('searchError').innerHTML = ''
     if(target.id ==='signIn'){
       //check if there is nothing in the input field
       if (document.getElementById('username').value === '') {
@@ -128,27 +132,31 @@ document.addEventListener('click', event => {
 //event listener for search button
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
-  if (document.getElementById('pokemonSearch').value === ''){
+  document.getElementById('searchError').innerHTML = ''
+  //checks if user is signed in
+  if(userId === null){
+    console.log('null')
+    document.getElementById('searchError').textContent = "Please sign in first before making a search."
+  }
+  else if (document.getElementById('pokemonSearch').value === ''){
     document.getElementById('searchError').textContent = "Error. Please enter a Pokemon."
-  }else{
+  }
+  else{
     getPokemon(document.getElementById('pokemonSearch').value)
+    //empty out user input
+    document.getElementById('pokemonSearch').value = ''
   }
 })
 
-//event listener for search button
-// document.getElementById('search').addEventListener('click', event => {
-//   event.preventDefault()
-//   if (document.getElementById('pokemonSearch').value === ''){
-//     document.getElementById('searchError').textContent = "Error. Please enter a Pokemon."
-//   }else{
-//     getPokemon(document.getElementById('pokemonSearch').value)
-//   }
-// })
-
 //function to display pokemon stats when user hovers over name
+const popover = () =>{
   $(function () {
     $('[data-toggle="popover"]').popover({
       placement: 'bottom',
       trigger: 'hover'
     })
   })
+}
+
+//initalizes all popover elements
+popover()

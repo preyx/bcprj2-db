@@ -1,4 +1,4 @@
-/* .flexContainer {
+.flexContainer {
   display: flex;
 }
 
@@ -31,7 +31,8 @@
   /* moves logo image to middle of screen when in mobile view */
   .imageStyle {
     display: block;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
   }
   .userButtons {
     margin-top: 10px;
@@ -41,9 +42,19 @@
   }
 }
 
-.imageStyle {
-  height: 100px;
-  width: 100px;
+.warningbtn {
+  color: red;
+}
+
+.buttonStyle{
+  margin-left: 5px;
+}
+
+.checkBoxStyle{
+  margin-left: 15px;
+}
+.labelStyle{
+  margin-left: 5px;
 }
 
 .titleStyle {
@@ -69,30 +80,4 @@
 .cardStyle {
   margin-top: 10px;
   padding-top: 10px;
-}
-
-.pokeCard {
-  flex: 1;
-}
-
-*/ .pokeCard p {
-  font-weight: bold;
-}
-
-.pokeCard img {
-  height: auto;
-  max-width: 80px;
-}
-
-@font-face {
-  font-family: 'pokemon_classicregular';
-  src: url('pokemon_classic-webfont.woff2') format('woff2'), url('pokemon_classic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-​ h1 {
-  font-family: 'pokemon_classicregular', Arial, sans-serif;
-  font-weight: normal;
-  font-style: normal;
 }

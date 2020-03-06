@@ -4,7 +4,7 @@ const {Team, User, Pokemon} = require('../models')
 // GET all items
 router.get('/teams', (req, res) => {
   Team.findAll({include:[
-    { model: Pokemon, as: 'pokemon1', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
+    { model: Pokemon, as: 'pokemon1', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total', 'sprite'] },
     { model: Pokemon, as: 'pokemon2', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
     { model: Pokemon, as: 'pokemon3', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
     { model: Pokemon, as: 'enemy1', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
