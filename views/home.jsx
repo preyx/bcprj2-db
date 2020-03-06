@@ -11,7 +11,7 @@ const Home = props =>{
       <p className = "errorMessage" id = "error"></p>
     </div>
     <div className="row">
-      <form className = "col-12">
+      <form id="search" className = "col-12">
         <div className="form-group">
           <label forhtml="pokemonSearch">Pokemon</label>
           <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>

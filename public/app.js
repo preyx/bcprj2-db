@@ -47,8 +47,8 @@ const getPokemon = pokeName => {
 }
 
 //get user inputted pokemon info
-const getPokemon = pokeName => {
-  console.log(`/api/pokemons/${pokeName}`)
+// const getPokemon = pokeName => {
+//   console.log(`/api/pokemons/${pokeName}`)
   // axios.get(`/api/pokemons/${pokeName}`)
   // .then( ({data: pokeInfo}) =>{
   //   let pokeCard = document.createElement('div')
@@ -74,7 +74,7 @@ const getPokemon = pokeName => {
   //   console.error(error)
   //   document.getElementById('searchError').textContent = 'Pokemon does not exist. Please enter another pokemon'
   // })
-}
+// }
 
 //function to sign in user
 const signIn = username => {

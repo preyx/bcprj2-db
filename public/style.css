@@ -73,13 +73,26 @@
 
 .pokeCard {
   flex: 1;
-} */
+}
 
-.pokeCard p {
+*/ .pokeCard p {
   font-weight: bold;
 }
 
 .pokeCard img {
   height: auto;
   max-width: 80px;
+}
+
+@font-face {
+  font-family: 'pokemon_classicregular';
+  src: url('pokemon_classic-webfont.woff2') format('woff2'), url('pokemon_classic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+​ h1 {
+  font-family: 'pokemon_classicregular', Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
