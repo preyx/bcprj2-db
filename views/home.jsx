@@ -330,20 +330,6 @@ const Home = props =>{
           </div>
         </div>
         <button className="btn btn-outline-success btn-warning"  type="button">Remove Team</button>
-        <button className="btn btn-outline-success btn-warning"  type="button">Generate Random
-          Name</button>
-        <h2>Random Name Generator Results</h2>
-
-        <div className="pokeCard text-center">
-          <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-          <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-        </div>
       </div>
     </div>
   </div>
