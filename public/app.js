@@ -1,6 +1,7 @@
 //Global variable to store userID, null if no one is signed in
 let userId = null
 
+
 //function to create an account
 const createAccount = username => {
   axios.post('/api/users', {username: username})
@@ -30,6 +31,7 @@ const signIn = username => {
 }
 document.addEventListener('click', event => {
   let target = event.target
+  console.log(event.target.nodeName)
   if(target.nodeName ==='BUTTON') {
     event.preventDefault()
     //empty out all error messages
@@ -58,6 +60,13 @@ document.addEventListener('click', event => {
         document.getElementById('error').textContent = 'Invalid input. Please enter a Username'
       }else{
         createAccount(document.getElementById('username').value)
+      }
+    } 
+    else if(target.id ==='search'){
+      if(document.getElementById('pokemonSearch').value = ''){
+        // Error if there is nothing inputted
+      }else{
+        console.log(pokedex.pokemon(document.getElementById('pokemonSearch').value))
       }
     }
   }

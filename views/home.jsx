@@ -10,16 +10,31 @@ const Home = props =>{
 <div className="container-fluid">
   <div className="row">
     <div className="col-12">
-      <h1 id="welcome"></h1>
+      <h5 id="welcome"></h5>
       <p className="errorMessage" id = "error"></p>
     </div>
   </div>
+  <div className="row pokeSearch">
+    <div className="col-6">
+    <form>
+      <div className="form-group">
+        <label forhtml="pokemonSeawrch">Search Opposing Pokemon</label>
+        <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
+      </div>
+      <button type="submit" className="btn btn-primary" id = "search">Search</button>
+    </form>
+  </div>
+  </div>
   <div className="row" id="row">
             {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
-  <div className="col col-sm-6" id="col">
-    <h1>Enemy Team</h1>
-    <div className="flexContainer w-100">
-      <div id ="test"></div>
+  <div className="col-12 col-md-3 titleStyle">
+    <h3>Enemy Team</h3>
+    <hr></hr>
+    <div className = "col-12 col-md-9" id="enemyDisplay"></div>
+    <div className="col-12 col-md-3" id = "enemy1">
+      {/* Display enemery team here */}
+    </div>
+    {/* <div className="flexContainer w-100">
     </div>
 
     <button className="btn btn-outline-success btn-warning warningbtn" type="button">Generate Team</button>
@@ -40,10 +55,10 @@ const Home = props =>{
       </div>
       <div className="flexContainer">
 
-      </div>
+      </div> */}
   </div>
                 {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
-    <div className="col col-sm-6" id="col">
+    {/* <div className="col col-sm-6" id="col">
       <h1>Enemy Team</h1>
       <div className="flexContainer">
 
@@ -55,7 +70,7 @@ const Home = props =>{
       <button className="btn btn-outline-succ" type="button">Generate Random Name</button>
       <h2>Random Name Generator Results</h2>
       
-    </div>
+    </div> */}
   </div>
 </div>
 

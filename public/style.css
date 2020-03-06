@@ -33,3 +33,11 @@
   margin-right: auto;
   width: 50%;
 }
+
+.titleStyle{
+  text-align: center;
+}
+
+.pokeSearch{
+  margin:0 auto;
+}

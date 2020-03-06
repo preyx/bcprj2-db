@@ -1,5 +1,8 @@
 const router = require('express').Router()
 const {Pokemon} = require('../models')
+const Pokedex = require('pokedex')
+
+let {pokemon: pokeSearch} = new Pokedex()
 //bring in Op to do an OR statement 
 const {Op} = require('sequelize')
 //get all pokemon
@@ -15,6 +18,11 @@ router.get('/pokemons', (req, res) => {
 router.get('/pokemons/:id', (req, res) => {
   Pokemon.findAll( {where: {id: req.params.id}})
   .then(pokemon => {
+    //have to lowercase since pokedex npm only takes in lowercase name
+    let pokeName = pokemon[0].dataValues.name.toLowerCase()
+    console.log(pokeName)
+    let sprite = pokeSearch(`${pokeName}`).sprites.animated
+    pokemon[0].dataValues.sprite = sprite
     res.json(pokemon)
   })
   .catch(error => res.sendStatus(400))
