@@ -25,9 +25,6 @@ const getPokemon = pokeName => {
   document.getElementById('searchError').innerHTML = ''
   axios.get(`/api/pokemons/${pokeName}`)
   .then( ({data: pokeInfo}) =>{
-    console.log(pokeInfo)
-    let pokeCard = document.createElement('div')
-    pokeCard.classList.add('pokeCard', 'text-center')
     if(enemyId > 3 ){
       counter+=1
       if(counter>3){
@@ -46,11 +43,13 @@ const getPokemon = pokeName => {
       Speed: ${pokeInfo.speed}<br />
       '>${pokeInfo.name}</p>
       `
-      enemyDisplay.append(pokeCard)
+      // enemyDisplay.append(pokeCard)
       enemyId += 1
       console.log(`ping, EnemyID: ${enemyId}`)
       popover()
     }else{
+      let pokeCard = document.createElement('div')
+      pokeCard.classList.add('pokeCard', 'text-center')
       pokeCard.setAttribute('id', `enemy${enemyId}`)
       if(pokeInfo.type2 === ''){
         pokeInfo.type2 = 'N/A'
