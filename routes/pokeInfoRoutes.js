@@ -82,6 +82,13 @@ router.get('/pokemon/matchups/:name', (req, res) => Pokemon.findAll({
       ]
     })
       .then(results => {
+        for(let i = 0; i<results.length; i++){
+          //getting the pokedex number
+          let pokedexNum = results[i].dataValues.pokedex_number
+          //call to get pokemon sprite
+          let sprite = pokemonGif(pokedexNum)
+          results[i].dataValues.sprite = sprite
+        }
         res.json(results)
       })
   })

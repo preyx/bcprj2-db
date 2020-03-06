@@ -1,17 +1,57 @@
-.pokeCard{
-  flex: 1;
+/* .flexContainer {
+  display: flex;
 }
 
-.pokeCard p {
-  font-weight: bold;
+/* #row{
+    border: solid 1em red;
+}
+#col{
+  border: solid 1em green;
+} */
+
+.card {
+  flex-grow: 1;
 }
 
-.Generate{
+/* .responsive{
+   width: 100%;
+   height: auto;
+} */
+
+.Generate {
   height: 10rem;
   width: 10rem;
 }
-.warningbtn{
+
+.errorMessage {
   color: red;
+}
+
+@media only screen and (max-width: 375px) {
+  /* moves logo image to middle of screen when in mobile view */
+  .imageStyle {
+    display: block;
+    margin: 0 auto;
+  }
+  .userButtons {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.imageStyle {
+  height: 100px;
+  width: 100px;
+}
+
+.titleStyle {
+  text-align: center;
+}
+
+.pokeSearch {
+  margin: 0 auto;
 }
 
 .pokeImages {
@@ -21,6 +61,24 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.cardTitleStyle {
+  text-align: center;
+}
+
+.cardStyle {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.pokeCard {
+  flex: 1;
+} */
+
+.pokeCard p {
+  font-weight: bold;
+}
+
 .pokeCard img {
   height: auto;
   max-width: 80px;
