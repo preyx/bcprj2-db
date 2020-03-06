@@ -13,9 +13,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 app.use(require('./routes'))
 
 app.get('/', (req, res) => {
-  res.render('home',{
-
-  })
+  res.render('home')
 })
 
 require('./config').sync()
