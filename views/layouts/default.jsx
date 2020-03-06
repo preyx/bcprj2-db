@@ -15,9 +15,9 @@ const Html = props => {
         {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NavBar ~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
 
   <nav className ="navbar navbar-light bg-primary flexContainer">
-    <div className = "row">
+          <div className= "row imageStyle">
           <div id="logo">
-            <img className = "imageStyle"src='./assets/logo.png'></img>
+            <img src='./assets/logo.png'></img>
           </div>
           <br></br>
           </div>
