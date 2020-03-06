@@ -98,7 +98,6 @@ router.get('/pokemons/matchups/:name', (req, res) => {
         for(let i = 0; i<results.length; i++){
           //getting the pokedex number
           let pokedexNum = results[i].dataValues.pokedex_number
-          console.log(pokedexNum)
           //edge case for 3 pokemon with incorrect image links
           if(pokedexNum === 717){
             results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
@@ -191,7 +190,6 @@ router.get('/pokemons/matchups/nl/:name', (req, res) => {
           for (let i = 0; i < results.length; i++) {
             //getting the pokedex number
             let pokedexNum = results[i].dataValues.pokedex_number
-            console.log(pokedexNum)
             //edge case for 3 pokemon with incorrect image links
             if (pokedexNum === 717) {
               results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
