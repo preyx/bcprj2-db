@@ -18,6 +18,8 @@ const Html = props => {
           <div className= "row imageStyle">
           <div id="logo">
               <img src='http://www.pokestadium.com/sprites/xy/tyranitar.gif'></img>
+              <br></br>
+              <br></br>
           </div>
           </div>
           <div className="row">
@@ -27,10 +29,10 @@ const Html = props => {
               <input type="text"  className="form-control" aria-label="Username"
                 aria-describedby="basic-addon1" id = "username" />
             </div>
-            <div>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "signIn">Sign In</button>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "create">Create Account</button>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "signOut">Sign Out</button>
+            <div className = 'userButtons'>
+              <button className="btn btn-dark" type="button" id = "signIn">Sign In</button>
+              <button className="btn btn-dark" type="button" id = "create">Create Account</button>
+              <button className="btn btn-dark" type="button" id = "signOut">Sign Out</button>
             </div> 
           </form>
           </div>

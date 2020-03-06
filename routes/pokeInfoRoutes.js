@@ -16,7 +16,7 @@ router.get('/pokemons', (req, res) => {
 router.get('/pokemons/:name', (req, res) => {
   Pokemon.findAll( {where: {name: req.params.name}})
   .then(pokemon => {
-    console.log(pokemon[0].dataValues)
+
     //getting the pokedex number
     let pokedexNum = pokemon[0].dataValues.pokedex_number
     //call to get pokemon sprite
@@ -113,7 +113,6 @@ router.get('/pokemons/matchups/nl/:name', (req, res) => {
       let base_total = matchups.base_total - 100
       //remove the key base_total
       delete matchups['base_total']
-      console.log(matchups)
       let goodMatchups = []
       let badMatchups = []
       for (let element in matchups) {
@@ -139,9 +138,9 @@ router.get('/pokemons/matchups/nl/:name', (req, res) => {
         }
         return element[1]
       })
-      console.log(badMatchups)
+
       //serach for pokemon based on goodMatchups
-      console.log(goodMatchups)
+
       Pokemon.findAll({
         where: {
           base_total: {
