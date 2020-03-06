@@ -27,6 +27,7 @@
     "mysql2": "^2.1.0",
     "pokedex": "^1.1.0",
     "pokedex.js": "^3.3.0",
+    "pokemon": "^2.0.2",
     "pokemon-gif": "^1.0.14",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

@@ -18,7 +18,7 @@ const createAccount = username => {
 
 //get user inputted pokemon info
 const getPokemon = pokemon => {
-  
+
 }
 
 //function to sign in user
