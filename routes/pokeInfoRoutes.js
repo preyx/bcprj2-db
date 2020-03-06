@@ -80,7 +80,7 @@ router.get('/pokemons/matchups/:id', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name', 'base_total', 'pokedex_number'], order:[ ['base_total', 'DESC'] ]
+        }, attributes: ['name','pokedex_number','base_total', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed'], order:[ ['base_total', 'DESC'] ]
       })
       .then(results => {
         for(let i = 0; i<results.length; i++){
@@ -162,7 +162,7 @@ router.get('/pokemons/matchups/nl/:id', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name', 'base_total', 'pokedex_number'], order: [['base_total', 'DESC']]
+        }, attributes: ['name', 'pokedex_number', 'base_total', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed'], order: [['base_total', 'DESC']]
       })
         .then(results => {
           for (let i = 0; i < results.length; i++) {

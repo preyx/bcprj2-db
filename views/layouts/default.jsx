@@ -17,7 +17,7 @@ const Html = props => {
   <nav className ="navbar navbar-light bg-primary flexContainer">
     <div className = "row">
           <div id="logo">
-            <img className = "imageStyle"src='http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif'></img>
+              <img className="imageStyle" src='http://www.pokestadium.com/sprites/xy/tyranitar.gif'></img>
           </div>
           <br></br>
           </div>
