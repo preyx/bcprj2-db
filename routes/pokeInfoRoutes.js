@@ -29,8 +29,7 @@ router.get('/pokemons/:name', (req, res) => {
       pokemon.dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/diancie.gif'
     } else {
       //call to get pokemon sprite
-      let sprite = pokemonGif(pokedexNum)
-      pokemon.dataValues.sprite = sprite
+      pokemon.dataValues.sprite = pokemonGif(pokedexNum)
     }
     //call to get pokemon sprite
     // let sprite = pokemonGif(pokedexNum)
@@ -112,8 +111,7 @@ router.get('/pokemons/matchups/:name', (req, res) => {
           }
           else{
             //call to get pokemon sprite
-            let sprite = pokemonGif(pokedexNum)
-            results[i].dataValues.sprite = sprite
+            results[i].dataValues.sprite = pokemonGif(pokedexNum)
           }
         }
         res.json(results)
