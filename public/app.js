@@ -1,6 +1,6 @@
 //Global variable to store userID, null if no one is signed in
 let userId = null
-
+let enemyDisplay = document.getElementById('enemyTeam')
 
 //function to create an account
 const createAccount = username => {
@@ -12,8 +12,13 @@ const createAccount = username => {
   //error checking for when a username already exists
   .catch(error => {
     console.log(error);
-    document.getElementById('error').textContent = "Username has been taken. Please enter a new Username"
+    document.getElementById('error').textContent = 'Username has been taken. Please enter a new Username'
   })
+}
+
+//get user inputted pokemon info
+const getPokemon = pokemon => {
+  
 }
 
 //function to sign in user
@@ -31,11 +36,11 @@ const signIn = username => {
 }
 document.addEventListener('click', event => {
   let target = event.target
-  console.log(event.target.nodeName)
   if(target.nodeName ==='BUTTON') {
     event.preventDefault()
     //empty out all error messages
     document.getElementById('error').innerHTML = ''
+    document.getElementById('searchError').innerHTML = ''
     if(target.id ==='signIn'){
       //check if there is nothing in the input field
       if (document.getElementById('username').value === '') {
@@ -64,9 +69,9 @@ document.addEventListener('click', event => {
     } 
     else if(target.id ==='search'){
       if(document.getElementById('pokemonSearch').value = ''){
-        // Error if there is nothing inputted
+        document.getElementById('searchError').textContent = 'Invalid input. Please enter a Pokemon first.'
       }else{
-        console.log(pokedex.pokemon(document.getElementById('pokemonSearch').value))
+        getPokemon(document.getElementById('pokemonSearch').value)
       }
     }
   }

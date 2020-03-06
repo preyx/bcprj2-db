@@ -15,7 +15,7 @@ const Home = props =>{
     </div>
   </div>
   <div className="row pokeSearch">
-    <div className="col-6">
+    <div className="col-12">
     <form>
       <div className="form-group">
         <label forhtml="pokemonSeawrch">Search Opposing Pokemon</label>
@@ -23,6 +23,7 @@ const Home = props =>{
       </div>
       <button type="submit" className="btn btn-primary" id = "search">Search</button>
     </form>
+    <p className="errorMessage" id="searchError"></p>
   </div>
   </div>
   <div className="row" id="row">
@@ -31,7 +32,7 @@ const Home = props =>{
     <h3>Enemy Team</h3>
     <hr></hr>
     <div className = "col-12 col-md-9" id="enemyDisplay"></div>
-    <div className="col-12 col-md-3" id = "enemy1">
+    <div className="col-12 col-md-3" id = "enemyTeam">
       {/* Display enemery team here */}
     </div>
     {/* <div className="flexContainer w-100">
