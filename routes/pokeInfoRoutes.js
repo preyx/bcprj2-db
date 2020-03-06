@@ -16,9 +16,11 @@ router.get('/pokemons', (req, res) => {
 router.get('/pokemons/:id', (req, res) => {
   Pokemon.findAll( {where: {id: req.params.id}})
   .then(pokemon => {
-    //have to lowercase since pokedex npm only takes in lowercase name
-    let pokeName = pokemon[0].dataValues.name.toLowerCase()
-    let sprite = pokemonGif(pokeName)
+    console.log(pokemon[0].dataValues)
+    //getting the pokedex number
+    let pokedexNum = pokemon[0].dataValues.pokedex_number
+    //call to get pokemon sprite
+    let sprite = pokemonGif(pokedexNum)
     pokemon[0].dataValues.sprite = sprite
     res.json(pokemon)
   })
@@ -78,14 +80,15 @@ router.get('/pokemons/matchups/:id', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name', 'base_total'], order:[ ['base_total', 'DESC'] ]
+        }, attributes: ['name', 'base_total', 'pokedex_number'], order:[ ['base_total', 'DESC'] ]
       })
       .then(results => {
         for(let i = 0; i<results.length; i++){
-          let pokeName = results[i].dataValues.name.toLowerCase()
-          console.log(pokeName)
-          // let sprite = pokemonGif(pokeName)
-          // results[i].dataValues.sprite = sprite
+          //getting the pokedex number
+          let pokedexNum = results[i].dataValues.pokedex_number
+          //call to get pokemon sprite
+          let sprite = pokemonGif(pokedexNum)
+          results[i].dataValues.sprite = sprite
         }
         res.json(results)
       })
@@ -159,9 +162,16 @@ router.get('/pokemons/matchups/nl/:id', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name', 'base_total'], order: [['base_total', 'DESC']]
+        }, attributes: ['name', 'base_total', 'pokedex_number'], order: [['base_total', 'DESC']]
       })
         .then(results => {
+          for (let i = 0; i < results.length; i++) {
+            //getting the pokedex number
+            let pokedexNum = results[i].dataValues.pokedex_number
+            //call to get pokemon sprite
+            let sprite = pokemonGif(pokedexNum)
+            results[i].dataValues.sprite = sprite
+          }
           res.json(results)
         })
         .catch(error => res.sendStatus(400))
