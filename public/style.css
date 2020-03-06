@@ -47,7 +47,14 @@
 }
 
 .buttonStyle{
-  color: black;
+  margin-left: 5px;
+}
+
+.checkBoxStyle{
+  margin-left: 15px;
+}
+.labelStyle{
+  margin-left: 5px;
 }
 
 .titleStyle {
