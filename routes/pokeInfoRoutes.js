@@ -19,9 +19,22 @@ router.get('/pokemons/:name', (req, res) => {
 
     //getting the pokedex number
     let pokedexNum = pokemon.dataValues.pokedex_number
+    if (pokedexNum === 717) {
+      pokemon.dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
+    }
+    else if (pokedexNum === 718) {
+      pokemon.dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/zygarde.gif'
+    }
+    else if (pokedexNum === 719) {
+      pokemon.dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/diancie.gif'
+    } else {
+      //call to get pokemon sprite
+      let sprite = pokemonGif(pokedexNum)
+      pokemon.dataValues.sprite = sprite
+    }
     //call to get pokemon sprite
-    let sprite = pokemonGif(pokedexNum)
-    pokemon.dataValues.sprite = sprite
+    // let sprite = pokemonGif(pokedexNum)
+    // pokemon.dataValues.sprite = sprite
     res.json(pokemon)
   })
   .catch(error => res.sendStatus(400))
@@ -87,9 +100,21 @@ router.get('/pokemons/matchups/:name', (req, res) => {
           //getting the pokedex number
           let pokedexNum = results[i].dataValues.pokedex_number
           console.log(pokedexNum)
-          //call to get pokemon sprite
-          let sprite = pokemonGif(pokedexNum)
-          results[i].dataValues.sprite = sprite
+          //edge case for 3 pokemon with incorrect image links
+          if(pokedexNum === 717){
+            results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
+          }
+          else if(pokedexNum === 718) {
+            results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/zygarde.gif'
+          }
+          else if (pokedexNum === 719) {
+            results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/diancie.gif'
+          }
+          else{
+            //call to get pokemon sprite
+            let sprite = pokemonGif(pokedexNum)
+            results[i].dataValues.sprite = sprite
+          }
         }
         res.json(results)
       })
@@ -168,9 +193,21 @@ router.get('/pokemons/matchups/nl/:name', (req, res) => {
           for (let i = 0; i < results.length; i++) {
             //getting the pokedex number
             let pokedexNum = results[i].dataValues.pokedex_number
-            //call to get pokemon sprite
-            let sprite = pokemonGif(pokedexNum)
-            results[i].dataValues.sprite = sprite
+            console.log(pokedexNum)
+            //edge case for 3 pokemon with incorrect image links
+            if (pokedexNum === 717) {
+              results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
+            }
+            else if (pokexNum === 718) {
+              results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/zygarde.gif'
+            }
+            else if (pokexNum === 719) {
+              results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/diancie.gif'
+            } else {
+              //call to get pokemon sprite
+              let sprite = pokemonGif(pokedexNum)
+              results[i].dataValues.sprite = sprite
+            }
           }
           res.json(results)
         })
