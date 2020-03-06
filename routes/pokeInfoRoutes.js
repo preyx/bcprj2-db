@@ -13,10 +13,10 @@ router.get('/pokemons', (req, res) => {
 })
 
 //get pokemon by id
-router.get('/pokemons/:id', (req, res) => {
-  Pokemon.findAll( {where: {id: req.params.id}})
+router.get('/pokemons/:name', (req, res) => {
+  Pokemon.findAll( {where: {name: req.params.name}})
   .then(pokemon => {
-    console.log(pokemon[0].dataValues)
+
     //getting the pokedex number
     let pokedexNum = pokemon[0].dataValues.pokedex_number
     //call to get pokemon sprite
@@ -28,9 +28,9 @@ router.get('/pokemons/:id', (req, res) => {
 })
 
 //get pokemon matchups (all pokemon)
-router.get('/pokemons/matchups/:id', (req, res) => {
+router.get('/pokemons/matchups/:name', (req, res) => {
   //getting inital pokemon to generate matchups against
-  Pokemon.findAll( {where: {id: req.params.id}, attributes:['base_total', 'against_bug', 'against_dark', 'against_dragon', 'against_electric', 'against_fairy', 'against_fight', 'against_fire', 'against_flying', 'against_ghost', 'against_grass', 'against_ground', 'against_ice', 'against_normal', 'against_poison', 'against_psychic', 'against_rock', 'against_steel', 'against_water']})
+  Pokemon.findAll( {where: {name: req.params.name}, attributes:['base_total', 'against_bug', 'against_dark', 'against_dragon', 'against_electric', 'against_fairy', 'against_fight', 'against_fire', 'against_flying', 'against_ghost', 'against_grass', 'against_ground', 'against_ice', 'against_normal', 'against_poison', 'against_psychic', 'against_rock', 'against_steel', 'against_water']})
   .then(pokemon => {
     let matchups = pokemon[0].dataValues
     //getting all pokemon within the a 100 base stat range
@@ -104,16 +104,15 @@ router.post('/pokemons', (req, res) => {
 })
 
 //get pokemon matchups (no legendaries)
-router.get('/pokemons/matchups/nl/:id', (req, res) => {
+router.get('/pokemons/matchups/nl/:name', (req, res) => {
   //getting inital pokemon to generate matchups against
-  Pokemon.findAll({ where: { id: req.params.id }, attributes: ['base_total', 'against_bug', 'against_dark', 'against_dragon', 'against_electric', 'against_fairy', 'against_fight', 'against_fire', 'against_flying', 'against_ghost', 'against_grass', 'against_ground', 'against_ice', 'against_normal', 'against_poison', 'against_psychic', 'against_rock', 'against_steel', 'against_water'] })
+  Pokemon.findAll({ where: { name: req.params.name }, attributes: ['base_total', 'against_bug', 'against_dark', 'against_dragon', 'against_electric', 'against_fairy', 'against_fight', 'against_fire', 'against_flying', 'against_ghost', 'against_grass', 'against_ground', 'against_ice', 'against_normal', 'against_poison', 'against_psychic', 'against_rock', 'against_steel', 'against_water'] })
     .then(pokemon => {
       let matchups = pokemon[0].dataValues
       //getting all pokemon within the a 100 base stat range
       let base_total = matchups.base_total - 100
       //remove the key base_total
       delete matchups['base_total']
-      console.log(matchups)
       let goodMatchups = []
       let badMatchups = []
       for (let element in matchups) {
@@ -139,9 +138,9 @@ router.get('/pokemons/matchups/nl/:id', (req, res) => {
         }
         return element[1]
       })
-      console.log(badMatchups)
+
       //serach for pokemon based on goodMatchups
-      console.log(goodMatchups)
+
       Pokemon.findAll({
         where: {
           base_total: {
@@ -186,15 +185,15 @@ router.post('/pokemons', (req, res) => {
 })
 
 //update a pokemon
-router.put('/pokemons/:id', (req, res) => {
-  Pokemon.update(req.body, {where: {id: req.params.id}})
+router.put('/pokemons/:name', (req, res) => {
+  Pokemon.update(req.body, {where: {name: req.params.name}})
   .then(() => res.sendStatus(200))
   .catch(error => res.sendStatus(400))
 })
 
 //delete a pokemon
-router.delete('/pokemons/:id', (req, res) => {
-  Pokemon.destroy({where: {id: req.params.id}})
+router.delete('/pokemons/:name', (req, res) => {
+  Pokemon.destroy({where: {name: req.params.name}})
   .then(() => res.sendStatus(200))
   .catch(error => res.sendStatus(400))
 })
