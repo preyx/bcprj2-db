@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Pokemon} = require('../models')
+const pokemonGif = require('pokemon-gif')
 //bring in Op to do an OR statement 
 const {Op} = require('sequelize')
 //get all pokemon
@@ -15,6 +16,12 @@ router.get('/pokemons', (req, res) => {
 router.get('/pokemons/:id', (req, res) => {
   Pokemon.findAll( {where: {id: req.params.id}})
   .then(pokemon => {
+    console.log(pokemon[0].dataValues)
+    //getting the pokedex number
+    let pokedexNum = pokemon[0].dataValues.pokedex_number
+    //call to get pokemon sprite
+    let sprite = pokemonGif(pokedexNum)
+    pokemon[0].dataValues.sprite = sprite
     res.json(pokemon)
   })
   .catch(error => res.sendStatus(400))
@@ -30,7 +37,6 @@ router.get('/pokemons/matchups/:id', (req, res) => {
     let base_total = matchups.base_total - 100
     //remove the key base_total
     delete matchups['base_total']
-    console.log(matchups)
     let goodMatchups = []
     let badMatchups =[]
     for(let element in matchups){
@@ -56,9 +62,7 @@ router.get('/pokemons/matchups/:id', (req, res) => {
         }
         return element[1]
       })
-      console.log(badMatchups)
       //serach for pokemon based on goodMatchups
-      console.log(goodMatchups)
       Pokemon.findAll({
         where:{
           base_total: {
@@ -76,9 +80,16 @@ router.get('/pokemons/matchups/:id', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name', 'base_total'], order:[ ['base_total', 'DESC'] ]
+        }, attributes: ['name','pokedex_number','base_total', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed'], order:[ ['base_total', 'DESC'] ]
       })
       .then(results => {
+        for(let i = 0; i<results.length; i++){
+          //getting the pokedex number
+          let pokedexNum = results[i].dataValues.pokedex_number
+          //call to get pokemon sprite
+          let sprite = pokemonGif(pokedexNum)
+          results[i].dataValues.sprite = sprite
+        }
         res.json(results)
       })
       .catch(error => res.sendStatus(400))
@@ -151,9 +162,16 @@ router.get('/pokemons/matchups/nl/:id', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name', 'base_total'], order: [['base_total', 'DESC']]
+        }, attributes: ['name', 'pokedex_number', 'base_total', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed'], order: [['base_total', 'DESC']]
       })
         .then(results => {
+          for (let i = 0; i < results.length; i++) {
+            //getting the pokedex number
+            let pokedexNum = results[i].dataValues.pokedex_number
+            //call to get pokemon sprite
+            let sprite = pokemonGif(pokedexNum)
+            results[i].dataValues.sprite = sprite
+          }
           res.json(results)
         })
         .catch(error => res.sendStatus(400))
