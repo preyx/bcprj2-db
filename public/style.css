@@ -31,15 +31,19 @@
   /* moves logo image to middle of screen when in mobile view */
   .imageStyle {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
   }
-  .userButtons{
+  .userButtons {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
+}
+
+.imageStyle {
+  height: 100px;
+  width: 100px;
 }
 
 .titleStyle {
