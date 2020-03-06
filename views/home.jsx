@@ -14,7 +14,7 @@ const Home = props =>{
       <form className = "col-12">
         <div className="form-group">
           <label forhtml="pokemonSearch">Pokemon</label>
-          <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
+            <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
           <small id="pokeHelp" className="form-text text-muted">Our database has over 700 Pokemon</small>
         </div>
         <button type="submit" className="btn btn-primary" id = "search">Search</button>
@@ -30,7 +30,7 @@ const Home = props =>{
       <div className="col col-sm-6" id="col">
         <h1 className = "titleStyle">Enemy Team</h1>
         <hr></hr>
-        <div className="d-flex enemyDisplay">
+        <div className="d-flex" id = "enemyDisplay">
           {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
             <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='

@@ -14,14 +14,14 @@ router.get('/pokemons', (req, res) => {
 
 //get pokemon by id
 router.get('/pokemons/:name', (req, res) => {
-  Pokemon.findAll( {where: {name: req.params.name}})
+  Pokemon.findOne( {where: {name: req.params.name}})
   .then(pokemon => {
 
     //getting the pokedex number
-    let pokedexNum = pokemon[0].dataValues.pokedex_number
+    let pokedexNum = pokemon.dataValues.pokedex_number
     //call to get pokemon sprite
     let sprite = pokemonGif(pokedexNum)
-    pokemon[0].dataValues.sprite = sprite
+    pokemon.dataValues.sprite = sprite
     res.json(pokemon)
   })
   .catch(error => res.sendStatus(400))

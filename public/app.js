@@ -2,6 +2,8 @@
 
 
 let userId = null
+let counter = 0
+let enemyId = 1
 let enemyDisplay = document.getElementById('enemyDisplay')
 
 //function to create an account
@@ -20,32 +22,64 @@ const createAccount = username => {
 
 //get user inputted pokemon info
 const getPokemon = pokeName => {
-  console.log(`/api/pokemons/${pokeName}`)
-  // axios.get(`/api/pokemons/${pokeName}`)
-  // .then( ({data: pokeInfo}) =>{
-  //   let pokeCard = document.createElement('div')
-  //   pokeCard.classList.add('col-12', 'col-md-4', 'card', 'cardStyle')
-  //   pokeCard.setAttribute('id', `${pokeInfo[0].id}`)
-  //   pokeCard.innerHTML = `
-  //   <img class="card-img-top pokeImages" src="${pokeInfo[0].sprite}" alt="${pokeInfo[0].name}">
-  //   <div class="card-body">
-  //     <h5 class="card-title cardTitleStyle">${pokeInfo[0].name}</h5>
-  //   </div>
-  //   <ul class="list-group list-group-flush">
-  //     <li class="list-group-item">Stat Total: ${pokeInfo[0].base_total} </li>
-  //     <li class="list-group-item">Attack: ${pokeInfo[0].attack}</li>
-  //     <li class="list-group-item">Defense: ${pokeInfo[0].defense}</li>
-  //     <li class="list-group-item">Special Attack: ${pokeInfo[0].sp_attack}</li>
-  //     <li class="list-group-item">Special Defense: ${pokeInfo[0].sp_defense}</li>
-  //     <li class="list-group-item">Special Speed: ${pokeInfo[0].speed}</li>
-  //   </ul>
-  //   `
-  //   enemyDisplay.append(pokeCard)
-  // })
-  // .catch(error => {
-  //   console.error(error)
-  //   document.getElementById('searchError').textContent = 'Pokemon does not exist. Please enter another pokemon'
-  // })
+  document.getElementById('searchError').innerHTML = ''
+  axios.get(`/api/pokemons/${pokeName}`)
+  .then( ({data: pokeInfo}) =>{
+    console.log(pokeInfo)
+    let pokeCard = document.createElement('div')
+    pokeCard.classList.add('pokeCard', 'text-center', 'align-bottom')
+    if(enemyId > 3 ){
+      counter+=1
+      if(counter>3){
+        counter=1
+      }
+      document.getElementById(`enemy${counter}`).innerHTML =`
+      <img src="${pokeInfo.sprite}" className="${pokeInfo.name}" alt="..." />
+      <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+      Type1: ${pokeInfo.type1}<br />
+      Type2: ${pokeInfo.type2}<br />
+      HP: ${pokeInfo.hp}<br />
+      Atk: ${pokeInfo.attack}<br />
+      Def: ${pokeInfo.defense}<br />
+      SpA: ${pokeInfo.sp_attack}<br />
+      SpD: ${pokeInfo.sp_defense}<br />
+      Speed: ${pokeInfo.speed}<br />
+      '>${pokeInfo.name}</p>
+      `
+      enemyDisplay.append(pokeCard)
+      enemyId += 1
+      console.log(`ping, EnemyID: ${enemyId}`)
+      popover()
+    }else{
+      pokeCard.setAttribute('id', `enemy${enemyId}`)
+      if(pokeInfo.type2 === ''){
+        pokeInfo.type2 = 'N/A'
+      }
+      pokeCard.innerHTML = `
+        <img src="${pokeInfo.sprite}" className="${pokeInfo.name}" alt="..." />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${pokeInfo.type1}<br />
+        Type2: ${pokeInfo.type2}<br />
+        HP: ${pokeInfo.hp}<br />
+        Atk: ${pokeInfo.attack}<br />
+        Def: ${pokeInfo.defense}<br />
+        SpA: ${pokeInfo.sp_attack}<br />
+        SpD: ${pokeInfo.sp_defense}<br />
+        Speed: ${pokeInfo.speed}<br />
+        '>${pokeInfo.name}</p>
+      `
+      enemyDisplay.append(pokeCard)
+      enemyId +=1
+      counter+=1
+      //reinitialize popover element
+      popover()
+
+    }
+  })
+  .catch(error => {
+    console.error(error)
+    document.getElementById('searchError').textContent = 'Pokemon does not exist. Please enter another pokemon'
+  })
 }
 
 //function to sign in user
@@ -112,13 +146,20 @@ document.getElementById('search').addEventListener('click', event => {
   }
   else{
     getPokemon(document.getElementById('pokemonSearch').value)
+    //empty out user input
+    document.getElementById('pokemonSearch').value = ''
   }
 })
 
 //function to display pokemon stats when user hovers over name
+const popover = () =>{
   $(function () {
     $('[data-toggle="popover"]').popover({
       placement: 'bottom',
       trigger: 'hover'
     })
   })
+}
+
+//initalizes all popover elements
+popover()
