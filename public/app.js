@@ -27,14 +27,14 @@ const getPokemon = pokeName => {
   .then( ({data: pokeInfo}) =>{
     console.log(pokeInfo)
     let pokeCard = document.createElement('div')
-    pokeCard.classList.add('pokeCard', 'text-center', 'align-bottom')
+    pokeCard.classList.add('pokeCard', 'text-center')
     if(enemyId > 3 ){
       counter+=1
       if(counter>3){
         counter=1
       }
       document.getElementById(`enemy${counter}`).innerHTML =`
-      <img src="${pokeInfo.sprite}" className="${pokeInfo.name}" alt="..." />
+      <img src="${pokeInfo.sprite}" className="renderImages" alt="${pokeInfo.name}" />
       <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
       Type1: ${pokeInfo.type1}<br />
       Type2: ${pokeInfo.type2}<br />

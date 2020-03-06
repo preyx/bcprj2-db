@@ -25,7 +25,6 @@ const Home = props =>{
           <p className="errorMessage col-12" id="searchError"></p>
     </div>
     <div className="row" id="row">
-      <div className="col"></div>
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
       <div className="col col-sm-6" id="col">
         <h1 className = "titleStyle">Enemy Team</h1>
@@ -65,7 +64,6 @@ const Home = props =>{
           </div> */}
         </div>
       </div>
-      <div className="col"></div>
     </div>
     <button className="btn btn-outline-success btn-warning" type="button">Generate Team</button>
     <input type="checkbox" id="legendary" name="legendary" value="pokemon"/>
