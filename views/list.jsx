@@ -5,11 +5,11 @@ const List = props =>{
   return(
     <Html>
       {props.item.map(item =>
-        <div class="card p-1">
+        <div className="card p-1">
           <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-            class="card-img-top img-fluid" alt="..." />
+            className="card-img-top img-fluid" alt="..." />
           <h1>Title</h1>
-          <div class="card-body p-0">
+          <div className="card-body p-0">
            <ul>
              <li>
               {item}
