@@ -13,7 +13,7 @@
 <body>
   <!-- NavBar -->
 
-  <nav class="navbar navbar-light bg-primary flexContainer">
+  <nav class="navbar navbar-light bg-primary d-flex">
     <form class="form-inline">
       <div class="input-group">
         <div class="input-group-prepend"></div>
@@ -29,570 +29,228 @@
   </nav>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid start~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-  <div class="container-fluid">
+  <div class="container">
     <div class="row" id="row">
+      <div class="col"></div>
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
       <div class="col col-sm-6" id="col">
         <h1>Enemy Team</h1>
-        <div class="flexContainer w-100">
-          <div class="card p-2">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="card-img-top"
-              alt="..." />
-            <h1 data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
               Type1: grass<br />
               Type2: poison<br />
               HP: 45<br />
               Atk: 65<br />
               Def: 49
-              '>asdf</h1>
+              '>asdf</p>
           </div>
 
-          <div class="card p-2">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="card-img-top"
-              alt="..." />
-            <h1 data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
               Type1: grass<br />
               Type2: poison<br />
               HP: 45<br />
               Atk: 65<br />
               Def: 49
-              '>asdfas</h1>
+              '>asdfas</p>
           </div>
 
-          <div class="card p-2">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="card-img-top"
-              alt="..." />
-            <h1 data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
               Type1: grass<br />
               Type2: poison<br />
               HP: 45<br />
               Atk: 65<br />
               Def: 49
-              '>asdfasdf</h1>
+              '>asdfasdf</p>
           </div>
-
         </div>
-        <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Team</button>
-        <input type="checkbox" id="legendary" name="legendary" value="pokemon">
-        <label for="legendary">No Legendaries</label><br>
+      </div>
+      <div class="col"></div>
+    </div>
+    <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Team</button>
+    <input type="checkbox" id="legendary" name="legendary" value="pokemon">
+    <label for="legendary">No Legendaries</label><br>
+
+    <div class="row" id="row">
+      <div class="col col-sm-6" id="col">
         <h2>Results</h2>
-        <div class="flexContainer">
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
         </div>
-        <div class="flexContainer">
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
         </div>
-        <div class="flexContainer">
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
         </div>
-        <div class="flexContainer">
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
         </div>
-        <div class="flexContainer">
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
         </div>
@@ -604,273 +262,94 @@
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
       <div class="col col-sm-6" id="col">
         <h1>Enemy Team</h1>
-        <div class="flexContainer">
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
         </div>
         <h1> Your Team</h1>
-        <div class="flexContainer">
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+        <div class="d-flex">
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
 
-          <div class="card p-1">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif"
-              class="card-img-top img-fluid" alt="...">
-            <h1>Title</h1>
-            <div class="card-body p-0">
-              <ul class="list-group list-group-flush">
-                <!-- type 1 -->
-                <li class="list-group-item">
-                  grass
-                </li>
-                <!-- type 2 -->
-                <li class="list-group-item">
-                  poison
-                </li>
-                <!-- base hp -->
-                <li class="list-group-item">
-                  45
-                </li>
-                <!-- base att -->
-                <li class="list-group-item">
-                  65
-                </li>
-                <!-- base def -->
-                <li class="list-group-item">
-                  49
-                </li>
-                <!-- base spec -->
-                <!-- <li>
-
-                </li> -->
-              </ul>
-            </div>
+          <div class="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
-
         </div>
         <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Remove Team</button>
         <button class="btn btn-outline-success btn-warning" style="color: red;" type="button">Generate Random
           Name</button>
         <h2>Random Name Generator Results</h2>
 
-        <div class="card p-1">
-          <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="card-img-top img-fluid"
-            alt="...">
-          <h1>Title</h1>
-          <div class="card-body p-0">
-            <ul class="list-group list-group-flush">
-              <!-- type 1 -->
-              <li class="list-group-item">
-                grass
-              </li>
-              <!-- type 2 -->
-              <li class="list-group-item">
-                poison
-              </li>
-              <!-- base hp -->
-              <li class="list-group-item">
-                45
-              </li>
-              <!-- base att -->
-              <li class="list-group-item">
-                65
-              </li>
-              <!-- base def -->
-              <li class="list-group-item">
-                49
-              </li>
-              <!-- base spec -->
-              <!-- <li>
-
-                </li> -->
-            </ul>
-          </div>
+        <div class="pokeCard text-center">
+          <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" class="" alt="..." />
+          <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
         </div>
-
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
   <script>
