@@ -23,7 +23,7 @@ router.get('/pokemons/:name', (req, res) => {
     res.json(pokemon)
   })
   .catch(e => res.sendStatus(400))
-)
+})
 
 //GET matchup pokemon
 router.get('/pokemon/matchups/:name', (req, res) => Pokemon.findAll({
