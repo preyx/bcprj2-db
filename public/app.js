@@ -8,7 +8,6 @@ let enemyDisplay = document.getElementById('enemyDisplay')
 const createAccount = username => {
   axios.post('/api/users', {username: username})
   .then( () => {
-    console.log('ping')
     signIn(username)
   })
   //error checking for when a username already exists
@@ -20,7 +19,6 @@ const createAccount = username => {
 
 //get user inputted pokemon info
 const getPokemon = pokeName => {
-  console.log(`/api/pokemon/${pokeName}`)
   axios.get(`/api/pokemon/${pokeName}`)
   .then( ({data: pokeInfo}) =>{
     let pokeCard = document.createElement('div')
@@ -58,7 +56,6 @@ const signIn = username => {
       document.getElementById('welcome').textContent = `Welcome ${username}!`
       //empty out user input
       document.getElementById('username').value = ''
-      console.log(`UserId: ${userId}`)
     })
     .catch(error => console.error(error))
 }
