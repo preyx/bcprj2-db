@@ -15,11 +15,12 @@ const Html = props => {
         {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NavBar ~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
 
   <nav className ="navbar navbar-light bg-primary flexContainer">
-    <div className = "row">
+          <div className= "row imageStyle">
           <div id="logo">
-            <img className = "imageStyle"src='http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif'></img>
+              <img src='http://www.pokestadium.com/sprites/xy/tyranitar.gif'></img>
+              <br></br>
+              <br></br>
           </div>
-          <br></br>
           </div>
           <div className="row">
           <form className="form-inline">
@@ -28,10 +29,10 @@ const Html = props => {
               <input type="text"  className="form-control" aria-label="Username"
                 aria-describedby="basic-addon1" id = "username" />
             </div>
-            <div>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "signIn">Sign In</button>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "create">Create Account</button>
-              <button className="btn btn-outline-success btn-warning warningbtn" type="button" id = "signOut">Sign Out</button>
+            <div className = 'userButtons'>
+              <button className="btn btn-dark" type="button" id = "signIn">Sign In</button>
+              <button className="btn btn-dark" type="button" id = "create">Create Account</button>
+              <button className="btn btn-dark" type="button" id = "signOut">Sign Out</button>
             </div> 
           </form>
           </div>
