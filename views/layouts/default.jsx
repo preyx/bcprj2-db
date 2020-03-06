@@ -15,11 +15,10 @@ const Html = props => {
         {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ NavBar ~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
 
   <nav className ="navbar navbar-light bg-primary flexContainer">
-    <div className = "row">
+          <div className= "row imageStyle">
           <div id="logo">
-              <img className="imageStyle" src='http://www.pokestadium.com/sprites/xy/tyranitar.gif'></img>
+              <img src='http://www.pokestadium.com/sprites/xy/tyranitar.gif'></img>
           </div>
-          <br></br>
           </div>
           <div className="row">
           <form className="form-inline">

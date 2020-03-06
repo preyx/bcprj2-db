@@ -31,13 +31,29 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
 }
 
-.titleStyle{
+.titleStyle {
   text-align: center;
 }
 
-.pokeSearch{
-  margin:0 auto;
+.pokeSearch {
+  margin: 0 auto;
+}
+
+.pokeImages {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardTitleStyle{
+  text-align: center;
+}
+
+.cardStyle{
+  margin-top: 10px;
+  padding-top:10px;
 }
