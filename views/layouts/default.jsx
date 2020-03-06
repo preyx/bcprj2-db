@@ -28,10 +28,10 @@ const Html = props => {
               <input type="text"  className="form-control" placeholder = "Enter Username Here"aria-label="Username"
                 aria-describedby="basic-addon1" id = "username" />
             </div>
-            <div>
-                <button className="btn btn-outline-success btn-warning warningbtn userButtons" type="button" id = "signIn">Sign In</button>
-                <button className="btn btn-outline-success btn-warning warningbtn userButtons" type="button" id = "create">Create Account</button>
-                <button className="btn btn-outline-success btn-warning warningbtn userButtons" type="button" id = "signOut">Sign Out</button>
+              <div className= "userButtons">
+                <button className="btn btn-warning btn-outline-danger warningbtn" type="button" id = "signIn">Sign In</button>
+                <button className="btn btn-warning btn-outline-danger warningbtn" type="button" id = "create">Create Account</button>
+                <button className="btn btn-warning btn-outline-danger warningbtn" type="button" id = "signOut">Sign Out</button>
             </div> 
           </form>
           </div>

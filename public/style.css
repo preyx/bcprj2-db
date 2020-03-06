@@ -1,4 +1,4 @@
-/* .flexContainer {
+.flexContainer {
   display: flex;
 }
 
@@ -24,26 +24,30 @@
 }
 
 .errorMessage {
-  padding-top: 10px;
   color: red;
 }
 
 @media only screen and (max-width: 375px) {
   /* moves logo image to middle of screen when in mobile view */
   .imageStyle {
-    padding-top: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
   .userButtons {
     margin-top: 10px;
-    margin: 0 auto;
-    /* text-align: center;
-  }
-  .errorMessage {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
+}
+
+.warningbtn {
+  color: red;
+}
+
+.buttonStyle{
+  color: black;
 }
 
 .titleStyle {
@@ -70,21 +74,3 @@
   margin-top: 10px;
   padding-top: 10px;
 }
-
-.pokeCard {
-  flex: 1;
-}
-
-*/ .pokeCard p {
-  font-weight: bold;
-}
-
-.pokeCard img {
-  height: auto;
-  max-width: 80px;
-}
-
-.d-flex {
-  align-items: flex-end;
-}
-

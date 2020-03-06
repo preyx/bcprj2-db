@@ -17,7 +17,7 @@ const Home = props =>{
             <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
           <small id="pokeHelp" className="form-text text-muted">Our database has over 700 Pokemon</small>
         </div>
-        <button type="submit" className="btn btn-primary" id = "search">Search</button>
+            <button type="submit" className="btn btn-warning btn-outline-danger warningbtn" id = "search">Search</button>
       </form>
       <br></br>
     </div>
@@ -65,7 +65,7 @@ const Home = props =>{
         </div>
       </div>
     </div>
-    <button className="btn btn-outline-success btn-warning" type="button">Generate Team</button>
+      <button className="btn btn-warning btn-outline-danger warningbtn" type="button">Generate Team</button>
     <input type="checkbox" id="legendary" name="legendary" value="pokemon"/>
     <label forhtml="legendary">No Legendaries</label><br/>
 
