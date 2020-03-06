@@ -17,7 +17,7 @@ const Html = props => {
   <nav className ="navbar navbar-light bg-primary flexContainer">
           <div className= "row imageStyle">
           <div id="logo">
-              <img src='http://www.pokestadium.com/sprites/xy/tyranitar.gif'></img>
+              <img src='./assets/logo.png'></img>
               <br></br>
               <br></br>
           </div>

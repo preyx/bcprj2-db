@@ -34,13 +34,14 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .userButtons{
+  .userButtons {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
 }
+
 
 .titleStyle {
   text-align: center;

@@ -25,19 +25,19 @@ const getPokemon = pokeName => {
   .then( ({data: pokeInfo}) =>{
     let pokeCard = document.createElement('div')
     pokeCard.classList.add('col-12', 'col-md-4', 'card', 'cardStyle')
-    pokeCard.setAttribute('id', `${pokeInfo[0].id}`)
+    pokeCard.setAttribute('id', `${pokeInfo.id}`)
     pokeCard.innerHTML = `
-    <img class="card-img-top pokeImages" src="${pokeInfo[0].sprite}" alt="${pokeInfo[0].name}">
+    <img class="card-img-top pokeImages" src="${pokeInfo.sprite}" alt="${pokeInfo.name}">
     <div class="card-body">
-      <h5 class="card-title cardTitleStyle">${pokeInfo[0].name}</h5>
+      <h5 class="card-title cardTitleStyle">${pokeInfo.name}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Stat Total: ${pokeInfo[0].base_total} </li>
-      <li class="list-group-item">Attack: ${pokeInfo[0].attack}</li>
-      <li class="list-group-item">Defense: ${pokeInfo[0].defense}</li>
-      <li class="list-group-item">Special Attack: ${pokeInfo[0].sp_attack}</li>
-      <li class="list-group-item">Special Defense: ${pokeInfo[0].sp_defense}</li>
-      <li class="list-group-item">Special Speed: ${pokeInfo[0].speed}</li>
+      <li class="list-group-item">Stat Total: ${pokeInfo.base_total} </li>
+      <li class="list-group-item">Attack: ${pokeInfo.attack}</li>
+      <li class="list-group-item">Defense: ${pokeInfo.defense}</li>
+      <li class="list-group-item">Special Attack: ${pokeInfo.sp_attack}</li>
+      <li class="list-group-item">Special Defense: ${pokeInfo.sp_defense}</li>
+      <li class="list-group-item">Special Speed: ${pokeInfo.speed}</li>
     </ul>
     `
     enemyDisplay.append(pokeCard)
