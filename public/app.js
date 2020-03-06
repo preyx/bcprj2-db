@@ -1,4 +1,6 @@
 //Global variable to store userID, null if no one is signed in
+
+
 let userId = null
 let enemyDisplay = document.getElementById('enemyTeam')
 
