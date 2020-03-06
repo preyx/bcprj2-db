@@ -28,7 +28,8 @@ const Home = props =>{
       <div className="col"></div>
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
       <div className="col col-sm-6" id="col">
-        <h1>Enemy Team</h1>
+        <h1 className = "titleStyle">Enemy Team</h1>
+        <hr></hr>
         <div className="d-flex enemyDisplay">
           {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />

@@ -24,6 +24,7 @@
 }
 
 .errorMessage {
+  padding-top: 10px;
   color: red;
 }
 
@@ -39,8 +40,8 @@
     margin-right: auto;
     text-align: center;
   }
-  .errorMessage{
-    text-align:center;
+  .errorMessage {
+    text-align: center;
   }
 }
 
@@ -76,9 +77,9 @@
 
 .pokeCard {
   flex: 1;
-} */
+}
 
-.pokeCard p {
+*/ .pokeCard p {
   font-weight: bold;
 }
 
