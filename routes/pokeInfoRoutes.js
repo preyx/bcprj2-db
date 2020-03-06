@@ -1,8 +1,6 @@
 const router = require('express').Router()
 const {Pokemon} = require('../models')
-const Pokedex = require('pokedex')
-
-let {pokemon: pokeSearch} = new Pokedex()
+const pokemonGif = require('pokemon-gif')
 //bring in Op to do an OR statement 
 const {Op} = require('sequelize')
 //get all pokemon
@@ -20,8 +18,7 @@ router.get('/pokemons/:id', (req, res) => {
   .then(pokemon => {
     //have to lowercase since pokedex npm only takes in lowercase name
     let pokeName = pokemon[0].dataValues.name.toLowerCase()
-    console.log(pokeName)
-    let sprite = pokeSearch(`${pokeName}`).sprites.animated
+    let sprite = pokemonGif(pokeName)
     pokemon[0].dataValues.sprite = sprite
     res.json(pokemon)
   })
@@ -38,7 +35,6 @@ router.get('/pokemons/matchups/:id', (req, res) => {
     let base_total = matchups.base_total - 100
     //remove the key base_total
     delete matchups['base_total']
-    console.log(matchups)
     let goodMatchups = []
     let badMatchups =[]
     for(let element in matchups){
@@ -64,9 +60,7 @@ router.get('/pokemons/matchups/:id', (req, res) => {
         }
         return element[1]
       })
-      console.log(badMatchups)
       //serach for pokemon based on goodMatchups
-      console.log(goodMatchups)
       Pokemon.findAll({
         where:{
           base_total: {
@@ -87,6 +81,12 @@ router.get('/pokemons/matchups/:id', (req, res) => {
         }, attributes: ['name', 'base_total'], order:[ ['base_total', 'DESC'] ]
       })
       .then(results => {
+        for(let i = 0; i<results.length; i++){
+          let pokeName = results[i].dataValues.name.toLowerCase()
+          console.log(pokeName)
+          // let sprite = pokemonGif(pokeName)
+          // results[i].dataValues.sprite = sprite
+        }
         res.json(results)
       })
       .catch(error => res.sendStatus(400))
