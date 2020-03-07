@@ -50,7 +50,7 @@ router.get('/pokemons/matchups/:name', (req, res) => {
   .then(pokemon => {
     let matchups = pokemon[0].dataValues
     //getting all pokemon within the a 100 base stat range
-    let base_total = matchups.base_total - 100
+    let base_total = matchups.base_total - 150
     //remove the key base_total
     delete matchups['base_total']
     let goodMatchups = []
@@ -125,7 +125,7 @@ router.get('/pokemons/matchups/nl/:name', (req, res) => {
     .then(pokemon => {
       let matchups = pokemon[0].dataValues
       //getting all pokemon within the a 100 base stat range
-      let base_total = matchups.base_total - 100
+      let base_total = matchups.base_total - 150
       //remove the key base_total
       delete matchups['base_total']
       let goodMatchups = []
