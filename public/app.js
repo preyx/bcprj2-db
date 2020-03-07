@@ -121,91 +121,149 @@ const generateMatchups = () => {
   let team = { one: document.getElementById('enemy1').innerText, two: document.getElementById('enemy2').innerText, three: document.getElementById('enemy3').innerText }
   let result = {}
   let prefix = document.getElementById('legendary').checked ? ('/api/pokemons/matchups/nl/') : '/api/pokemons/matchups/'
-  console.log(`axios call: ${prefix+team.one}`)
   axios.get(prefix + team.one)
   .then( ({data: matchups}) => {
-    console.log(matchups)
-    //only rendering 3 pokemon
-    for(let i = 0; i<3; i++ ){
-      let targetRow = document.getElementById(`result${i}`)
-      let pokeCard = document.createElement('div')
-      pokeCard.classList.add('pokeCard', 'text-center')
-      pokeCard.dataset.pokemonId = matchups[i].pokedex_number
-      pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
-      if (matchups[i].type2 === '') {
-        matchups[i].type2 = 'N/A'
-      }
-      pokeCard.innerHTML = `
-        <img src="${matchups[i].sprite}" className="${matchups[i].name}" alt="..." />
-        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-        Type1: ${matchups[i].type1}<br />
-        Type2: ${matchups[i].type2}<br />
-        HP: ${matchups[i].hp}<br />
-        Atk: ${matchups[i].attack}<br />
-        Def: ${matchups[i].defense}<br />
-        SpA: ${matchups[i].sp_attack}<br />
-        SpD: ${matchups[i].sp_defense}<br />
-        Speed: ${matchups[i].speed}<br />
-        '>${matchups[i].name}</p>
-      `
-      targetRow.append(pokeCard)
-    }
-    axios.get(prefix + team.two)
-    .then(({data: matchups}) => {
-      //only rendering 3 pokemon
-      for (let i = 0; i < 3; i++) {
+    for(let i = 0; i<5; i++ ){
+      if(i<matchups.length){
         let targetRow = document.getElementById(`result${i}`)
         let pokeCard = document.createElement('div')
         pokeCard.classList.add('pokeCard', 'text-center')
         pokeCard.dataset.pokemonId = matchups[i].pokedex_number
-        pokeCard.setAttribute('id', `matchupTwo_${matchups[i].pokedex_number}`)
+        pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
         if (matchups[i].type2 === '') {
           matchups[i].type2 = 'N/A'
         }
         pokeCard.innerHTML = `
-        <img src="${matchups[i].sprite}" className="${matchups[i].name}" alt="..." />
+          <img src="${matchups[i].sprite}" alt="${matchups[i].name}" />
+          <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+          Type1: ${matchups[i].type1}<br />
+          Type2: ${matchups[i].type2}<br />
+          HP: ${matchups[i].hp}<br />
+          Atk: ${matchups[i].attack}<br />
+          Def: ${matchups[i].defense}<br />
+          SpA: ${matchups[i].sp_attack}<br />
+          SpD: ${matchups[i].sp_defense}<br />
+          Speed: ${matchups[i].speed}<br />
+          '>${matchups[i].name}</p>
+        `
+        targetRow.append(pokeCard)
+      }else{
+        //generating a missingno card if not enough matchups are returned
+        let targetRow = document.getElementById(`result${i}`)
+        let pokeCard = document.createElement('div')
+        pokeCard.classList.add('pokeCard', 'text-center')
+        pokeCard.innerHTML = `
+        <img src = "./assets/missingno.png" alt = "missingno"/>
         <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-        Type1: ${matchups[i].type1}<br />
-        Type2: ${matchups[i].type2}<br />
-        HP: ${matchups[i].hp}<br />
-        Atk: ${matchups[i].attack}<br />
-        Def: ${matchups[i].defense}<br />
-        SpA: ${matchups[i].sp_attack}<br />
-        SpD: ${matchups[i].sp_defense}<br />
-        Speed: ${matchups[i].speed}<br />
-        '>${matchups[i].name}</p>
-      `
+        Type1: ?̶̇̀?̴̥̉?̵̭̽ <br />
+        Type2: ?̵͔̆?̷͘͝?̵̎̍ <br />
+        HP: ?̸͔̇?̶̄̀?̴͎̕ <br />
+        Atk: ?̶̊̑?̶̅̊?̶̾͠ <br />
+        Def: ?̶̈́́?̵̼̀?̵̘̾ <br />
+        SpA:?̷̑̍?̴̭̈?̶̡͂ <br />
+        SpD: ?̶̰̔?̵̛̗?̶̖̅ <br />
+        Speed: ?̸̘̓?̷̤͠?̸̛̀ <br />
+        '>missingno</p>
+        `
         targetRow.append(pokeCard)
       }
-      axios.get(prefix + team.three)
-      .then(({data: matchups}) => {
-        //only rendering 3 pokemon
-        for (let i = 0; i < 3; i++) {
+    }
+    axios.get(prefix + team.two)
+    .then(({data: matchups}) => {
+      for (let i = 0; i < 5; i++) {
+        if (i < matchups.length) {
           let targetRow = document.getElementById(`result${i}`)
           let pokeCard = document.createElement('div')
           pokeCard.classList.add('pokeCard', 'text-center')
           pokeCard.dataset.pokemonId = matchups[i].pokedex_number
-          pokeCard.setAttribute('id', `matchupThree_${matchups[i].pokedex_number}`)
+          pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
           if (matchups[i].type2 === '') {
             matchups[i].type2 = 'N/A'
           }
           pokeCard.innerHTML = `
-        <img src="${matchups[i].sprite}" className="${matchups[i].name}" alt="..." />
-        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-        Type1: ${matchups[i].type1}<br />
-        Type2: ${matchups[i].type2}<br />
-        HP: ${matchups[i].hp}<br />
-        Atk: ${matchups[i].attack}<br />
-        Def: ${matchups[i].defense}<br />
-        SpA: ${matchups[i].sp_attack}<br />
-        SpD: ${matchups[i].sp_defense}<br />
-        Speed: ${matchups[i].speed}<br />
-        '>${matchups[i].name}</p>
-      `
+          <img src="${matchups[i].sprite}" alt="${matchups[i].name}" />
+          <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+          Type1: ${matchups[i].type1}<br />
+          Type2: ${matchups[i].type2}<br />
+          HP: ${matchups[i].hp}<br />
+          Atk: ${matchups[i].attack}<br />
+          Def: ${matchups[i].defense}<br />
+          SpA: ${matchups[i].sp_attack}<br />
+          SpD: ${matchups[i].sp_defense}<br />
+          Speed: ${matchups[i].speed}<br />
+          '>${matchups[i].name}</p>
+        `
           targetRow.append(pokeCard)
-          popover()
+        } else {
+          //generating a missingno card if not enough matchups are returned
+          let targetRow = document.getElementById(`result${i}`)
+          let pokeCard = document.createElement('div')
+          pokeCard.classList.add('pokeCard', 'text-center')
+          pokeCard.innerHTML = `
+        <img src = "./assets/missingno.png" alt = "missingno"/>
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ?̶̇̀?̴̥̉?̵̭̽ <br />
+        Type2: ?̵͔̆?̷͘͝?̵̎̍ <br />
+        HP: ?̸͔̇?̶̄̀?̴͎̕ <br />
+        Atk: ?̶̊̑?̶̅̊?̶̾͠ <br />
+        Def: ?̶̈́́?̵̼̀?̵̘̾ <br />
+        SpA:?̷̑̍?̴̭̈?̶̡͂ <br />
+        SpD: ?̶̰̔?̵̛̗?̶̖̅ <br />
+        Speed: ?̸̘̓?̷̤͠?̸̛̀ <br />
+        '>missingno</p>
+        `
+          targetRow.append(pokeCard)
         }
-      })
+      }
+      axios.get(prefix + team.three)
+      .then(({data: matchups}) => {
+        for (let i = 0; i < 5; i++) {
+          if (i < matchups.length) {
+            let targetRow = document.getElementById(`result${i}`)
+            let pokeCard = document.createElement('div')
+            pokeCard.classList.add('pokeCard', 'text-center')
+            pokeCard.dataset.pokemonId = matchups[i].pokedex_number
+            pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+            if (matchups[i].type2 === '') {
+              matchups[i].type2 = 'N/A'
+            }
+            pokeCard.innerHTML = `
+          <img src="${matchups[i].sprite}" alt="${matchups[i].name}" />
+          <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+          Type1: ${matchups[i].type1}<br />
+          Type2: ${matchups[i].type2}<br />
+          HP: ${matchups[i].hp}<br />
+          Atk: ${matchups[i].attack}<br />
+          Def: ${matchups[i].defense}<br />
+          SpA: ${matchups[i].sp_attack}<br />
+          SpD: ${matchups[i].sp_defense}<br />
+          Speed: ${matchups[i].speed}<br />
+          '>${matchups[i].name}</p>
+        `
+            targetRow.append(pokeCard)
+          } else {
+            //generating a missingno card if not enough matchups are returned
+            let targetRow = document.getElementById(`result${i}`)
+            let pokeCard = document.createElement('div')
+            pokeCard.classList.add('pokeCard', 'text-center')
+            pokeCard.innerHTML = `
+              <img src = "./assets/missingno.png" alt = "missingno"/>
+              <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+              Type1: ?̶̇̀?̴̥̉?̵̭̽ <br />
+              Type2: ?̵͔̆?̷͘͝?̵̎̍ <br />
+              HP: ?̸͔̇?̶̄̀?̴͎̕ <br />
+              Atk: ?̶̊̑?̶̅̊?̶̾͠ <br />
+              Def: ?̶̈́́?̵̼̀?̵̘̾ <br />
+              SpA:?̷̑̍?̴̭̈?̶̡͂ <br />
+              SpD: ?̶̰̔?̵̛̗?̶̖̅ <br />
+              Speed: ?̸̘̓?̷̤͠?̸̛̀ <br />
+              '>missingno</p>
+              `
+            targetRow.append(pokeCard)
+          }
+        }
+        popover()
+        })
       .catch(error => console.error(error))
     })
     .catch(error => console.error(error))
