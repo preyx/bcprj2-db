@@ -19,7 +19,6 @@ const Html = props => {
           <div id="logo">
             <img src='./assets/logo.png'></img>
           </div>
-          <br></br>
           </div>
           <div className="row">
           <form className="form-inline">

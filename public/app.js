@@ -99,6 +99,9 @@ document.addEventListener('click', event => {
   let target = event.target
   if(target.nodeName ==='BUTTON') {
     event.preventDefault()
+    //empty out all error messages
+    document.getElementById('error').innerHTML = ''
+    document.getElementById('searchError').innerHTML = ''
     if(target.id ==='signIn'){
       //check if there is nothing in the input field
       if (document.getElementById('username').value === '') {
