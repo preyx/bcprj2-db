@@ -1,26 +1,18 @@
-.flexContainer {
-  display: flex;
+.pokeCard {
+  flex: 1;
 }
 
-/* #row{
-    border: solid 1em red;
-}
-#col{
-  border: solid 1em green;
-} */
-
-.card {
-  flex-grow: 1;
+.pokeCard p {
+  font-weight: bold;
 }
 
-/* .responsive{
-   width: 100%;
-   height: auto;
-} */
+.pokeCard img {
+  height: auto;
+  max-width: 80px;
+}
 
-.Generate {
-  height: 10rem;
-  width: 10rem;
+.d-flex {
+  align-items: flex-end;
 }
 
 .errorMessage {
@@ -34,12 +26,28 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .userButtons{
+  .userButtons {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
+}
+
+.warningbtn {
+  color: red;
+}
+
+.buttonStyle {
+  margin-left: 5px;
+}
+
+.checkBoxStyle {
+  margin-left: 15px;
+}
+
+.labelStyle {
+  margin-left: 5px;
 }
 
 .titleStyle {
