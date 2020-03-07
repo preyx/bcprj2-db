@@ -96,7 +96,7 @@ router.get('/pokemons/matchups/:name', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name','pokedex_number','base_total', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed'], order:[ ['base_total', 'DESC'] ]
+        }, attributes: ['name','pokedex_number','base_total', 'hp', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed', 'type1', 'type2'], order:[ ['base_total', 'DESC'] ]
       })
       .then(results => {
         for(let i = 0; i<results.length; i++){
@@ -176,7 +176,7 @@ router.get('/pokemons/matchups/nl/:name', (req, res) => {
               [Op.and]: [{ type1: { [Op.not]: badMatchups } }]
             }
           ]
-        }, attributes: ['name', 'pokedex_number', 'base_total', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed'], order: [['base_total', 'DESC']]
+        }, attributes: ['name', 'pokedex_number', 'base_total', 'hp', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed', 'type1', 'type2'], order: [['base_total', 'DESC']]
       })
         .then(results => {
           for (let i = 0; i < results.length; i++) {
