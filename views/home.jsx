@@ -36,7 +36,7 @@ const Home = props =>{
       {/* display enemy team here */}
   </div>
 
-  </Html>
+  <Html/>
   )
 }
 module.exports = Home
