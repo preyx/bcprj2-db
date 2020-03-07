@@ -1,5 +1,4 @@
-//Global variable to store userID, null if no one is signed in
-
+// //Global variable to store userID, null if no one is signed in
 let userId = null
 let counter = 0
 let enemyId = 1
@@ -9,6 +8,7 @@ let enemyDisplay = document.getElementById('enemyDisplay')
 const createAccount = username => {
   axios.post('/api/users', {username: username})
   .then( () => {
+    console.log('ping')
     signIn(username)
   })
   //error checking for when a username already exists
@@ -18,19 +18,27 @@ const createAccount = username => {
   })
 }
 
+//get random pokemon
+document.getElementById('random').addEventListener('click', event => {
+  event.preventDefault()
+  let randomNum = Math.floor(Math.random() * 721) + 1
+  axios.get(`/api/pokemons/id/${randomNum}`)
+    .then(({ data }) => {
+      document.getElementById('pokemonSearch').value = data.name
+    })
+})
 //get user inputted pokemon info
 const getPokemon = pokeName => {
   document.getElementById('searchError').innerHTML = ''
   axios.get(`/api/pokemons/${pokeName}`)
   .then( ({data: pokeInfo}) =>{
     console.log(pokeInfo)
-    let pokeCard = document.createElement('div')
-    pokeCard.classList.add('pokeCard', 'text-center')
     if(enemyId > 3 ){
       counter+=1
       if(counter>3){
         counter=1
       }
+      document.getElementById(`enemy${counter}`).dataset.pokemonId = pokeInfo.pokedex_number
       document.getElementById(`enemy${counter}`).innerHTML =`
       <img src="${pokeInfo.sprite}" className="renderImages" alt="${pokeInfo.name}" />
       <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
@@ -44,11 +52,13 @@ const getPokemon = pokeName => {
       Speed: ${pokeInfo.speed}<br />
       '>${pokeInfo.name}</p>
       `
-      enemyDisplay.append(pokeCard)
+      // enemyDisplay.append(pokeCard)
       enemyId += 1
-      console.log(`ping, EnemyID: ${enemyId}`)
       popover()
     }else{
+      let pokeCard = document.createElement('div')
+      pokeCard.classList.add('pokeCard', 'text-center')
+      pokeCard.dataset.pokemonId = pokeInfo.pokedex_number
       pokeCard.setAttribute('id', `enemy${enemyId}`)
       if(pokeInfo.type2 === ''){
         pokeInfo.type2 = 'N/A'
@@ -87,21 +97,127 @@ const signIn = username => {
   document.getElementById('error').innerHTML = ''
   axios.get(`/api/users/${username}`)
     .then(({ data: user }) => {
+      console.log(user)
       //set global userId to the signed in user
       userId = user.id
       document.getElementById('welcome').textContent = `Welcome ${username}!`
       //empty out user input
       document.getElementById('username').value = ''
+      console.log(`UserId: ${userId}`)
+    })
+    .catch(error => {
+      console.error(error);
+      document.getElementById('error').textContent = 'Username does not Exist.'
+    })
+}
+
+//generating pokemon matchups
+const generateMatchups = () => {
+  document.getElementById('result0').innerHTML =''
+  document.getElementById('result1').innerHTML =''
+  document.getElementById('result2').innerHTML =''
+  document.getElementById('result3').innerHTML =''
+  document.getElementById('result4').innerHTML =''
+  let team = { one: document.getElementById('enemy1').innerText, two: document.getElementById('enemy2').innerText, three: document.getElementById('enemy3').innerText }
+  let result = {}
+  let prefix = document.getElementById('legendary').checked ? ('/api/pokemons/matchups/nl/') : '/api/pokemons/matchups/'
+  console.log(`axios call: ${prefix+team.one}`)
+  axios.get(prefix + team.one)
+  .then( ({data: matchups}) => {
+    console.log(matchups)
+    //only rendering 3 pokemon
+    for(let i = 0; i<3; i++ ){
+      let targetRow = document.getElementById(`result${i}`)
+      let pokeCard = document.createElement('div')
+      pokeCard.classList.add('pokeCard', 'text-center')
+      pokeCard.dataset.pokemonId = matchups[i].pokedex_number
+      pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      if (matchups[i].type2 === '') {
+        matchups[i].type2 = 'N/A'
+      }
+      pokeCard.innerHTML = `
+        <img src="${matchups[i].sprite}" className="${matchups[i].name}" alt="..." />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${matchups[i].type1}<br />
+        Type2: ${matchups[i].type2}<br />
+        HP: ${matchups[i].hp}<br />
+        Atk: ${matchups[i].attack}<br />
+        Def: ${matchups[i].defense}<br />
+        SpA: ${matchups[i].sp_attack}<br />
+        SpD: ${matchups[i].sp_defense}<br />
+        Speed: ${matchups[i].speed}<br />
+        '>${matchups[i].name}</p>
+      `
+      targetRow.append(pokeCard)
+    }
+    axios.get(prefix + team.two)
+    .then(({data: matchups}) => {
+      //only rendering 3 pokemon
+      for (let i = 0; i < 3; i++) {
+        let targetRow = document.getElementById(`result${i}`)
+        let pokeCard = document.createElement('div')
+        pokeCard.classList.add('pokeCard', 'text-center')
+        pokeCard.dataset.pokemonId = matchups[i].pokedex_number
+        pokeCard.setAttribute('id', `matchupTwo_${matchups[i].pokedex_number}`)
+        if (matchups[i].type2 === '') {
+          matchups[i].type2 = 'N/A'
+        }
+        pokeCard.innerHTML = `
+        <img src="${matchups[i].sprite}" className="${matchups[i].name}" alt="..." />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${matchups[i].type1}<br />
+        Type2: ${matchups[i].type2}<br />
+        HP: ${matchups[i].hp}<br />
+        Atk: ${matchups[i].attack}<br />
+        Def: ${matchups[i].defense}<br />
+        SpA: ${matchups[i].sp_attack}<br />
+        SpD: ${matchups[i].sp_defense}<br />
+        Speed: ${matchups[i].speed}<br />
+        '>${matchups[i].name}</p>
+      `
+        targetRow.append(pokeCard)
+      }
+      axios.get(prefix + team.three)
+      .then(({data: matchups}) => {
+        //only rendering 3 pokemon
+        for (let i = 0; i < 3; i++) {
+          let targetRow = document.getElementById(`result${i}`)
+          let pokeCard = document.createElement('div')
+          pokeCard.classList.add('pokeCard', 'text-center')
+          pokeCard.dataset.pokemonId = matchups[i].pokedex_number
+          pokeCard.setAttribute('id', `matchupThree_${matchups[i].pokedex_number}`)
+          if (matchups[i].type2 === '') {
+            matchups[i].type2 = 'N/A'
+          }
+          pokeCard.innerHTML = `
+        <img src="${matchups[i].sprite}" className="${matchups[i].name}" alt="..." />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${matchups[i].type1}<br />
+        Type2: ${matchups[i].type2}<br />
+        HP: ${matchups[i].hp}<br />
+        Atk: ${matchups[i].attack}<br />
+        Def: ${matchups[i].defense}<br />
+        SpA: ${matchups[i].sp_attack}<br />
+        SpD: ${matchups[i].sp_defense}<br />
+        Speed: ${matchups[i].speed}<br />
+        '>${matchups[i].name}</p>
+      `
+          targetRow.append(pokeCard)
+          popover()
+        }
+      })
+      .catch(error => console.error(error))
     })
     .catch(error => console.error(error))
+  })
+  .catch(error => console.error(error))
 }
+
+
 document.addEventListener('click', event => {
   let target = event.target
   if(target.nodeName ==='BUTTON') {
     event.preventDefault()
-    //empty out all error messages
-    document.getElementById('error').innerHTML = ''
-    document.getElementById('searchError').innerHTML = ''
     if(target.id ==='signIn'){
       //check if there is nothing in the input field
       if (document.getElementById('username').value === '') {
@@ -119,13 +235,19 @@ document.addEventListener('click', event => {
         //empty out welcome message
         console.log(`userId: ${userId}`)
         document.getElementById('welcome').innerHTML = ''
+        //empty out display
+        enemyDisplay.innerHTML = ''
       }
+    }
+    else if (target.id === 'generate') {
+      generateMatchups()
     }
     else if(target.id==='create'){
       //check if there is nothing in the input field
       if(document.getElementById('username').value ===''){
         document.getElementById('error').textContent = 'Invalid input. Please enter a Username'
-      }else{
+      }
+      else{
         createAccount(document.getElementById('username').value)
       }
     } 
@@ -151,16 +273,6 @@ document.getElementById('search').addEventListener('click', event => {
   }
 })
 
-//get random pokemon
-document.getElementById('random').addEventListener('click', event => {
-  event.preventDefault()
-  let randomNum = Math.floor(Math.random() * 721) + 1
-  axios.get(`/api/pokemons/id/${randomNum}`)
-  .then( ({data}) => {
-    document.getElementById('pokemonSearch').value = data.name
-  })
-})
-
 //function to display pokemon stats when user hovers over name
 const popover = () =>{
   $(function () {
@@ -171,6 +283,18 @@ const popover = () =>{
   })
 }
 
-//initalizes all popover elements
+//initalizes all popover elements at start
 popover()
 
+//set interval to enable generate team button
+setInterval(() => {
+  if(enemyId > 3){
+    document.getElementById('generate').classList.remove('disabled')
+  }else{
+    //checks if it doesnt have the class
+    if(!document.getElementById('generate').classList.contains('disabled')){
+      //only add disabled class if class does not exist
+      document.getElementById('generate').classList.add('disabled')
+    }
+  }
+}, 1000);

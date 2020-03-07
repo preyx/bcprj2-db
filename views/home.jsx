@@ -69,15 +69,15 @@ const Home = props =>{
       </div>
     </div>
     <div className = "userButtons">
-      <button className="btn btn-warning btn-outline-danger warningbtn" type="button">Generate Team</button>
+      <button id = "generate" className="btn btn-warning btn-outline-danger warningbtn disabled" type="button">Generate Team</button>
       <input className = "checkBoxStyle" type="checkbox" id="legendary" name="legendary" value="pokemon"/>
       <label className="labelStyle" forhtml="legendary">No Legendaries</label><br/>
     </div>
     <div className="row" id="row">
       <div className="col col-sm-6" id="col">
         <h2>Results</h2>
-        <div className="d-flex">
-          <div className="pokeCard text-center">
+        <div className="d-flex" id = "result0">
+          {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
             <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
                         Type1: grass<br />
@@ -86,9 +86,9 @@ const Home = props =>{
                         Atk: 65<br />
                         Def: 49
                         '>asdfasdf</p>
-          </div>
+          </div> */}
 
-          <div className="pokeCard text-center">
+          {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
             <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
                         Type1: grass<br />
@@ -97,9 +97,9 @@ const Home = props =>{
                         Atk: 65<br />
                         Def: 49
                         '>asdfasdf</p>
-          </div>
+          </div> */}
 
-          <div className="pokeCard text-center">
+          {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
             <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
                         Type1: grass<br />
@@ -108,46 +108,11 @@ const Home = props =>{
                         Atk: 65<br />
                         Def: 49
                         '>asdfasdf</p>
-          </div>
-
-        </div>
-        <div className="d-flex">
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
+          </div> */}
 
         </div>
-        <div className="d-flex">
-          <div className="pokeCard text-center">
+        <div className="d-flex" id = "result1">
+          {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
             <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
                         Type1: grass<br />
@@ -178,46 +143,11 @@ const Home = props =>{
                         Atk: 65<br />
                         Def: 49
                         '>asdfasdf</p>
-          </div>
-
-        </div>
-        <div className="d-flex">
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
+          </div> */}
 
         </div>
-        <div className="d-flex">
-          <div className="pokeCard text-center">
+        <div className="d-flex" id = "result2">
+          {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
             <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
                         Type1: grass<br />
@@ -248,7 +178,77 @@ const Home = props =>{
                         Atk: 65<br />
                         Def: 49
                         '>asdfasdf</p>
+          </div> */}
+
+        </div>
+        <div className="d-flex" id = "result3">
+          {/* <div className="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
           </div>
+
+          <div className="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
+          </div>
+
+          <div className="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
+          </div> */}
+
+        </div>
+        <div className="d-flex" id = "result4">
+          {/* <div className="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
+          </div>
+
+          <div className="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
+          </div>
+
+          <div className="pokeCard text-center">
+            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
+            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+                        Type1: grass<br />
+                        Type2: poison<br />
+                        HP: 45<br />
+                        Atk: 65<br />
+                        Def: 49
+                        '>asdfasdf</p>
+          </div> */}
 
         </div>
       </div>
