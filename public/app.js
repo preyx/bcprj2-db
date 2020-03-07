@@ -122,6 +122,8 @@ document.addEventListener('click', event => {
         //empty out welcome message
         console.log(`userId: ${userId}`)
         document.getElementById('welcome').innerHTML = ''
+        //empty out display
+        enemyDisplay.innerHTML = ''
       }
     }
     else if(target.id==='create'){
