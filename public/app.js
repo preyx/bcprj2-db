@@ -30,6 +30,7 @@ const getPokemon = pokeName => {
       if(counter>3){
         counter=1
       }
+      document.getElementById(`enemy${counter}`).dataset.pokemonId = pokeInfo.pokedex_number
       document.getElementById(`enemy${counter}`).innerHTML =`
       <img src="${pokeInfo.sprite}" className="renderImages" alt="${pokeInfo.name}" />
       <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
@@ -45,11 +46,11 @@ const getPokemon = pokeName => {
       `
       // enemyDisplay.append(pokeCard)
       enemyId += 1
-      console.log(`ping, EnemyID: ${enemyId}`)
       popover()
     }else{
       let pokeCard = document.createElement('div')
       pokeCard.classList.add('pokeCard', 'text-center')
+      pokeCard.dataset.pokemonId = pokeInfo.pokedex_number
       pokeCard.setAttribute('id', `enemy${enemyId}`)
       if(pokeInfo.type2 === ''){
         pokeInfo.type2 = 'N/A'
@@ -166,5 +167,19 @@ const popover = () =>{
   })
 }
 
-//initalizes all popover elements
+//initalizes all popover elements at start
 popover()
+
+//set interval to enable generate team button
+setInterval(() => {
+  if(enemyId > 3){
+    console.log('ping')
+    document.getElementById('generate').classList.remove('disabled')
+  }else{
+    //checks if it doesnt have the class
+    if(!document.getElementById('generate').classList.contains('disabled')){
+      //only add disabled class if class does not exist
+      document.getElementById('generate').classList.add('disabled')
+    }
+  }
+}, 1000);

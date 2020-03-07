@@ -28,6 +28,21 @@ router.get('/pokemons/:name', (req, res) => {
   .catch(error => res.sendStatus(400))
 })
 
+//get pokemon by its id and returns its name
+router.get('/pokemons/id/:id', (req, res) => {
+  Pokemon.findOne({ where: { id: req.params.id }, attributes:['name'] })
+    .then(pokemon => {
+
+      //getting the pokedex number
+      // let pokedexNum = pokemon.dataValues.pokedex_number
+      // pokemon.dataValues.sprite = pokemonGif(pokedexNum).toLowerCase()
+      //call to get pokemon sprite
+      // let sprite = pokemonGif(pokedexNum)
+      // pokemon.dataValues.sprite = sprite
+      res.json(pokemon)
+    })
+    .catch(error => res.sendStatus(400))
+})
 //get pokemon matchups (all pokemon)
 router.get('/pokemons/matchups/:name', (req, res) => {
   //getting inital pokemon to generate matchups against

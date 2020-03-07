@@ -69,7 +69,7 @@ const Home = props =>{
       </div>
     </div>
     <div className = "userButtons">
-      <button className="btn btn-warning btn-outline-danger warningbtn" type="button">Generate Team</button>
+      <button id = "generate" className="btn btn-warning btn-outline-danger warningbtn disabled" type="button">Generate Team</button>
       <input className = "checkBoxStyle" type="checkbox" id="legendary" name="legendary" value="pokemon"/>
       <label className="labelStyle" forhtml="legendary">No Legendaries</label><br/>
     </div>
