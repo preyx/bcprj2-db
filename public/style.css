@@ -1,0 +1,76 @@
+.pokeCard {
+  flex: 1;
+}
+
+.pokeCard p {
+  font-weight: bold;
+}
+
+.pokeCard img {
+  height: auto;
+  max-width: 80px;
+}
+
+.d-flex {
+  align-items: flex-end;
+}
+
+.errorMessage {
+  color: red;
+}
+
+@media only screen and (max-width: 375px) {
+  /* moves logo image to middle of screen when in mobile view */
+  .imageStyle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .userButtons {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.warningbtn {
+  color: red;
+}
+
+.buttonStyle {
+  margin-left: 5px;
+}
+
+.checkBoxStyle {
+  margin-left: 15px;
+}
+
+.labelStyle {
+  margin-left: 5px;
+}
+
+.titleStyle {
+  text-align: center;
+}
+
+.pokeSearch {
+  margin: 0 auto;
+}
+
+.pokeImages {
+  height: 80px;
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardTitleStyle {
+  text-align: center;
+}
+
+.cardStyle {
+  margin-top: 10px;
+  padding-top: 10px;
+}
