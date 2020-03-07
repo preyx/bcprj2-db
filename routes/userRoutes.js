@@ -61,7 +61,6 @@ router.delete('/users/:username', (req, res) => User.destroy({
   }
 })
   .then(user => res.sendStatus(200))
-  .catch(e => res.sendStatus(400))
-)
+  .catch(e => res.sendStatus(400)))
 
 module.exports = router
