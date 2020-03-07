@@ -88,6 +88,7 @@ const signIn = username => {
   document.getElementById('error').innerHTML = ''
   axios.get(`/api/users/${username}`)
     .then(({ data: user }) => {
+      console.log(user)
       //set global userId to the signed in user
       userId = user.id
       document.getElementById('welcome').textContent = `Welcome ${username}!`
@@ -95,7 +96,10 @@ const signIn = username => {
       document.getElementById('username').value = ''
       console.log(`UserId: ${userId}`)
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error);
+      document.getElementById('error').textContent = 'Username does not Exist.'
+    })
 }
 document.addEventListener('click', event => {
   let target = event.target
@@ -118,6 +122,8 @@ document.addEventListener('click', event => {
         //empty out welcome message
         console.log(`userId: ${userId}`)
         document.getElementById('welcome').innerHTML = ''
+        //empty out display
+        enemyDisplay.innerHTML = ''
       }
     }
     else if(target.id==='create'){
