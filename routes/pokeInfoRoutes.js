@@ -19,18 +19,7 @@ router.get('/pokemons/:name', (req, res) => {
 
     //getting the pokedex number
     let pokedexNum = pokemon.dataValues.pokedex_number
-    if (pokedexNum === 717) {
-      pokemon.dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
-    }
-    else if (pokedexNum === 718) {
-      pokemon.dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/zygarde.gif'
-    }
-    else if (pokedexNum === 719) {
-      pokemon.dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/diancie.gif'
-    } else {
-      //call to get pokemon sprite
-      pokemon.dataValues.sprite = pokemonGif(pokedexNum)
-    }
+    pokemon.dataValues.sprite = pokemonGif(pokedexNum).toLowerCase()
     //call to get pokemon sprite
     // let sprite = pokemonGif(pokedexNum)
     // pokemon.dataValues.sprite = sprite
@@ -99,19 +88,7 @@ router.get('/pokemons/matchups/:name', (req, res) => {
           //getting the pokedex number
           let pokedexNum = results[i].dataValues.pokedex_number
           //edge case for 3 pokemon with incorrect image links
-          if(pokedexNum === 717){
-            results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
-          }
-          else if(pokedexNum === 718) {
-            results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/zygarde.gif'
-          }
-          else if (pokedexNum === 719) {
-            results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/diancie.gif'
-          }
-          else{
-            //call to get pokemon sprite
-            results[i].dataValues.sprite = pokemonGif(pokedexNum)
-          }
+          results[i].dataValues.sprite = pokemonGif(pokedexNum).toLowerCase()
         }
         res.json(results)
       })
@@ -191,19 +168,8 @@ router.get('/pokemons/matchups/nl/:name', (req, res) => {
             //getting the pokedex number
             let pokedexNum = results[i].dataValues.pokedex_number
             //edge case for 3 pokemon with incorrect image links
-            if (pokedexNum === 717) {
-              results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/yveltal.gif'
-            }
-            else if (pokexNum === 718) {
-              results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/zygarde.gif'
-            }
-            else if (pokexNum === 719) {
-              results[i].dataValues.sprite = 'http://www.pokestadium.com/sprites/xy/diancie.gif'
-            } else {
-              //call to get pokemon sprite
-              let sprite = pokemonGif(pokedexNum)
-              results[i].dataValues.sprite = sprite
-            }
+            results[i].dataValues.sprite = pokemonGif(pokedexNum).toLowerCase()
+            
           }
           res.json(results)
         })
