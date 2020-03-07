@@ -1,6 +1,4 @@
 // //Global variable to store userID, null if no one is signed in
-
-
 let userId = null
 let counter = 0
 let enemyId = 1
@@ -19,6 +17,16 @@ const createAccount = username => {
     document.getElementById('error').textContent = 'Username has been taken. Please enter a new Username'
   })
 }
+
+//get random pokemon
+document.getElementById('random').addEventListener('click', event => {
+  event.preventDefault()
+  let randomNum = Math.floor(Math.random() * 721) + 1
+  axios.get(`/api/pokemons/id/${randomNum}`)
+    .then(({ data }) => {
+      document.getElementById('pokemonSearch').value = data.name
+    })
+})
 
 //get user inputted pokemon info
 const getPokemon = pokeName => {
