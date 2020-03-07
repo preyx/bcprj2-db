@@ -10,19 +10,28 @@ router.get('/pokemon', (req, res) => {
     .catch(e => console.error(e))
 })
 
-//get pokemon by id
+//get pokemon by name
 router.get('/pokemons/:name', (req, res) => {
-  Pokemon.findOne( {where: {name: req.params.name}})
-  .then(pokemon => {
+  Pokemon.findOne({ where: { name: req.params.name } })
+    .then(pokemon => {
 
-    //getting the pokedex number
-    let pokedexNum = pokemon.dataValues.pokedex_number
-    //call to get pokemon sprite
-    let sprite = pokemonGif(pokedexNum)
-    pokemon.dataValues.sprite = sprite
-    res.json(pokemon)
-  })
-  .catch(e => res.sendStatus(400))
+      //getting the pokedex number
+      let pokedexNum = pokemon.dataValues.pokedex_number
+      //call to get pokemon sprite
+      let sprite = pokemonGif(pokedexNum)
+      pokemon.dataValues.sprite = sprite
+      res.json(pokemon)
+    })
+    .catch(e => res.sendStatus(400))
+})
+
+//get pokemon by id
+router.get('/pokemons/id/:id', (req, res) => {
+  Pokemon.findOne({ where: { id: req.params.id }, attributes: ['name'] })
+    .then(pokemon => {
+      res.json(pokemon)
+    })
+    .catch(e => res.sendStatus(400))
 })
 
 //GET matchup pokemon
@@ -82,7 +91,7 @@ router.get('/pokemon/matchups/:name', (req, res) => Pokemon.findAll({
       ]
     })
       .then(results => {
-        for(let i = 0; i<results.length; i++){
+        for (let i = 0; i < results.length; i++) {
           //getting the pokedex number
           let pokedexNum = results[i].dataValues.pokedex_number
           //call to get pokemon sprite

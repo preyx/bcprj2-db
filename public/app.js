@@ -151,6 +151,16 @@ document.getElementById('search').addEventListener('click', event => {
   }
 })
 
+//get random pokemon
+document.getElementById('random').addEventListener('click', event => {
+  event.preventDefault()
+  let randomNum = Math.floor(Math.random() * 721) + 1
+  axios.get(`/api/pokemons/id/${randomNum}`)
+  .then( ({data}) => {
+    document.getElementById('pokemonSearch').value = data.name
+  })
+})
+
 //function to display pokemon stats when user hovers over name
 const popover = () =>{
   $(function () {
@@ -163,3 +173,4 @@ const popover = () =>{
 
 //initalizes all popover elements
 popover()
+

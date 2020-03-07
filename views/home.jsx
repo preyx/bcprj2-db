@@ -19,7 +19,7 @@ const Home = props =>{
         </div>
         <div className = "userButtons">
             <button type="submit" className="btn btn-warning btn-outline-danger warningbtn" id = "search">Search</button>
-            <button type="submit" className="btn btn-warning btn-outline-danger warningbtn buttonStyle" id = "random">Generate Random Pokemon</button>
+            <button type="submit" className="btn btn-warning btn-outline-danger warningbtn buttonStyle" id = "random">Get Random Pokemon</button>
         </div>
       </form>
       <br></br>
