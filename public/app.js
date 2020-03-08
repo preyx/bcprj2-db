@@ -274,7 +274,7 @@ const generateMatchups = () => {
 //save team to user's teams
 document.getElementById('save').addEventListener('click', event => {
   event.preventDefault()
-  axios.post(`/api/teams`, { userid: userId, 
+  axios.post(`/api/teams`, { userId: userId, 
     pokemon1Id: document.getElementById('myTeam1').dataset.pokemonId, 
     pokemon2Id: document.getElementById('myTeam2').dataset.pokemonId, 
     pokemon3Id: document.getElementById('myTeam3').dataset.pokemonId, 
