@@ -6,5 +6,4 @@ router.use('/api', require('./pokeInfoRoutes.js'))
 
 //add routes for front end views
 
-
 module.exports = router
