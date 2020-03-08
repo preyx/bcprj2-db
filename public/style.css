@@ -24,6 +24,7 @@
   .imageStyle {
     justify-content: center;
     align-content: center;
+   
   }
   .userButtons {
     margin-top: 10px;
@@ -76,4 +77,12 @@
 .cardStyle {
   margin-top: 10px;
   padding-top: 10px;
+}
+
+/* font */
+.font{
+font-family: 'Press Start 2P', cursive;
+}
+h1{
+  text-align: center;
 }

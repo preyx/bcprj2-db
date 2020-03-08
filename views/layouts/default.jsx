@@ -16,6 +16,7 @@ const Html = props => {
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
         {/* <!-- Material Design Bootstrap --> */}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet"></link>
         <link rel="stylesheet" href="style.css"></link>
         <title>PokeBattles</title>
       </head>
@@ -27,10 +28,13 @@ const Html = props => {
             {/* <div className="row imageStyle" > */}
               <div id="logo">
                 <img src='./assets/logo.png'></img>
+                <br/>
+                <br/>
               </div>
+            
             {/* </div> */}
           {/* <!-- Collapse button --> */}
-          <button class="navbar-toggler toggler-example red darken-3" type="button" data-toggle="collapse"
+          <button class="dropdown navbar-toggler toggler-example red darken-3" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41" aria-expanded="false"
             aria-label="Toggle navigation"><span className="white-text"><i className="fas fa-bars fa-1x"></i></span></button>
 

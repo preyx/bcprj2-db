@@ -30,7 +30,7 @@ const Home = props =>{
     <div className="row" id="row">
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
       <div className="col col-12 col-md-6" id="col">
-        <h1 className = "titleStyle">Enemy Team</h1>
+        <h1 className = "titleStyle font">Enemy Team</h1>
         <hr></hr>
         <div className="d-flex" id = "enemyDisplay">
           {/* <div className="pokeCard text-center">
@@ -73,7 +73,7 @@ const Home = props =>{
     </div>
         </div>
         <div className="col col-12 col-md-6" id="col">
-          <h1 className = "titleStyle">My Team</h1>
+          <h1 className = "titleStyle font">My Team</h1>
           <hr></hr>
           <div className="d-flex" id = "userDisplay">
             {/* Display User Selected Pokemon Here */}
@@ -85,7 +85,7 @@ const Home = props =>{
     </div>
     <div className="row" id="row">
       <div className="col col-sm-6" id="col">
-        <h2>Results</h2>
+        <h1 className="font">Results</h1>
         <div className="d-flex" id = "result0">
           {/* <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
@@ -267,8 +267,12 @@ const Home = props =>{
 
 
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
+
+      <br/>
+      <br/>
+      <br/>
       <div className="col col-sm-6" id="col">
-        <h1>Enemy Team</h1>
+        <h1 className="font">Enemy Team</h1>
         <div className="d-flex">
           <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
@@ -304,7 +308,7 @@ const Home = props =>{
           </div>
 
         </div>
-        <h1> Your Team</h1>
+        <h1 className="font"> Your Team</h1>
         <div className="d-flex">
           <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
