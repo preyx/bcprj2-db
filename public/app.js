@@ -361,6 +361,7 @@ const addToTeam = pokemon => {
       `
       break
   }
+  popover()
 }
 
 document.addEventListener('click', event => {
