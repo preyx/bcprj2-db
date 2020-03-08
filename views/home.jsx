@@ -84,7 +84,7 @@ const Home = props =>{
         </div>
     </div>
     <div className="row" id="row">
-      <div className="col col-sm-6" id="col">
+          <div className="col col-12 col-md-6" id="col">
         <h2>Results</h2>
         <div className="d-flex" id = "result0">
           {/* <div className="pokeCard text-center">
@@ -267,8 +267,20 @@ const Home = props =>{
 
 
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
-      <div className="col col-sm-6" id="col">
-        <h1>Enemy Team</h1>
+          <div className="col col-12 col-md-6" id="col">
+        <h1>I'M 11 WATS THIS</h1>
+        <div id="teamArray">
+          {/* <div className="d-flex">
+                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
+                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
+                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
+                <div className="team text-center">VS</div>
+                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
+                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
+                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
+          </div> */}
+        </div>
+        {/* <h1>Enemy Team</h1>
         <div className="d-flex">
           <div className="pokeCard text-center">
             <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
@@ -338,7 +350,7 @@ const Home = props =>{
                         Def: 49
                         '>asdfasdf</p>
           </div>
-        </div>
+        </div> */}
             <button className="btn btn-warning btn-outline-danger warningbtn"  type="button">Remove Team</button>
       </div>
     </div>

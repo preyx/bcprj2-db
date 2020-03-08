@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { User, Team, Pokemon } = require('../models')
+const pokemonGif = require('pokemon-gif')
 
 // GET all users
 router.get('/users', (req, res) =>{
@@ -35,7 +36,20 @@ router.get('/users/:username', (req, res) => User.findOne({
   ]
   }]
 })
-  .then(user => res.json(user))
+  .then(user => {
+    for (let i = 0; i < user.teams.length; i++)
+    {
+      // console.log(pokemonGif(user.teams[i].pokemon1.id).toLowerCase())
+      user.teams[i].pokemon1.dataValues.sprite = pokemonGif(user.teams[i].pokemon1.id).toLowerCase()
+      user.teams[i].pokemon2.dataValues.sprite = pokemonGif(user.teams[i].pokemon2.id).toLowerCase()
+      user.teams[i].pokemon3.dataValues.sprite = pokemonGif(user.teams[i].pokemon3.id).toLowerCase()
+      user.teams[i].enemy1.dataValues.sprite = pokemonGif(user.teams[i].enemy1.id).toLowerCase()
+      user.teams[i].enemy2.dataValues.sprite = pokemonGif(user.teams[i].enemy2.id).toLowerCase()
+      user.teams[i].enemy3.dataValues.sprite = pokemonGif(user.teams[i].enemy3.id).toLowerCase()
+      console.log(user.teams[i].pokemon1)
+    }
+    res.json(user)
+  })
   .catch(e => res.sendStatus(400)))
 
 // POST a user

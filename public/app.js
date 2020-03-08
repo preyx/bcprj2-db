@@ -104,6 +104,39 @@ const signIn = username => {
       //empty out user input
       document.getElementById('username').value = ''
       console.log(`UserId: ${userId}`)
+      const target = document.getElementById('teamArray')
+      document.getElementById('teamArray').innerHTML = ''
+      for (let i = 0; i < user.teams.length; i++) {
+        // console.log(user.teams[i]['pokemon1'].name)
+        let teamRow = document.createElement('div')
+        teamRow.classList.add('d-flex', 'p-2')
+        for (let j = 0; j < 3; j++) {
+          let member = `enemy${j + 1}`
+          // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+          // .then(({ data: pokeInfo}) => {
+            // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+            // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+            teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+            // })
+            //   .catch(error => {
+              //     console.error(error)
+              //   })
+            }
+          teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
+        for (let j = 0; j < 3; j++) {
+          let member = `pokemon${ j + 1 }`
+          // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+          // .then(({ data: pokeInfo}) => {
+            // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+            // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+            teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+            // })
+            //   .catch(error => {
+              //     console.error(error)
+              //   })
+            }
+            target.append(teamRow)
+      }
     })
     .catch(error => {
       console.error(error);
@@ -120,7 +153,7 @@ const generateMatchups = () => {
   document.getElementById('result4').innerHTML =''
   let team = { one: document.getElementById('enemy1').innerText, two: document.getElementById('enemy2').innerText, three: document.getElementById('enemy3').innerText }
   let result = {}
-  let prefix = document.getElementById('legendary').checked ? ('/api/pokemons/matchups/nl/') : '/api/pokemons/matchups/'
+  let prefix = document.getElementById('legendary').checked ? '/api/pokemons/matchups/nl/' : '/api/pokemons/matchups/'
   axios.get(prefix + team.one)
   .then( ({data: matchups}) => {
     for(let i = 0; i<5; i++ ){
