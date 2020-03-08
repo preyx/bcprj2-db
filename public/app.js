@@ -1,5 +1,6 @@
 // //Global variable to store userID, null if no one is signed in
 let userId = null
+let currentUsername = ''
 let counter = 0
 let enemyId = 1
 let enemyDisplay = document.getElementById('enemyDisplay')
@@ -89,6 +90,41 @@ const getPokemon = pokeName => {
     document.getElementById('searchError').textContent = 'Pokemon does not exist. Please enter another pokemon'
   })
 }
+const renderUserSavedTeams = user => {
+  const target = document.getElementById('teamArray')
+  document.getElementById('teamArray').innerHTML = ''
+  for (let i = 0; i < user.teams.length; i++) {
+    // console.log(user.teams[i]['pokemon1'].name)
+    let teamRow = document.createElement('div')
+    teamRow.classList.add('d-flex', 'p-2')
+    for (let j = 0; j < 3; j++) {
+      let member = `enemy${j + 1}`
+      // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      // .then(({ data: pokeInfo}) => {
+      // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      // })
+      //   .catch(error => {
+      //     console.error(error)
+      //   })
+    }
+    teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
+    for (let j = 0; j < 3; j++) {
+      let member = `pokemon${j + 1}`
+      // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      // .then(({ data: pokeInfo}) => {
+      // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      // })
+      //   .catch(error => {
+      //     console.error(error)
+      //   })
+    }
+    target.append(teamRow)
+  }
+}
 
 //function to sign in user
 const signIn = username => {
@@ -102,8 +138,43 @@ const signIn = username => {
       userId = user.id
       document.getElementById('welcome').textContent = `Welcome ${username}!`
       //empty out user input
+      currentUsername = document.getElementById('username').value
       document.getElementById('username').value = ''
       console.log(`UserId: ${userId}`)
+      renderUserSavedTeams(user)
+      // const target = document.getElementById('teamArray')
+      // document.getElementById('teamArray').innerHTML = ''
+      // for (let i = 0; i < user.teams.length; i++) {
+      //   // console.log(user.teams[i]['pokemon1'].name)
+      //   let teamRow = document.createElement('div')
+      //   teamRow.classList.add('d-flex', 'p-2')
+      //   for (let j = 0; j < 3; j++) {
+      //     let member = `enemy${j + 1}`
+      //     // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      //     // .then(({ data: pokeInfo}) => {
+      //     // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      //     // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      //     teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      //     // })
+      //     //   .catch(error => {
+      //     //     console.error(error)
+      //     //   })
+      //   }
+      //   teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
+      //   for (let j = 0; j < 3; j++) {
+      //     let member = `pokemon${j + 1}`
+      //     // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      //     // .then(({ data: pokeInfo}) => {
+      //     // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      //     // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      //     teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      //     // })
+      //     //   .catch(error => {
+      //     //     console.error(error)
+      //     //   })
+      //   }
+      //   target.append(teamRow)
+      // }
     })
     .catch(error => {
       console.error(error);
@@ -305,7 +376,7 @@ const generateMatchups = () => {
 }
 
 const addToTeam = pokemon => {
-  console.log(pokemon.dataset.attack)
+  console.log(pokemon.dataset.pokemonId)
   let divId = (pokemon.id).split('_')
   let targetDiv
   switch(divId[0]){
@@ -417,6 +488,14 @@ document.addEventListener('click', event => {
           document.getElementById('myTeam1').innerHTML = ''
           document.getElementById('myTeam2').innerHTML = ''
           document.getElementById('myTeam3').innerHTML = ''
+          document.getElementById('result0').innerHTML = ''
+          document.getElementById('result1').innerHTML = ''
+          document.getElementById('result2').innerHTML = ''
+          document.getElementById('result3').innerHTML = ''
+          document.getElementById('result4').innerHTML = ''
+          axios.get(`/api/users/${currentUsername}`)
+          .then(({ data: user }) => renderUserSavedTeams(user))
+          .catch(error => console.error(error))
         })
         .catch(e => console.error(e))
     } 
