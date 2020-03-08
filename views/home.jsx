@@ -76,6 +76,12 @@ const Home = props =>{
           <h1 className = "titleStyle">My Team</h1>
           <hr></hr>
           <div className="d-flex" id = "userDisplay">
+            <div className="pokeCard text-center" id = "myTeam1">
+            </div>
+            <div className="pokeCard text-center" id ="myTeam2">
+            </div>
+            <div className="pokeCard text-center" id = "myTeam3">
+            </div>
             {/* Display User Selected Pokemon Here */}
           </div>
           <div className="userButtons">
