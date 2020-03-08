@@ -11,6 +11,19 @@
   max-width: 80px;
 }
 
+.team {
+  flex: 1;
+}
+
+.team img {
+  height:auto;
+  max-width: 40px;
+}
+
+.team p {
+  font-weight: bold;
+}
+
 .d-flex {
   align-items: flex-end;
 }
@@ -54,7 +67,7 @@
   text-align: center;
 }
 
-.pokeSearch {
+/* .pokeSearch {
   margin: 0 auto;
 }
 
@@ -73,8 +86,4 @@
 .cardStyle {
   margin-top: 10px;
   padding-top: 10px;
-}
-
-h5{
-  display:inline;
-}
+} */
