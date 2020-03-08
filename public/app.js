@@ -417,6 +417,11 @@ document.addEventListener('click', event => {
           document.getElementById('myTeam1').innerHTML = ''
           document.getElementById('myTeam2').innerHTML = ''
           document.getElementById('myTeam3').innerHTML = ''
+          document.getElementById('result0').innerHTML = ''
+          document.getElementById('result1').innerHTML = ''
+          document.getElementById('result2').innerHTML = ''
+          document.getElementById('result3').innerHTML = ''
+          document.getElementById('result4').innerHTML = ''
         })
         .catch(e => console.error(e))
     } 
