@@ -15,7 +15,7 @@ const Home = props =>{
         <div className="form-group">
           <label forhtml="pokemonSearch">Pokemon</label>
             <input type="text" className="form-control" id="pokemonSearch" aria-describedby="emailHelp"/>
-          <small id="pokeHelp" className="form-text text-muted">Select 3 Pokemon to Generate Matchups</small>
+          <small id="pokeHelp" className="form-text text-muted">Select 3 Pokemon to Generate Matchups <span><br></br> HINT: Tap/Hover on the Pokemon's name to see their stats!</span></small>
         </div>
         <div className = "userButtons">
             <button type="submit" className="btn btn-warning btn-outline-danger warningbtn" id = "search">Search</button>
@@ -76,6 +76,12 @@ const Home = props =>{
           <h1 className = "titleStyle">My Team</h1>
           <hr></hr>
           <div className="d-flex" id = "userDisplay">
+            <div className="pokeCard text-center" id = "myTeam1">
+            </div>
+            <div className="pokeCard text-center" id ="myTeam2">
+            </div>
+            <div className="pokeCard text-center" id = "myTeam3">
+            </div>
             {/* Display User Selected Pokemon Here */}
           </div>
           <div className="userButtons">
