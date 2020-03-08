@@ -399,6 +399,25 @@ document.addEventListener('click', event => {
       else{
         createAccount(document.getElementById('username').value)
       }
+    }
+    else if (target.id === 'save'){
+      axios.post(`/api/teams`, {
+        userId: userId,
+        pokemon1Id: document.getElementById('myTeam1').dataset.pokemonId,
+        pokemon2Id: document.getElementById('myTeam2').dataset.pokemonId,
+        pokemon3Id: document.getElementById('myTeam3').dataset.pokemonId,
+        enemy1Id: document.getElementById('enemy1').dataset.pokemonId,
+        enemy2Id: document.getElementById('enemy2').dataset.pokemonId,
+        enemy3Id: document.getElementById('enemy3').dataset.pokemonId
+      })
+        .then(() => {
+          console.log('Team successfully saved!')
+          document.getElementById('enemyDisplay').innerHTML = ''
+          document.getElementById('myTeam1').innerHTML = ''
+          document.getElementById('myTeam2').innerHTML = ''
+          document.getElementById('myTeam3').innerHTML = ''
+        })
+        .catch(e => console.error(e))
     } 
   }
   // listerner when user clicks on img of pokemon they want to add to their team
