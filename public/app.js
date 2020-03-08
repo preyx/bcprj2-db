@@ -271,6 +271,25 @@ const generateMatchups = () => {
   .catch(error => console.error(error))
 }
 
+//save team to user's teams
+document.getElementById('save').addEventListener('click', event => {
+  event.preventDefault()
+  axios.post(`/api/teams`, { userid: userId, 
+    pokemon1Id: document.getElementById('myTeam1').dataset.pokemonId, 
+    pokemon2Id: document.getElementById('myTeam2').dataset.pokemonId, 
+    pokemon3Id: document.getElementById('myTeam3').dataset.pokemonId, 
+    enemy1Id: document.getElementById('enemy1').dataset.pokemonId, 
+    enemy2Id: document.getElementById('enemy2').dataset.pokemonId, 
+    enemy3Id: document.getElementById('enemy3').dataset.pokemonId})
+  .then(() => {
+    document.getElementById('enemyDisplay').innerHTML = ''
+    document.getElementById('myTeam1').innerHTML = ''
+    document.getElementById('myTeam2').innerHTML = ''
+    document.getElementById('myTeam3').innerHTML = ''
+  })
+  .catch(e => console.error(e))
+})
+
 
 document.addEventListener('click', event => {
   let target = event.target

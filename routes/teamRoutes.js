@@ -33,6 +33,7 @@ router.get('/teams/:id', (req, res) => Team.findOne({
 })
   .then(user => res.json(user))
   .catch(e => res.sendStatus(400)))
+  
 // POST an item
 router.post('/teams', (req, res) => {
   Team.create(req.body)
