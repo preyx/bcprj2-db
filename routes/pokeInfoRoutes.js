@@ -22,7 +22,7 @@ router.get('/pokemons/:name', (req, res) => {
       pokemon.dataValues.sprite = pokemonGif(pokedexNum).toLowerCase()
       res.json(pokemon)
     })
-    .catch(error => res.sendStatus(400))
+    .catch(error => console.error(error))
 })
 
 // get pokemon by its id and returns its name
