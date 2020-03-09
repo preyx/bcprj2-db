@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
-// //bring in routes after we create
+// bring in routes after we create
 app.use(require('./routes'))
 
 sequelize.sync()

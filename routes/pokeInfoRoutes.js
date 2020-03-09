@@ -3,6 +3,7 @@ const { Pokemon } = require('../models')
 const pokemonGif = require('pokemon-gif')
 // bring in Op to do an OR statement
 const { Op } = require('sequelize')
+
 // get all pokemon
 router.get('/pokemons', (req, res) => {
   Pokemon.findAll()
@@ -19,9 +20,6 @@ router.get('/pokemons/:name', (req, res) => {
       // getting the pokedex number
       const pokedexNum = pokemon.dataValues.pokedex_number
       pokemon.dataValues.sprite = pokemonGif(pokedexNum).toLowerCase()
-      // call to get pokemon sprite
-      // let sprite = pokemonGif(pokedexNum)
-      // pokemon.dataValues.sprite = sprite
       res.json(pokemon)
     })
     .catch(error => res.sendStatus(400))
@@ -31,12 +29,6 @@ router.get('/pokemons/:name', (req, res) => {
 router.get('/pokemons/id/:id', (req, res) => {
   Pokemon.findOne({ where: { id: req.params.id }, attributes: ['name'] })
     .then(pokemon => {
-      // getting the pokedex number
-      // let pokedexNum = pokemon.dataValues.pokedex_number
-      // pokemon.dataValues.sprite = pokemonGif(pokedexNum).toLowerCase()
-      // call to get pokemon sprite
-      // let sprite = pokemonGif(pokedexNum)
-      // pokemon.dataValues.sprite = sprite
       res.json(pokemon)
     })
     .catch(error => res.sendStatus(400))
