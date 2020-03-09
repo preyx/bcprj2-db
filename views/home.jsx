@@ -43,6 +43,7 @@ const Home = props =>{
         </div>
         <div className="col col-12 col-md-6" id="col">
           <h1 className = "titleStyle">My Team</h1>
+            <p id="enemyText" className="titleStyle">Please login to create a team.</p>
           <hr></hr>
           <div className="d-flex" id = "userDisplay">
             <div className="pokeCard text-center" id = "myTeam1">
@@ -60,7 +61,8 @@ const Home = props =>{
     </div>
     <div className="row" id="row">
       <div className="col col-sm-6" id="col">
-        <h2>Results</h2>
+        <h2 className = "titleStyle">Matchups</h2>
+        <p id="matchupsText" className = "titleStyle">Select 3 enemy Pokemon to generate matchups.</p>
         <div className="d-flex" id = "result0">
         </div>
         <div className="d-flex" id = "result1">
@@ -81,7 +83,7 @@ const Home = props =>{
           <div className="col col-12 col-md-6" id="col">
             <h2 className = "titleStyle" >My Teams</h2>
             <div id="teamArray">
-              <p className= "titleStyle">Please Sign in To View Saved Teams</p>
+              <p className= "titleStyle">Please sign in to view saved teams.</p>
             </div>
           </div>
     </div>

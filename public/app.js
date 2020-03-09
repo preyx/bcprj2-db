@@ -164,6 +164,7 @@ const signIn = username => {
 
 //generating pokemon matchups
 const generateMatchups = () => {
+  document.getElementById('matchupsText').innerHTML = ''
   document.getElementById('result0').innerHTML =''
   document.getElementById('result1').innerHTML =''
   document.getElementById('result2').innerHTML =''
@@ -465,6 +466,7 @@ document.addEventListener('click', event => {
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
           document.getElementById('teamArray').innerHTML = '<p class = "titleStyle">Please Sign in To View Saved Teams</p> '
+          document.getElementById('matchupsText').textContent = 'Select 3 enemy Pokemon to generate matchups.'
       }
     }
     else if (target.id === 'generate') {
@@ -500,6 +502,7 @@ document.addEventListener('click', event => {
           document.getElementById('result2').innerHTML = ''
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
+          document.getElementById('matchupsText').textContent = 'Select 3 enemy Pokemon to generate matchups.'
           //reset counters
           enemyId = 1
           teamCounter = 0
