@@ -144,6 +144,9 @@ const signIn = username => {
   //clear out all error messages when user signs in
   document.getElementById('searchError').innerHTML = ''
   document.getElementById('error').innerHTML = ''
+
+  //update Team message
+  document.getElementById('myTeamText').textContent = 'Select a Pokemon from each column in Matchups to add to your team.'
   axios.get(`/api/users/${username}`)
     .then(({ data: user }) => {
       console.log(user)
@@ -467,6 +470,7 @@ document.addEventListener('click', event => {
           document.getElementById('result4').innerHTML = ''
           document.getElementById('teamArray').innerHTML = '<p class = "titleStyle">Please Sign in To View Saved Teams</p> '
           document.getElementById('matchupsText').textContent = 'Select 3 enemy Pokemon to generate matchups.'
+          document.getElementById('myTeamText').textContent = 'Please login to create a team.'
       }
     }
     else if (target.id === 'generate') {
@@ -503,6 +507,7 @@ document.addEventListener('click', event => {
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
           document.getElementById('matchupsText').textContent = 'Select 3 enemy Pokemon to generate matchups.'
+          document.getElementById('myTeamText').textContent = 'Select a Pokemon from each column in Matchups to add to your team.'
           //reset counters
           enemyId = 1
           teamCounter = 0

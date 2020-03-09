@@ -43,7 +43,7 @@ const Home = props =>{
         </div>
         <div className="col col-12 col-md-6" id="col">
           <h1 className = "titleStyle">My Team</h1>
-            <p id="enemyText" className="titleStyle">Please login to create a team.</p>
+            <p id="myTeamText" className="titleStyle">Please login to create a team.</p>
           <hr></hr>
           <div className="d-flex" id = "userDisplay">
             <div className="pokeCard text-center" id = "myTeam1">
