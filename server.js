@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 })
 
 // //bring in routes after we create
-app.use(require('./routes'))
+app.use(require('./routes/'))
 
 app.get('/', (req, res) => {
   res.render('home')

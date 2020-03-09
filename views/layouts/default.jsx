@@ -25,16 +25,16 @@ const Html = props => {
 
         <nav className="navbar navbar-light bg-primary flexContainer">
           {/* logo */}
-            {/* <div className="row imageStyle" > */}
-              <div id="logo">
-                <img src='./assets/logo.png'></img>
-                <br/>
-                <br/>
-              </div>
-            
-            {/* </div> */}
+          {/* <div className="row imageStyle" > */}
+          <div className="centerLogo" id="logo">
+            <img src='./assets/logo.png'></img>
+            <br />
+            <br />
+          </div>
+
+          {/* </div> */}
           {/* <!-- Collapse button --> */}
-          <button class="dropdown navbar-toggler toggler-example red darken-3" type="button" data-toggle="collapse"
+          <button className="centerBurgerMenu dropdown navbar-toggler toggler-example red darken-3" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41" aria-expanded="false"
             aria-label="Toggle navigation"><span className="white-text"><i className="fas fa-bars fa-1x"></i></span></button>
 
