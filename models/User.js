@@ -1,4 +1,4 @@
-const {Model, STRING} = require('sequelize')
+const { Model, STRING } = require('sequelize')
 
 class User extends Model {}
 
@@ -8,6 +8,6 @@ User.init({
     allowNull: false,
     unique: true
   }
-}, {sequelize: require('../config'), modelName: 'user', timestamps: false})
+}, { sequelize: require('../config'), modelName: 'user', timestamps: false })
 
 module.exports = User
