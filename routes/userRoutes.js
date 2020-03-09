@@ -46,7 +46,6 @@ router.get('/users/:username', (req, res) => User.findOne({
       user.teams[i].enemy1.dataValues.sprite = pokemonGif(user.teams[i].enemy1.id).toLowerCase()
       user.teams[i].enemy2.dataValues.sprite = pokemonGif(user.teams[i].enemy2.id).toLowerCase()
       user.teams[i].enemy3.dataValues.sprite = pokemonGif(user.teams[i].enemy3.id).toLowerCase()
-      console.log(user.teams[i].pokemon1)
     }
     res.json(user)
   })

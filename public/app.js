@@ -1,5 +1,6 @@
 // //Global variable to store userID, null if no one is signed in
 let userId = null
+let currentUsername = ''
 let counter = 0
 let enemyId = 1
 let enemyDisplay = document.getElementById('enemyDisplay')
@@ -89,6 +90,41 @@ const getPokemon = pokeName => {
     document.getElementById('searchError').textContent = 'Pokemon does not exist. Please enter another pokemon'
   })
 }
+const renderUserSavedTeams = user => {
+  const target = document.getElementById('teamArray')
+  document.getElementById('teamArray').innerHTML = ''
+  for (let i = 0; i < user.teams.length; i++) {
+    // console.log(user.teams[i]['pokemon1'].name)
+    let teamRow = document.createElement('div')
+    teamRow.classList.add('d-flex', 'p-2')
+    for (let j = 0; j < 3; j++) {
+      let member = `enemy${j + 1}`
+      // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      // .then(({ data: pokeInfo}) => {
+      // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      // })
+      //   .catch(error => {
+      //     console.error(error)
+      //   })
+    }
+    teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
+    for (let j = 0; j < 3; j++) {
+      let member = `pokemon${j + 1}`
+      // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      // .then(({ data: pokeInfo}) => {
+      // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      // })
+      //   .catch(error => {
+      //     console.error(error)
+      //   })
+    }
+    target.append(teamRow)
+  }
+}
 
 //function to sign in user
 const signIn = username => {
@@ -102,41 +138,43 @@ const signIn = username => {
       userId = user.id
       document.getElementById('welcome').textContent = `Welcome ${username}!`
       //empty out user input
+      currentUsername = document.getElementById('username').value
       document.getElementById('username').value = ''
       console.log(`UserId: ${userId}`)
-      const target = document.getElementById('teamArray')
-      document.getElementById('teamArray').innerHTML = ''
-      for (let i = 0; i < user.teams.length; i++) {
-        // console.log(user.teams[i]['pokemon1'].name)
-        let teamRow = document.createElement('div')
-        teamRow.classList.add('d-flex', 'p-2')
-        for (let j = 0; j < 3; j++) {
-          let member = `enemy${j + 1}`
-          // axios.get(`/api/pokemons/${member.toLowerCase()}`)
-          // .then(({ data: pokeInfo}) => {
-            // pokemon.dataset.pokemonId = matchups[i].pokedex_number
-            // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
-            teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
-            // })
-            //   .catch(error => {
-              //     console.error(error)
-              //   })
-            }
-          teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
-        for (let j = 0; j < 3; j++) {
-          let member = `pokemon${ j + 1 }`
-          // axios.get(`/api/pokemons/${member.toLowerCase()}`)
-          // .then(({ data: pokeInfo}) => {
-            // pokemon.dataset.pokemonId = matchups[i].pokedex_number
-            // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
-            teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
-            // })
-            //   .catch(error => {
-              //     console.error(error)
-              //   })
-            }
-            target.append(teamRow)
-      }
+      renderUserSavedTeams(user)
+      // const target = document.getElementById('teamArray')
+      // document.getElementById('teamArray').innerHTML = ''
+      // for (let i = 0; i < user.teams.length; i++) {
+      //   // console.log(user.teams[i]['pokemon1'].name)
+      //   let teamRow = document.createElement('div')
+      //   teamRow.classList.add('d-flex', 'p-2')
+      //   for (let j = 0; j < 3; j++) {
+      //     let member = `enemy${j + 1}`
+      //     // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      //     // .then(({ data: pokeInfo}) => {
+      //     // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      //     // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      //     teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      //     // })
+      //     //   .catch(error => {
+      //     //     console.error(error)
+      //     //   })
+      //   }
+      //   teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
+      //   for (let j = 0; j < 3; j++) {
+      //     let member = `pokemon${j + 1}`
+      //     // axios.get(`/api/pokemons/${member.toLowerCase()}`)
+      //     // .then(({ data: pokeInfo}) => {
+      //     // pokemon.dataset.pokemonId = matchups[i].pokedex_number
+      //     // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+      //     teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+      //     // })
+      //     //   .catch(error => {
+      //     //     console.error(error)
+      //     //   })
+      //   }
+      //   target.append(teamRow)
+      // }
     })
     .catch(error => {
       console.error(error);
@@ -161,13 +199,24 @@ const generateMatchups = () => {
         let targetRow = document.getElementById(`result${i}`)
         let pokeCard = document.createElement('div')
         pokeCard.classList.add('pokeCard', 'text-center')
+        //putting info in the dataset
         pokeCard.dataset.pokemonId = matchups[i].pokedex_number
+        pokeCard.dataset.type1 = matchups[i].type1
+        pokeCard.dataset.type2 = matchups[i].type2
+        pokeCard.dataset.hp = matchups[i].hp
+        pokeCard.dataset.attack = matchups[i].attack
+        pokeCard.dataset.defense = matchups[i].defense
+        pokeCard.dataset.sp_attack = matchups[i].sp_attack
+        pokeCard.dataset.sp_defense = matchups[i].sp_defense
+        pokeCard.dataset.speed = matchups[i].speed
+        pokeCard.dataset.sprite = matchups[i].sprite
+        pokeCard.dataset.name = matchups[i].name
         pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
         if (matchups[i].type2 === '') {
           matchups[i].type2 = 'N/A'
         }
         pokeCard.innerHTML = `
-          <img src="${matchups[i].sprite}" alt="${matchups[i].name}" />
+          <img class = "select" src="${matchups[i].sprite}" alt="${matchups[i].name}" />
           <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
           Type1: ${matchups[i].type1}<br />
           Type2: ${matchups[i].type2}<br />
@@ -208,13 +257,24 @@ const generateMatchups = () => {
           let targetRow = document.getElementById(`result${i}`)
           let pokeCard = document.createElement('div')
           pokeCard.classList.add('pokeCard', 'text-center')
+          //putting info in the dataset
           pokeCard.dataset.pokemonId = matchups[i].pokedex_number
-          pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+          pokeCard.dataset.type1 = matchups[i].type1
+          pokeCard.dataset.type2 = matchups[i].type2
+          pokeCard.dataset.hp = matchups[i].hp
+          pokeCard.dataset.attack = matchups[i].attack
+          pokeCard.dataset.defense = matchups[i].defense
+          pokeCard.dataset.sp_attack = matchups[i].sp_attack
+          pokeCard.dataset.sp_defense = matchups[i].sp_defense
+          pokeCard.dataset.speed = matchups[i].speed
+          pokeCard.dataset.sprite = matchups[i].sprite
+          pokeCard.dataset.name = matchups[i].name
+          pokeCard.setAttribute('id', `matchupTwo_${matchups[i].pokedex_number}`)
           if (matchups[i].type2 === '') {
             matchups[i].type2 = 'N/A'
           }
           pokeCard.innerHTML = `
-          <img src="${matchups[i].sprite}" alt="${matchups[i].name}" />
+          <img class = "select" src="${matchups[i].sprite}" alt="${matchups[i].name}" />
           <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
           Type1: ${matchups[i].type1}<br />
           Type2: ${matchups[i].type2}<br />
@@ -255,13 +315,24 @@ const generateMatchups = () => {
             let targetRow = document.getElementById(`result${i}`)
             let pokeCard = document.createElement('div')
             pokeCard.classList.add('pokeCard', 'text-center')
+            //putting info in the dataset
             pokeCard.dataset.pokemonId = matchups[i].pokedex_number
-            pokeCard.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
+            pokeCard.dataset.type1 = matchups[i].type1
+            pokeCard.dataset.type2 = matchups[i].type2
+            pokeCard.dataset.hp = matchups[i].hp
+            pokeCard.dataset.attack = matchups[i].attack
+            pokeCard.dataset.defense = matchups[i].defense
+            pokeCard.dataset.sp_attack = matchups[i].sp_attack
+            pokeCard.dataset.sp_defense = matchups[i].sp_defense
+            pokeCard.dataset.speed = matchups[i].speed
+            pokeCard.dataset.sprite = matchups[i].sprite
+            pokeCard.dataset.name = matchups[i].name
+            pokeCard.setAttribute('id', `matchupThree_${matchups[i].pokedex_number}`)
             if (matchups[i].type2 === '') {
               matchups[i].type2 = 'N/A'
             }
             pokeCard.innerHTML = `
-          <img src="${matchups[i].sprite}" alt="${matchups[i].name}" />
+          <img class = "select" src="${matchups[i].sprite}" alt="${matchups[i].name}" />
           <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
           Type1: ${matchups[i].type1}<br />
           Type2: ${matchups[i].type2}<br />
@@ -304,6 +375,65 @@ const generateMatchups = () => {
   .catch(error => console.error(error))
 }
 
+const addToTeam = pokemon => {
+  console.log(pokemon.dataset.pokemonId)
+  let divId = (pokemon.id).split('_')
+  let targetDiv
+  switch(divId[0]){
+    case 'matchupOne' :
+      targetDiv = document.getElementById('myTeam1')
+      targetDiv.dataset.pokemonId = pokemon.dataset.pokemonId
+      targetDiv.innerHTML = `
+        <img class = "select" src="${pokemon.dataset.sprite}" alt="${pokemon.dataset.name}" />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${pokemon.dataset.type1}<br />
+        Type2: ${pokemon.dataset.type2}<br />
+        HP: ${pokemon.dataset.hp}<br />
+        Atk: ${pokemon.dataset.attack}<br />
+        Def: ${pokemon.dataset.defense}<br />
+        SpA: ${pokemon.dataset.sp_attack}<br />
+        SpD: ${pokemon.dataset.sp_defense}<br />
+        Speed: ${pokemon.dataset.speed}<br />
+        '>${pokemon.dataset.name}</p>
+      `
+      break
+    case 'matchupTwo':
+      targetDiv = document.getElementById('myTeam2')
+      targetDiv.dataset.pokemonId = pokemon.dataset.pokemonId
+      targetDiv.innerHTML = `
+        <img class = "select" src="${pokemon.dataset.sprite}" alt="${pokemon.dataset.name}" />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${pokemon.dataset.type1}<br />
+        Type2: ${pokemon.dataset.type2}<br />
+        HP: ${pokemon.dataset.hp}<br />
+        Atk: ${pokemon.dataset.attack}<br />
+        Def: ${pokemon.dataset.defense}<br />
+        SpA: ${pokemon.dataset.sp_attack}<br />
+        SpD: ${pokemon.dataset.sp_defense}<br />
+        Speed: ${pokemon.dataset.speed}<br />
+        '>${pokemon.dataset.name}</p>
+      `
+      break
+    case 'matchupThree':
+      targetDiv = document.getElementById('myTeam3')
+      targetDiv.dataset.pokemonId = pokemon.dataset.pokemonId
+      targetDiv.innerHTML = `
+        <img class = "select" src="${pokemon.dataset.sprite}" alt="${pokemon.dataset.name}" />
+        <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
+        Type1: ${pokemon.dataset.type1}<br />
+        Type2: ${pokemon.dataset.type2}<br />
+        HP: ${pokemon.dataset.hp}<br />
+        Atk: ${pokemon.dataset.attack}<br />
+        Def: ${pokemon.dataset.defense}<br />
+        SpA: ${pokemon.dataset.sp_attack}<br />
+        SpD: ${pokemon.dataset.sp_defense}<br />
+        Speed: ${pokemon.dataset.speed}<br />
+        '>${pokemon.dataset.name}</p>
+      `
+      break
+  }
+  popover()
+}
 
 document.addEventListener('click', event => {
   let target = event.target
@@ -341,6 +471,7 @@ document.addEventListener('click', event => {
       else{
         createAccount(document.getElementById('username').value)
       }
+<<<<<<< HEAD
     } else if(target.id==='generate'){
       let team = { one: document.getElementById('enemy1').innerText, two: document.getElementById('enemy2').innerText, three: document.getElementById('enemy3').innerText }
       let result = {}
@@ -451,6 +582,41 @@ document.addEventListener('click', event => {
         })
 // end row with </div>
     }
+=======
+    }
+    else if (target.id === 'save'){
+      axios.post(`/api/teams`, {
+        userId: userId,
+        pokemon1Id: document.getElementById('myTeam1').dataset.pokemonId,
+        pokemon2Id: document.getElementById('myTeam2').dataset.pokemonId,
+        pokemon3Id: document.getElementById('myTeam3').dataset.pokemonId,
+        enemy1Id: document.getElementById('enemy1').dataset.pokemonId,
+        enemy2Id: document.getElementById('enemy2').dataset.pokemonId,
+        enemy3Id: document.getElementById('enemy3').dataset.pokemonId
+      })
+        .then(() => {
+          console.log('Team successfully saved!')
+          document.getElementById('enemyDisplay').innerHTML = ''
+          document.getElementById('myTeam1').innerHTML = ''
+          document.getElementById('myTeam2').innerHTML = ''
+          document.getElementById('myTeam3').innerHTML = ''
+          document.getElementById('result0').innerHTML = ''
+          document.getElementById('result1').innerHTML = ''
+          document.getElementById('result2').innerHTML = ''
+          document.getElementById('result3').innerHTML = ''
+          document.getElementById('result4').innerHTML = ''
+          enemyId = 1
+          axios.get(`/api/users/${currentUsername}`)
+          .then(({ data: user }) => renderUserSavedTeams(user))
+          .catch(error => console.error(error))
+        })
+        .catch(e => console.error(e))
+    } 
+>>>>>>> ed4b238fc0a293215ecd676d6165d8d816596fb0
+  }
+  // listerner when user clicks on img of pokemon they want to add to their team
+  else if(target.nodeName ==='IMG' && target.classList.contains('select')){
+    addToTeam(target.parentElement)
   }
 })
 
