@@ -10,6 +10,14 @@ app.set('views', join(__dirname, 'views'))
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
+app.get('/', (req, res) => {
+  res.render('home')
+})
+
+// //bring in routes after we create
 app.use(require('./routes'))
 
 app.get('/', (req, res) => {

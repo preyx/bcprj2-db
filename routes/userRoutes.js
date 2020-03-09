@@ -6,63 +6,61 @@ router.get('/users', (req, res) =>{
   User.findAll({include: [{
       model: Team,
     include: [
-      { model: Pokemon, as: 'pokemon1', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
-      { model: Pokemon, as: 'pokemon2', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
-      { model: Pokemon, as: 'pokemon3', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
-      { model: Pokemon, as: 'enemy1', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
-      { model: Pokemon, as: 'enemy2', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] },
-      { model: Pokemon, as: 'enemy3', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] }]
+      { model: Pokemon, as: 'pokemon1', attributes: ['name', 'id'] },
+      { model: Pokemon, as: 'pokemon2', attributes: ['name', 'id'] },
+      { model: Pokemon, as: 'pokemon3', attributes: ['name', 'id'] },
+      { model: Pokemon, as: 'enemy1', attributes: ['name', 'id'] },
+      { model: Pokemon, as: 'enemy2', attributes: ['name', 'id'] },
+      { model: Pokemon, as: 'enemy3', attributes: ['name', 'id'] }]
     }]
   })
   .then(users => res.json(users))
-  .catch(e => console.error(e))
+  .catch(e => res.sendStatus(400))
 }) 
 
 // GET one user
-router.get('/users/:id', (req, res) => User.findOne({
+router.get('/users/:username', (req, res) => User.findOne({
   where: {
-    id: req.params.id
+    username: req.params.username
   },
   include: [{
     model: Team,
     include: [
-    { model: Pokemon, as: 'pokemon1', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] }, 
-    { model: Pokemon, as: 'pokemon2', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] }, 
-    { model: Pokemon, as: 'pokemon3', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] }, 
-    { model: Pokemon, as: 'enemy1', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] }, 
-    { model: Pokemon, as: 'enemy2', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] }, 
-    { model: Pokemon, as: 'enemy3', attributes: ['name', 'hp', 'attack', 'sp_attack', 'defense', 'sp_defense', 'speed', 'base_total'] }
+    { model: Pokemon, as: 'pokemon1', attributes: ['name', 'id'] }, 
+    { model: Pokemon, as: 'pokemon2', attributes: ['name', 'id'] }, 
+    { model: Pokemon, as: 'pokemon3', attributes: ['name', 'id'] }, 
+    { model: Pokemon, as: 'enemy1', attributes: ['name', 'id'] }, 
+    { model: Pokemon, as: 'enemy2', attributes: ['name', 'id'] }, 
+    { model: Pokemon, as: 'enemy3', attributes: ['name', 'id'] }
   ]
   }]
 })
   .then(user => res.json(user))
-  .catch(e => console.error(e)))
+  .catch(e => res.sendStatus(400)))
 
 // POST a user
 router.post('/users', (req, res) => User.create(req.body)
-  .then(() => res.sendStatus(200))
-  .catch(e => console.error(e))
+  //send back user data
+  .then( user => res.json(user))
+  .catch(e => res.sendStatus(400))
 )
-
 // PUT a user
-router.put('/users/:id', (req, res) => User.update({
+router.put('/users/:username', (req, res) => User.update(req.body, {
   where: {
-    id: req.params.id
+    username: req.params.username
   },
   include: [Team]
 })
   .then(user => res.sendStatus(200))
-  .catch(e => console.error(e))
-)
+  .catch(e => res.sendStatus(400)))
 
 // DELETE a user
-router.delete('/users/:id', (req, res) => User.destroy({
+router.delete('/users/:username', (req, res) => User.destroy({
   where: {
-    id: req.params.id
+    username: req.params.username
   }
 })
   .then(user => res.sendStatus(200))
-  .catch(e => console.error(e))
-)
+  .catch(e => res.sendStatus(400)))
 
 module.exports = router

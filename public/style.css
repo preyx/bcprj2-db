@@ -1,25 +1,88 @@
-.flexContainer{
-  display: flex;
+.pokeCard {
+  flex: 1;
+}
 
+.pokeCard p {
+  font-weight: bold;
 }
-/* #row{
-    border: solid 1em red;
-}
-#col{
-  border: solid 1em green;
-} */
-.card{
-  flex-grow: 1;
-}
-/* .responsive{
-   width: 100%;
-   height: auto;
-} */
 
-.Generate{
-  height: 10rem;
-  width: 10rem;
+.pokeCard img {
+  height: auto;
+  max-width: 80px;
 }
-.warningbtn{
+
+.d-flex {
+  align-items: flex-end;
+}
+
+.errorMessage {
   color: red;
+}
+
+@media only screen and (max-width: 375px) {
+  /* moves logo image to middle of screen when in mobile view */
+  .imageStyle {
+    justify-content: center;
+    align-content: center;
+   
+  }
+  .userButtons {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+#logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.warningbtn {
+  color: red;
+}
+
+.buttonStyle {
+  margin-left: 5px;
+}
+
+.checkBoxStyle {
+  margin-left: 15px;
+}
+
+.labelStyle {
+  margin-left: 5px;
+}
+
+.titleStyle {
+  text-align: center;
+}
+
+.pokeSearch {
+  margin: 0 auto;
+}
+
+.pokeImages {
+  height: 80px;
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardTitleStyle {
+  text-align: center;
+}
+
+.cardStyle {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+/* font */
+.font{
+font-family: 'Press Start 2P', cursive;
+}
+h1{
+  text-align: center;
 }

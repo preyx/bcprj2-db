@@ -33,6 +33,7 @@ Pokemon.init({
     speed: INTEGER,
     type1: STRING,
     type2: STRING,
+    generation: INTEGER,
     is_legendary: BOOLEAN
 }, {sequelize: require('../config'), modelName: 'pokemon', timestamps: false})
 
