@@ -139,16 +139,6 @@ const renderUserSavedTeams = user => {
   }
 }
 
-//delete team from user's db
-document.getElementByClassName('delete').addEventListener('click', event => {
-  event.preventDefault()
-  console.log('ping')
-  // axios.delete(`/api/teams/${id}`)
-  // .then( ({ data }) => {
-  //   document.getElementById('teamRow').innerHTML = ''
-  // })
-})
-
 //function to sign in user
 const signIn = username => {
   //clear out all error messages when user signs in
