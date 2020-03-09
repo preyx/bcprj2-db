@@ -41,8 +41,8 @@ const Home = props => {
           </div>
           <div className='col col-12 col-md-6' id='col'>
             <h1 className='titleStyle font'>My Team</h1>
+            <hr></hr>
             <p id='myTeamText' className='titleStyle'>Please login to create a team.</p>
-            <hr />
             <div className='d-flex' id='userDisplay'>
               <div className='pokeCard text-center' id='myTeam1' />
               <div className='pokeCard text-center' id='myTeam2' />
@@ -57,6 +57,7 @@ const Home = props => {
         <div className='row' id='row'>
           <div className='col col-sm-6' id='col'>
             <h2 className='titleStyle font'>Matchups</h2>
+            <hr></hr>
             <p id='matchupsText' className='titleStyle'>Select 3 enemy Pokemon to generate matchups.</p>
             <div className='d-flex' id='matchupName' />
             <div className='d-flex' id='result0' />
@@ -65,10 +66,10 @@ const Home = props => {
             <div className='d-flex' id='result3' />
             <div className='d-flex' id='result4' />
           </div>
-
           {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
           <div className='col col-12 col-md-6' id='col'>
             <h2 className='titleStyle font'>My Teams</h2>
+            <hr></hr>
             <div id='teamArray'>
               <p className='titleStyle'>Please sign in to view saved teams.</p>
             </div>
