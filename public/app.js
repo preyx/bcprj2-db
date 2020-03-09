@@ -179,6 +179,12 @@ const generateMatchups = () => {
   axios.get(prefix + team.one)
   .then( ({data: matchups}) => {
     for(let i = 0; i<5; i++ ){
+      if(i === 0){
+        let matchupName = document.createElement('div')
+        matchupName.classList.add('pokeCard', 'text-center')
+        matchupName.innerHTML = `${team.one} Matchups <hr>` 
+        document.getElementById('matchupName').append(matchupName)
+      }
       if(i<matchups.length){
         let targetRow = document.getElementById(`result${i}`)
         let pokeCard = document.createElement('div')
@@ -237,6 +243,12 @@ const generateMatchups = () => {
     axios.get(prefix + team.two)
     .then(({data: matchups}) => {
       for (let i = 0; i < 5; i++) {
+        if (i === 0) {
+          let matchupName = document.createElement('div')
+          matchupName.classList.add('pokeCard', 'text-center')
+          matchupName.innerHTML = `${team.two} Matchups <hr>`
+          document.getElementById('matchupName').append(matchupName)
+        }
         if (i < matchups.length) {
           let targetRow = document.getElementById(`result${i}`)
           let pokeCard = document.createElement('div')
@@ -295,6 +307,12 @@ const generateMatchups = () => {
       axios.get(prefix + team.three)
       .then(({data: matchups}) => {
         for (let i = 0; i < 5; i++) {
+          if (i === 0) {
+            let matchupName = document.createElement('div')
+            matchupName.classList.add('pokeCard', 'text-center')
+            matchupName.innerHTML = `${team.three} Matchups <hr>`
+            document.getElementById('matchupName').append(matchupName)
+          }
           if (i < matchups.length) {
             let targetRow = document.getElementById(`result${i}`)
             let pokeCard = document.createElement('div')
@@ -468,6 +486,8 @@ document.addEventListener('click', event => {
           document.getElementById('result2').innerHTML = ''
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
+          document.getElementById('matchupName').innerHTML=''
+          //display alt text when signed out
           document.getElementById('teamArray').innerHTML = '<p class = "titleStyle">Please Sign in To View Saved Teams</p> '
           document.getElementById('matchupsText').textContent = 'Select 3 enemy Pokemon to generate matchups.'
           document.getElementById('myTeamText').textContent = 'Please login to create a team.'
@@ -497,6 +517,7 @@ document.addEventListener('click', event => {
       })
         .then(() => {
           console.log('Team successfully saved!')
+          //empty out displays
           document.getElementById('enemyDisplay').innerHTML = ''
           document.getElementById('myTeam1').innerHTML = ''
           document.getElementById('myTeam2').innerHTML = ''
@@ -506,6 +527,8 @@ document.addEventListener('click', event => {
           document.getElementById('result2').innerHTML = ''
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
+          document.getElementById('matchupName').innerHTML = ''
+          //display alternative text when a team is saved
           document.getElementById('matchupsText').textContent = 'Select 3 enemy Pokemon to generate matchups.'
           document.getElementById('myTeamText').textContent = 'Select a Pokemon from each column in Matchups to add to your team.'
           //reset counters

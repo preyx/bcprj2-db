@@ -72,6 +72,10 @@
   color: red;
 }
 
+.resultStyle{
+  text-align:center;
+  display: block;
+}
 /* .pokeSearch {
   margin: 0 auto;
 }

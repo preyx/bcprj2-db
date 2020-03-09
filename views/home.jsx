@@ -63,6 +63,7 @@ const Home = props =>{
       <div className="col col-sm-6" id="col">
         <h2 className = "titleStyle">Matchups</h2>
         <p id="matchupsText" className = "titleStyle">Select 3 enemy Pokemon to generate matchups.</p>
+        <div className = "d-flex" id = "matchupName"></div>
         <div className="d-flex" id = "result0">
         </div>
         <div className="d-flex" id = "result1">
