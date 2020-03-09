@@ -7,7 +7,7 @@ const Home = props =>{
   {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid start~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
   <div className="container">
     <div className="row">
-      <h4 id="welcome"></h4>
+      <h4 id="welcome" className = "welcomeStyle"></h4>
       <p className = "errorMessage" id = "error"></p>
     </div>
     <div className="row">
@@ -30,7 +30,7 @@ const Home = props =>{
     <div className="row" id="row">
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
       <div className="col col-12 col-md-6" id="col">
-        <h1 className = "titleStyle">Enemy Team</h1>
+        <h1 className = "titleStyle font">Enemy Team</h1>
         <hr></hr>
         <div className="d-flex" id = "enemyDisplay">
 
@@ -42,7 +42,8 @@ const Home = props =>{
     </div>
         </div>
         <div className="col col-12 col-md-6" id="col">
-          <h1 className = "titleStyle">My Team</h1>
+          <h1 className = "titleStyle font">My Team</h1>
+            <p id="myTeamText" className="titleStyle">Please login to create a team.</p>
           <hr></hr>
           <div className="d-flex" id = "userDisplay">
             <div className="pokeCard text-center" id = "myTeam1">
@@ -59,8 +60,10 @@ const Home = props =>{
         </div>
     </div>
     <div className="row" id="row">
-          <div className="col col-12 col-md-6" id="col">
-        <h2>Results</h2>
+      <div className="col col-sm-6" id="col">
+        <h2 className = "titleStyle font">Matchups</h2>
+        <p id="matchupsText" className = "titleStyle">Select 3 enemy Pokemon to generate matchups.</p>
+        <div className = "d-flex" id = "matchupName"></div>
         <div className="d-flex" id = "result0">
         </div>
         <div className="d-flex" id = "result1">
@@ -79,101 +82,10 @@ const Home = props =>{
 
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
           <div className="col col-12 col-md-6" id="col">
-<<<<<<< HEAD
-        <h1>I'M 11 WATS THIS</h1>
-        <div id="teamArray">
-          {/* <div className="d-flex">
-=======
-            <h1>I'M 11 WATS THIS</h1>
+            <h2 className = "titleStyle font" >My Teams</h2>
             <div id="teamArray">
-              {/* <div className="d-flex">
->>>>>>> ed4b238fc0a293215ecd676d6165d8d816596fb0
-                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
-                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
-                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
-                <div className="team text-center">VS</div>
-                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
-                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
-                <div className="team"><img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." /></div>
-          </div> */}
-<<<<<<< HEAD
-        </div>
-        {/* <h1>Enemy Team</h1>
-=======
+              <p className= "titleStyle">Please sign in to view saved teams.</p>
             </div>
-            {/* <h1>Enemy Team</h1>
->>>>>>> ed4b238fc0a293215ecd676d6165d8d816596fb0
-        <div className="d-flex">
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-        </div>
-        <h1> Your Team</h1>
-        <div className="d-flex">
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-
-          <div className="pokeCard text-center">
-            <img src="http://img.pokemondb.net/sprites/black-white/anim/normal/snorlax.gif" className="" alt="..." />
-            <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
-                        Type1: grass<br />
-                        Type2: poison<br />
-                        HP: 45<br />
-                        Atk: 65<br />
-                        Def: 49
-                        '>asdfasdf</p>
-          </div>
-        </div> */}
-            <button className="btn btn-warning btn-outline-danger warningbtn" type="button">Remove Team</button>
           </div>
     </div>
   </div>
