@@ -54,7 +54,7 @@ const Home = props =>{
             {/* Display User Selected Pokemon Here */}
           </div>
           <div className="userButtons">
-            <button id="save" className="btn btn-warning btn-outline-danger warningbtn" type="button">Save Team</button>
+            <button id="save" className="btn btn-warning btn-outline-danger warningbtn disabled" type="button">Save Team</button>
           </div>
         </div>
     </div>

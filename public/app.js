@@ -3,6 +3,7 @@ let userId = null
 let currentUsername = ''
 let counter = 0
 let enemyId = 1
+let teamCounter = 0
 let enemyDisplay = document.getElementById('enemyDisplay')
 
 //function to create an account
@@ -142,39 +143,6 @@ const signIn = username => {
       document.getElementById('username').value = ''
       console.log(`UserId: ${userId}`)
       renderUserSavedTeams(user)
-      // const target = document.getElementById('teamArray')
-      // document.getElementById('teamArray').innerHTML = ''
-      // for (let i = 0; i < user.teams.length; i++) {
-      //   // console.log(user.teams[i]['pokemon1'].name)
-      //   let teamRow = document.createElement('div')
-      //   teamRow.classList.add('d-flex', 'p-2')
-      //   for (let j = 0; j < 3; j++) {
-      //     let member = `enemy${j + 1}`
-      //     // axios.get(`/api/pokemons/${member.toLowerCase()}`)
-      //     // .then(({ data: pokeInfo}) => {
-      //     // pokemon.dataset.pokemonId = matchups[i].pokedex_number
-      //     // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
-      //     teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
-      //     // })
-      //     //   .catch(error => {
-      //     //     console.error(error)
-      //     //   })
-      //   }
-      //   teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
-      //   for (let j = 0; j < 3; j++) {
-      //     let member = `pokemon${j + 1}`
-      //     // axios.get(`/api/pokemons/${member.toLowerCase()}`)
-      //     // .then(({ data: pokeInfo}) => {
-      //     // pokemon.dataset.pokemonId = matchups[i].pokedex_number
-      //     // pokemon.setAttribute('id', `matchupOne_${matchups[i].pokedex_number}`)
-      //     teamRow.innerHTML += `<div class="team text-center"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
-      //     // })
-      //     //   .catch(error => {
-      //     //     console.error(error)
-      //     //   })
-      //   }
-      //   target.append(teamRow)
-      // }
     })
     .catch(error => {
       console.error(error);
@@ -452,7 +420,12 @@ document.addEventListener('click', event => {
       if(userId === null){
         document.getElementById('error').textContent = 'Error. Not signed in.'
       }else{
+        //reset variables
         userId = null
+        currentUsername = ''
+        counter = 0
+        enemyId = 1
+        teamCounter = 0
         //empty out welcome message
         console.log(`userId: ${userId}`)
         document.getElementById('welcome').innerHTML = ''
