@@ -33,7 +33,7 @@ router.get('/teams/:id', (req, res) => Team.findOne({
 })
   .then(user => res.json(user))
   .catch(e => res.sendStatus(400)))
-  
+
 // POST an item
 router.post('/teams', (req, res) => {
   Team.create(req.body)
@@ -51,7 +51,7 @@ router.put('/teams/:id', (req, res) => {
 // DELETE an item
 router.delete('/teams/:id', (req, res) => {
   Team.destroy({ where: { id: parseInt(req.params.id) } })
-    .then(() => console.log('Deleted!'))
+    .then(() => res.sendStatus(200))
     .catch(e => res.sendStatus(400))
 })
 

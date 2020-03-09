@@ -67,6 +67,11 @@
   text-align: center;
 }
 
+.delete {
+  display: block;
+  color: red;
+}
+
 /* .pokeSearch {
   margin: 0 auto;
 }

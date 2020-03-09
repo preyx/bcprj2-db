@@ -122,9 +122,23 @@ const renderUserSavedTeams = user => {
       //     console.error(error)
       //   })
     }
+    // let removeButton = document.createElement('button')
+    // removeButton.textContent = `Remove Team`
+    // removeButton.classList.add('btn', 'btn-warning', 'btn-outline-danger', 'warningbtn', 'delete')
+    teamRow.innerHTML += `<button class="btn delete">X</button>`
     target.append(teamRow)
   }
 }
+
+//delete team from user's db
+document.getElementByClassName('delete').addEventListener('click', event => {
+  event.preventDefault()
+  console.log('ping')
+  // axios.delete(`/api/teams/${id}`)
+  // .then( ({ data }) => {
+  //   document.getElementById('teamRow').innerHTML = ''
+  // })
+})
 
 //function to sign in user
 const signIn = username => {
