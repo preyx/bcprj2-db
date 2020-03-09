@@ -7,7 +7,7 @@ const Home = props =>{
   {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid start~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
   <div className="container">
     <div className="row">
-      <h4 id="welcome"></h4>
+      <h4 id="welcome" className = "welcomeStyle"></h4>
       <p className = "errorMessage" id = "error"></p>
     </div>
     <div className="row">
@@ -30,7 +30,7 @@ const Home = props =>{
     <div className="row" id="row">
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
       <div className="col col-12 col-md-6" id="col">
-        <h1 className = "titleStyle">Enemy Team</h1>
+        <h1 className = "titleStyle font">Enemy Team</h1>
         <hr></hr>
         <div className="d-flex" id = "enemyDisplay">
 
@@ -42,7 +42,7 @@ const Home = props =>{
     </div>
         </div>
         <div className="col col-12 col-md-6" id="col">
-          <h1 className = "titleStyle">My Team</h1>
+          <h1 className = "titleStyle font">My Team</h1>
             <p id="myTeamText" className="titleStyle">Please login to create a team.</p>
           <hr></hr>
           <div className="d-flex" id = "userDisplay">
@@ -61,7 +61,7 @@ const Home = props =>{
     </div>
     <div className="row" id="row">
       <div className="col col-sm-6" id="col">
-        <h2 className = "titleStyle">Matchups</h2>
+        <h2 className = "titleStyle font">Matchups</h2>
         <p id="matchupsText" className = "titleStyle">Select 3 enemy Pokemon to generate matchups.</p>
         <div className = "d-flex" id = "matchupName"></div>
         <div className="d-flex" id = "result0">
@@ -82,7 +82,7 @@ const Home = props =>{
 
       {/* <!-- ~~~~~~~~~~~~~~~~~~~~~~~ col2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> */}
           <div className="col col-12 col-md-6" id="col">
-            <h2 className = "titleStyle" >My Teams</h2>
+            <h2 className = "titleStyle font" >My Teams</h2>
             <div id="teamArray">
               <p className= "titleStyle">Please sign in to view saved teams.</p>
             </div>

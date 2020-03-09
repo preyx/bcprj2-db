@@ -118,7 +118,12 @@ h1 {
   right: 90%;
 }
 
-#logo{
+#logo {
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
+}
+
+.welcomeStyle {
+  margin-top: 10px;
+  margin-left: 13px;
 }
