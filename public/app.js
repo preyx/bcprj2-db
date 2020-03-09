@@ -173,6 +173,7 @@ const generateMatchups = () => {
   document.getElementById('result2').innerHTML =''
   document.getElementById('result3').innerHTML =''
   document.getElementById('result4').innerHTML =''
+  document.getElementById('matchupName').innerHTML = ''
   let team = { one: document.getElementById('enemy1').innerText, two: document.getElementById('enemy2').innerText, three: document.getElementById('enemy3').innerText }
   let result = {}
   let prefix = document.getElementById('legendary').checked ? ('/api/pokemons/matchups/nl/') : '/api/pokemons/matchups/'
