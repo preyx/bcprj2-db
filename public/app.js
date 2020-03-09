@@ -133,7 +133,7 @@ const renderUserSavedTeams = user => {
         //     console.error(error)
         //   })
       }
-      teamRow.innerHTML += `<button class="btn delete">X</button>`
+      teamRow.innerHTML += `<button class="delete">X</button>`
       target.append(teamRow)
     }
   }
