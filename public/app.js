@@ -456,8 +456,17 @@ document.addEventListener('click', event => {
         //empty out welcome message
         console.log(`userId: ${userId}`)
         document.getElementById('welcome').innerHTML = ''
-        //empty out display
-        enemyDisplay.innerHTML = ''
+        //empty out displays
+          document.getElementById('enemyDisplay').innerHTML = ''
+          document.getElementById('myTeam1').innerHTML = ''
+          document.getElementById('myTeam2').innerHTML = ''
+          document.getElementById('myTeam3').innerHTML = ''
+          document.getElementById('result0').innerHTML = ''
+          document.getElementById('result1').innerHTML = ''
+          document.getElementById('result2').innerHTML = ''
+          document.getElementById('result3').innerHTML = ''
+          document.getElementById('result4').innerHTML = ''
+          document.getElementById('teamArray').innerHTML = ''
       }
     }
     else if (target.id === 'generate') {
