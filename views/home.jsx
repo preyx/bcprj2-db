@@ -81,6 +81,7 @@ const Home = props =>{
           <div className="col col-12 col-md-6" id="col">
             <h2 className = "titleStyle" >My Teams</h2>
             <div id="teamArray">
+              <p className= "titleStyle">Please Sign in To View Saved Teams</p>
             </div>
           </div>
     </div>
