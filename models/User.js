@@ -8,6 +8,6 @@ User.init({
     allowNull: false,
     unique: true
   }
-}, {sequelize: require('../config'), modelName: 'user', timestamps: false})
+}, { sequelize: require('../config'), modelName: 'user', timestamps: false })
 
 module.exports = User

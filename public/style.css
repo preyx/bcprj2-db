@@ -7,7 +7,7 @@
 }
 
 .pokeCard img {
-  height: auto;
+  max-height: 80px;
   max-width: 80px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .team img {
-  height:auto;
+  max-height: 40px;
   max-width: 40px;
 }
 
@@ -68,27 +68,62 @@
 }
 
 .delete {
-  display: block;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  background-color: transparent;
   color: red;
 }
 
-/* .pokeSearch {
-  margin: 0 auto;
+.resultStyle {
+  text-align: center;
+  display: block;
 }
 
-.pokeImages {
-  height: 80px;
-  width: 80px;
-  display: block;
+/* fonts */
+
+.font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+h1 {
+  text-align: center;
+}
+
+.centerLogo {
+  position: initial;
+  z-index: 1000;
+  margin-left: auto;
+  margin-right: auto;
+  left: 50%;
+  right: 50%;
+  padding-left: 45px;
+}
+
+.centerBurgerMenu {
+  position: sticky;
+  z-index: 1;
+  right: 90%;
+}
+
+#logo {
   margin-left: auto;
   margin-right: auto;
 }
 
-.cardTitleStyle {
-  text-align: center;
-}
-
-.cardStyle {
+.welcomeStyle {
   margin-top: 10px;
-  padding-top: 10px;
-} */
+  margin-left: 13px;
+}
