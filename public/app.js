@@ -45,7 +45,7 @@ const getPokemon = pokeName => {
       }
       document.getElementById(`enemy${counter}`).dataset.pokemonId = pokeInfo.pokedex_number
       document.getElementById(`enemy${counter}`).innerHTML =`
-      <img src="${pokeInfo.sprite}" className="renderImages" alt="${pokeInfo.name}" />
+      <img src="${pokeInfo.sprite}" alt="${pokeInfo.name}" />
       <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
       Type1: ${pokeInfo.type1}<br />
       Type2: ${pokeInfo.type2}<br />
@@ -69,7 +69,7 @@ const getPokemon = pokeName => {
         pokeInfo.type2 = 'N/A'
       }
       pokeCard.innerHTML = `
-        <img src="${pokeInfo.sprite}" className="${pokeInfo.name}" alt="..." />
+        <img src="${pokeInfo.sprite}" alt="${pokeInfo.name}" />
         <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
         Type1: ${pokeInfo.type1}<br />
         Type2: ${pokeInfo.type2}<br />
@@ -494,8 +494,12 @@ document.addEventListener('click', event => {
           document.getElementById('result2').innerHTML = ''
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
+          //reset counters
           enemyId = 1
           teamCounter = 0
+          pokemon1Select = 0
+          pokemon2Select = 0
+          pokemon3Select = 0
           axios.get(`/api/users/${currentUsername}`)
           .then(({ data: user }) => renderUserSavedTeams(user))
           .catch(error => console.error(error))
