@@ -493,6 +493,7 @@ document.addEventListener('click', event => {
           document.getElementById('result2').innerHTML = ''
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
+          enemyId = 1
           axios.get(`/api/users/${currentUsername}`)
           .then(({ data: user }) => renderUserSavedTeams(user))
           .catch(error => console.error(error))
