@@ -100,6 +100,8 @@ const renderUserSavedTeams = user => {
   for (let i = 0; i < user.teams.length; i++) {
     // console.log(user.teams[i]['pokemon1'].name)
     let teamRow = document.createElement('div')
+    teamRow.dataset.id= user.teams[i].id
+    // teamRow.dataset.teamId = user.teams.id
     teamRow.classList.add('d-flex', 'p-2')
     for (let j = 0; j < 3; j++) {
       let member = `enemy${j + 1}`
