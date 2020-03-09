@@ -3,7 +3,10 @@ let userId = null
 let currentUsername = ''
 let counter = 0
 let enemyId = 1
-let teamCounter = 0
+//global variables to check if user has selected a pokemon for their team (one for each row)
+let pokemon1Select = 0
+let pokemon2Select = 0
+let pokemon3Select = 0
 let enemyDisplay = document.getElementById('enemyDisplay')
 
 //function to create an account
@@ -349,6 +352,10 @@ const addToTeam = pokemon => {
   let targetDiv
   switch(divId[0]){
     case 'matchupOne' :
+      //subtract 1 in the beginning in the event user is picking another pokemon in the same column. Only if value is greater than 0
+      if(pokemon1Select > 0){
+        pokemon1Select -=1
+      }
       targetDiv = document.getElementById('myTeam1')
       targetDiv.dataset.pokemonId = pokemon.dataset.pokemonId
       targetDiv.innerHTML = `
@@ -364,8 +371,12 @@ const addToTeam = pokemon => {
         Speed: ${pokemon.dataset.speed}<br />
         '>${pokemon.dataset.name}</p>
       `
+      pokemon1Select +=1
       break
     case 'matchupTwo':
+      if (pokemon2Select > 0) {
+        pokemon2Select -= 1
+      }
       targetDiv = document.getElementById('myTeam2')
       targetDiv.dataset.pokemonId = pokemon.dataset.pokemonId
       targetDiv.innerHTML = `
@@ -381,8 +392,12 @@ const addToTeam = pokemon => {
         Speed: ${pokemon.dataset.speed}<br />
         '>${pokemon.dataset.name}</p>
       `
+      pokemon2Select +=1
       break
     case 'matchupThree':
+      if (pokemon3Select > 0) {
+        pokemon3Select -= 1
+      }
       targetDiv = document.getElementById('myTeam3')
       targetDiv.dataset.pokemonId = pokemon.dataset.pokemonId
       targetDiv.innerHTML = `
@@ -398,6 +413,7 @@ const addToTeam = pokemon => {
         Speed: ${pokemon.dataset.speed}<br />
         '>${pokemon.dataset.name}</p>
       `
+      pokemon3Select +=1
       break
   }
   popover()
@@ -476,6 +492,7 @@ document.addEventListener('click', event => {
           document.getElementById('result3').innerHTML = ''
           document.getElementById('result4').innerHTML = ''
           enemyId = 1
+          teamCounter = 0
           axios.get(`/api/users/${currentUsername}`)
           .then(({ data: user }) => renderUserSavedTeams(user))
           .catch(error => console.error(error))
@@ -530,6 +547,16 @@ setInterval(() => {
     if(!document.getElementById('generate').classList.contains('disabled')){
       //only add disabled class if class does not exist
       document.getElementById('generate').classList.add('disabled')
+    }
+  }
+  //a user has 3 selected pokemon on their team
+  if((pokemon1Select + pokemon2Select + pokemon3Select)>=3){
+    document.getElementById('save').classList.remove('disabled')
+  } else {
+    //checks if it doesnt have the class
+    if (!document.getElementById('save').classList.contains('disabled')) {
+      //only add disabled class if class does not exist
+      document.getElementById('save').classList.add('disabled')
     }
   }
 }, 1000);
