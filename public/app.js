@@ -39,7 +39,7 @@ Speed: ?̸̘̓?̷̤͠?̸̛̀
 '>MissingNo.</p>`
 }
 
-const generateMatchCard = (pokeObj) => {
+const generateMatchCard = pokeObj => {
   return `<img class="select" src="${pokeObj.sprite}" alt="${pokeObj.name}" />
 <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
 Type1: ${pokeObj.type1}<br />
