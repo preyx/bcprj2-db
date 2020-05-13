@@ -12,7 +12,7 @@ const enemyDisplay = document.getElementById('enemyDisplay')
 
 // generate pokemon info card
 const generateCard = pokeObj => {
-  return `<img src="${pokeObj.sprite}" alt="${pokeObj.name}" />
+  return `<img src="./assets/gifs/${pokeObj.name.toLowerCase()}.gif" alt="${pokeObj.name}" />
 <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
 Type1: ${pokeObj.type1}<br />
 Type2: ${pokeObj.type2}<br />
@@ -40,7 +40,7 @@ Speed: ?̸̘̓?̷̤͠?̸̛̀
 }
 
 const generateMatchCard = pokeObj => {
-  return `<img class="select" src="${pokeObj.sprite}" alt="${pokeObj.name}" />
+  return `<img class="select" src="./assets/gifs/${pokeObj.name.toLowerCase()}.gif" alt="${pokeObj.name}" />
 <p data-html="true" data-toggle="popover" data-trigger="focus" data-content='
 Type1: ${pokeObj.type1}<br />
 Type2: ${pokeObj.type2}<br />
@@ -124,12 +124,12 @@ const renderUserSavedTeams = user => {
       teamRow.classList.add('d-flex', 'p-2')
       for (let j = 0; j < 3; j++) {
         const member = `enemy${j + 1}`
-        teamRow.innerHTML += `<div class="team text-center" data-toggle="popover" data-trigger="focus" data-content="${user.teams[i][member].name}"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+        teamRow.innerHTML += `<div class="team text-center" data-toggle="popover" data-trigger="focus" data-content="${user.teams[i][member].name}"><img src="./assets/gifs/${user.teams[i][member].name.toLowerCase()}.gif" alt="${user.teams[i][member].name}" /></div>`
       }
       teamRow.innerHTML += '<div class="team text-center"><p>VS</p></div>'
       for (let j = 0; j < 3; j++) {
         const member = `pokemon${j + 1}`
-        teamRow.innerHTML += `<div class="team text-center" data-toggle="popover" data-trigger="focus" data-content="${user.teams[i][member].name}"><img src="${user.teams[i][member].sprite}" alt="${user.teams[i][member].name}" /></div>`
+        teamRow.innerHTML += `<div class="team text-center" data-toggle="popover" data-trigger="focus" data-content="${user.teams[i][member].name}"><img src="./assets/gifs/${user.teams[i][member].name.toLowerCase()}.gif" alt="${user.teams[i][member].name}" /></div>`
       }
       teamRow.innerHTML += '<button class="delete">X</button>'
       target.append(teamRow)
